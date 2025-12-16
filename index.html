@@ -1,6 +1,3 @@
-I'll update the code with your Twitch schedule, add a contact button with email functionality, add sounds, and enhance animations. Here's the updated version:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -3769,4 +3766,1434 @@ I'll update the code with your Twitch schedule, add a contact button with email 
                 ],
                 saturday: [
                     { time: "7:30 PM - 12:00 AM EST", content: "SATURDAY NIGHT EXTRAVAGANZA", duration: "4.5 Hours" },
-                    { time: "7
+                    { time: "7:30 PM - 8:30 PM", content: "Weekend Kickoff & Updates" },
+                    { time: "8:30 PM - 10:30 PM", content: "Featured Gameplay Session" },
+                    { time: "10:30 PM - 12:00 AM", content: "Community Game Night" }
+                ],
+                weekdays: [
+                    { time: "Varies - Evening/Night", content: "SPONTANEOUS STREAMS" }
+                ],
+                specials: [
+                    { time: "Announced in Advance", content: "SPECIAL EVENT STREAMS" }
+                ]
+            },
+            audioContext: null,
+            soundBuffers: {},
+            currentMusic: null
+        };
+        
+        // ===========================================
+        // DOM ELEMENTS
+        // ===========================================
+        
+        const DOM = {
+            loadingScreen: document.getElementById('loading-screen'),
+            mainNav: document.getElementById('main-nav'),
+            mobileMenuToggle: document.getElementById('mobile-menu-toggle'),
+            navMenu: document.getElementById('nav-menu'),
+            navLinks: document.querySelectorAll('.nav-link'),
+            liveViewers: document.getElementById('live-viewers'),
+            viewerCounter: document.getElementById('viewer-counter'),
+            currentGame: document.getElementById('current-game'),
+            ctaFollow: document.getElementById('cta-follow'),
+            ctaJoin: document.getElementById('cta-join'),
+            ctaContact: document.getElementById('cta-contact'),
+            scheduleDays: document.querySelectorAll('.schedule-day'),
+            scheduleTimeline: document.getElementById('schedule-timeline'),
+            particlesContainer: document.getElementById('particles-js'),
+            notificationContainer: document.getElementById('notification-container'),
+            soundToggle: document.getElementById('sound-toggle'),
+            musicToggle: document.getElementById('music-toggle'),
+            themeToggler: document.getElementById('theme-toggler')
+        };
+        
+        // ===========================================
+        // UTILITY FUNCTIONS
+        // ===========================================
+        
+        const utils = {
+            random(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            },
+            
+            randomFloat(min, max) {
+                return Math.random() * (max - min) + min;
+            },
+            
+            formatNumber(num) {
+                return num.toLocaleString();
+            },
+            
+            debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            },
+            
+            throttle(func, limit) {
+                let inThrottle;
+                return function() {
+                    const args = arguments;
+                    const context = this;
+                    if (!inThrottle) {
+                        func.apply(context, args);
+                        inThrottle = true;
+                        setTimeout(() => inThrottle = false, limit);
+                    }
+                };
+            },
+            
+            createNotification(title, message, type = 'info', duration = 5000) {
+                const notification = document.createElement('div');
+                notification.className = `notification notification-${type}`;
+                notification.innerHTML = `
+                    <div class="notification-icon">
+                        <i class="fas fa-${this.getNotificationIcon(type)}"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-title">${title}</div>
+                        <div class="notification-message">${message}</div>
+                    </div>
+                    <button class="notification-close" aria-label="Close notification">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                
+                DOM.notificationContainer.appendChild(notification);
+                
+                // Play notification sound
+                if (CONFIG.soundEnabled) {
+                    this.playSound('notification');
+                }
+                
+                // Show notification
+                setTimeout(() => {
+                    notification.classList.add('show');
+                }, 10);
+                
+                // Close button event
+                notification.querySelector('.notification-close').addEventListener('click', () => {
+                    notification.classList.remove('show');
+                    setTimeout(() => {
+                        if (notification.parentNode) {
+                            notification.parentNode.removeChild(notification);
+                        }
+                    }, 300);
+                });
+                
+                // Auto remove after duration
+                setTimeout(() => {
+                    if (notification.classList.contains('show')) {
+                        notification.classList.remove('show');
+                        setTimeout(() => {
+                            if (notification.parentNode) {
+                                notification.parentNode.removeChild(notification);
+                            }
+                        }, 300);
+                    }
+                }, duration);
+                
+                return notification;
+            },
+            
+            getNotificationIcon(type) {
+                const icons = {
+                    'success': 'check-circle',
+                    'info': 'info-circle',
+                    'warning': 'exclamation-triangle',
+                    'error': 'exclamation-circle'
+                };
+                return icons[type] || 'info-circle';
+            },
+            
+            animateValue(element, start, end, duration) {
+                const startTime = performance.now();
+                const step = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Ease out function
+                    const easeProgress = 1 - Math.pow(1 - progress, 3);
+                    
+                    const current = Math.floor(start + (end - start) * easeProgress);
+                    element.textContent = utils.formatNumber(current);
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    }
+                };
+                
+                requestAnimationFrame(step);
+            },
+            
+            // Sound utilities
+            initAudio() {
+                try {
+                    CONFIG.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    this.loadSounds();
+                } catch (e) {
+                    console.warn('Web Audio API not supported:', e);
+                    CONFIG.soundEnabled = false;
+                    DOM.soundToggle.classList.add('muted');
+                    DOM.soundToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                }
+            },
+            
+            loadSounds() {
+                // This would normally load actual sound files
+                // For now, we'll generate simple tones
+                console.log('Audio initialized - sounds ready');
+            },
+            
+            playSound(type, frequency = 440, duration = 0.2) {
+                if (!CONFIG.soundEnabled || !CONFIG.audioContext) return;
+                
+                try {
+                    const audioContext = CONFIG.audioContext;
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                    
+                    // Set parameters based on sound type
+                    switch(type) {
+                        case 'click':
+                            frequency = 800;
+                            duration = 0.1;
+                            break;
+                        case 'hover':
+                            frequency = 600;
+                            duration = 0.15;
+                            break;
+                        case 'notification':
+                            frequency = 1000;
+                            duration = 0.3;
+                            break;
+                        case 'success':
+                            frequency = 1200;
+                            duration = 0.4;
+                            break;
+                        case 'error':
+                            frequency = 300;
+                            duration = 0.5;
+                            break;
+                    }
+                    
+                    oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+                    oscillator.type = 'sine';
+                    
+                    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
+                    
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.stop(audioContext.currentTime + duration);
+                    
+                } catch (e) {
+                    console.warn('Failed to play sound:', e);
+                }
+            },
+            
+            toggleSound() {
+                CONFIG.soundEnabled = !CONFIG.soundEnabled;
+                DOM.soundToggle.classList.toggle('muted', !CONFIG.soundEnabled);
+                DOM.soundToggle.innerHTML = CONFIG.soundEnabled ? 
+                    '<i class="fas fa-volume-up"></i>' : '<i class="fas fa-volume-mute"></i>';
+                
+                if (CONFIG.soundEnabled) {
+                    this.playSound('notification');
+                }
+                
+                this.createNotification(
+                    'Sound Effects',
+                    CONFIG.soundEnabled ? 'Sound effects enabled' : 'Sound effects disabled',
+                    'info',
+                    2000
+                );
+            },
+            
+            toggleMusic() {
+                CONFIG.musicEnabled = !CONFIG.musicEnabled;
+                DOM.musicToggle.classList.toggle('active', CONFIG.musicEnabled);
+                
+                if (CONFIG.musicEnabled) {
+                    this.createNotification(
+                        'Background Music',
+                        'Background music enabled',
+                        'info',
+                        2000
+                    );
+                    // In a real implementation, you would start playing music here
+                } else {
+                    this.createNotification(
+                        'Background Music',
+                        'Background music disabled',
+                        'info',
+                        2000
+                    );
+                    // Stop music if playing
+                }
+                
+                if (CONFIG.soundEnabled) {
+                    this.playSound('notification');
+                }
+            },
+            
+            // Animation utilities
+            createRipple(event) {
+                const button = event.currentTarget;
+                const circle = document.createElement('span');
+                const diameter = Math.max(button.clientWidth, button.clientHeight);
+                const radius = diameter / 2;
+                
+                circle.style.width = circle.style.height = `${diameter}px`;
+                circle.style.left = `${event.clientX - button.getBoundingClientRect().left - radius}px`;
+                circle.style.top = `${event.clientY - button.getBoundingClientRect().top - radius}px`;
+                circle.classList.add('ripple');
+                
+                const ripple = button.getElementsByClassName('ripple')[0];
+                if (ripple) {
+                    ripple.remove();
+                }
+                
+                button.appendChild(circle);
+            },
+            
+            createConfetti(count = 100, colors = ['#d4af37', '#8b0000', '#ff8c00', '#228b22', '#4169e1', '#00ffff']) {
+                for (let i = 0; i < count; i++) {
+                    const confetti = document.createElement('div');
+                    const size = utils.random(5, 15);
+                    const color = colors[utils.random(0, colors.length - 1)];
+                    
+                    confetti.style.cssText = `
+                        position: fixed;
+                        width: ${size}px;
+                        height: ${size}px;
+                        background: ${color};
+                        border-radius: ${utils.random(0, 1) ? '50%' : '2px'};
+                        top: -50px;
+                        left: ${utils.random(0, 100)}vw;
+                        z-index: 9999;
+                        pointer-events: none;
+                        opacity: ${utils.randomFloat(0.7, 1)};
+                    `;
+                    
+                    document.body.appendChild(confetti);
+                    
+                    const animation = confetti.animate([
+                        { 
+                            transform: `translateY(0) rotate(0deg)`, 
+                            opacity: 1 
+                        },
+                        { 
+                            transform: `translateY(${window.innerHeight + 100}px) rotate(${utils.random(360, 720)}deg)`, 
+                            opacity: 0 
+                        }
+                    ], {
+                        duration: utils.random(1000, 3000),
+                        easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
+                    });
+                    
+                    animation.onfinish = () => {
+                        if (confetti.parentNode) {
+                            confetti.parentNode.removeChild(confetti);
+                        }
+                    };
+                }
+            },
+            
+            createParticleEffect(x, y, color = '#d4af37', count = 20) {
+                for (let i = 0; i < count; i++) {
+                    const particle = document.createElement('div');
+                    const size = utils.random(3, 8);
+                    const angle = utils.randomFloat(0, Math.PI * 2);
+                    const velocity = utils.randomFloat(1, 3);
+                    const distance = utils.randomFloat(20, 100);
+                    
+                    particle.style.cssText = `
+                        position: fixed;
+                        width: ${size}px;
+                        height: ${size}px;
+                        background: ${color};
+                        border-radius: 50%;
+                        top: ${y}px;
+                        left: ${x}px;
+                        z-index: 9998;
+                        pointer-events: none;
+                        opacity: ${utils.randomFloat(0.7, 1)};
+                    `;
+                    
+                    document.body.appendChild(particle);
+                    
+                    const animation = particle.animate([
+                        { 
+                            transform: `translate(0, 0)`, 
+                            opacity: 1 
+                        },
+                        { 
+                            transform: `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px)`, 
+                            opacity: 0 
+                        }
+                    ], {
+                        duration: utils.random(300, 800),
+                        easing: 'ease-out'
+                    });
+                    
+                    animation.onfinish = () => {
+                        if (particle.parentNode) {
+                            particle.parentNode.removeChild(particle);
+                        }
+                    };
+                }
+            },
+            
+            // Email utilities
+            sendEmail() {
+                window.location.href = 'mailto:crabtluke@gmail.com?subject=Message from damagedlols website&body=Hello Aiden! I found your website and wanted to get in touch...';
+                utils.createNotification(
+                    'Email Client',
+                    'Opening your email client...',
+                    'info',
+                    3000
+                );
+            },
+            
+            copyEmail() {
+                navigator.clipboard.writeText('crabtluke@gmail.com')
+                    .then(() => {
+                        utils.createNotification(
+                            'Email Copied',
+                            'Email address copied to clipboard!',
+                            'success',
+                            3000
+                        );
+                        utils.createParticleEffect(
+                            window.innerWidth / 2,
+                            window.innerHeight / 2,
+                            '#00ffff',
+                            30
+                        );
+                    })
+                    .catch(err => {
+                        utils.createNotification(
+                            'Copy Failed',
+                            'Could not copy email to clipboard',
+                            'error',
+                            3000
+                        );
+                    });
+            },
+            
+            scheduleMeeting() {
+                utils.createNotification(
+                    'Schedule Chat',
+                    'Feature coming soon! For now, please email me to schedule a chat.',
+                    'info',
+                    4000
+                );
+            }
+        };
+        
+        // ===========================================
+        // STREAM FUNCTIONS
+        // ===========================================
+        
+        const stream = {
+            updateViewerCount() {
+                const change = utils.random(-30, 50);
+                const newCount = Math.max(CONFIG.minViewers, 
+                    Math.min(CONFIG.maxViewers, CONFIG.viewerCount + change));
+                
+                if (newCount !== CONFIG.viewerCount) {
+                    utils.animateValue(DOM.liveViewers, CONFIG.viewerCount, newCount, 800);
+                    utils.animateValue(DOM.viewerCounter, CONFIG.viewerCount, newCount, 800);
+                    
+                    CONFIG.viewerCount = newCount;
+                    
+                    // Update counter text with animation
+                    DOM.viewerCounter.classList.add('updating');
+                    setTimeout(() => {
+                        DOM.viewerCounter.classList.remove('updating');
+                    }, 800);
+                    
+                    // Occasionally update game
+                    if (Math.random() > 0.8) {
+                        setTimeout(() => {
+                            this.changeGame();
+                        }, 500);
+                    }
+                    
+                    // Play sound if significant change
+                    if (Math.abs(change) > 20 && CONFIG.soundEnabled) {
+                        utils.playSound(change > 0 ? 'success' : 'error');
+                    }
+                }
+            },
+            
+            changeGame() {
+                let newIndex;
+                do {
+                    newIndex = utils.random(0, CONFIG.games.length - 1);
+                } while (newIndex === CONFIG.currentGameIndex && CONFIG.games.length > 1);
+                
+                CONFIG.currentGameIndex = newIndex;
+                const newGame = CONFIG.games[CONFIG.currentGameIndex];
+                
+                // Animate game change
+                DOM.currentGame.style.transform = 'translateY(-20px)';
+                DOM.currentGame.style.opacity = '0';
+                
+                setTimeout(() => {
+                    DOM.currentGame.textContent = newGame;
+                    DOM.currentGame.style.transform = 'translateY(0)';
+                    DOM.currentGame.style.opacity = '1';
+                    DOM.currentGame.style.transition = 'all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+                }, 300);
+                
+                utils.createNotification(
+                    'Game Changed',
+                    `Now playing: ${newGame}`,
+                    'info',
+                    3000
+                );
+                
+                // Play sound
+                if (CONFIG.soundEnabled) {
+                    utils.playSound('notification');
+                }
+                
+                // Create particle effect
+                const rect = DOM.currentGame.getBoundingClientRect();
+                utils.createParticleEffect(
+                    rect.left + rect.width / 2,
+                    rect.top + rect.height / 2,
+                    '#ff8c00',
+                    25
+                );
+            },
+            
+            addViewer() {
+                const added = utils.random(5, 25);
+                const newCount = Math.min(CONFIG.maxViewers, CONFIG.viewerCount + added);
+                
+                utils.animateValue(DOM.liveViewers, CONFIG.viewerCount, newCount, 500);
+                utils.animateValue(DOM.viewerCounter, CONFIG.viewerCount, newCount, 500);
+                
+                CONFIG.viewerCount = newCount;
+                
+                // Create particle effect
+                const rect = DOM.viewerCounter.getBoundingClientRect();
+                utils.createParticleEffect(
+                    rect.left + rect.width / 2,
+                    rect.top + rect.height / 2,
+                    '#00ffff',
+                    30
+                );
+                
+                // Play sound
+                if (CONFIG.soundEnabled) {
+                    utils.playSound('success');
+                }
+                
+                utils.createNotification(
+                    'Viewers Joined!',
+                    `+${added} new viewers joined the stream!`,
+                    'success',
+                    3000
+                );
+                
+                // Confetti effect
+                if (added > 15) {
+                    setTimeout(() => {
+                        utils.createConfetti(50);
+                    }, 200);
+                }
+            },
+            
+            simulateChat() {
+                const message = CONFIG.chatMessages[utils.random(0, CONFIG.chatMessages.length - 1)];
+                const users = ['AnimeFan42', 'GamerPro', 'FaithFirst', 'StreamLover', 'CommunityMember', 
+                              'OnePieceStan', 'DemonSlayerFan', 'IndieGamer', 'NightOwl', 'ChatRegular'];
+                const user = users[utils.random(0, users.length - 1)];
+                const badges = Math.random() > 0.5 ? '👑 ' : Math.random() > 0.5 ? '⭐ ' : '';
+                
+                const chatMessage = `${badges}${user}: ${message}`;
+                utils.createNotification(
+                    'Chat Message',
+                    chatMessage,
+                    'info',
+                    4000
+                );
+                
+                // Play sound
+                if (CONFIG.soundEnabled) {
+                    utils.playSound('notification');
+                }
+                
+                // Randomly trigger other events
+                if (Math.random() > 0.7) {
+                    setTimeout(() => {
+                        this.addViewer();
+                    }, 1000);
+                }
+                
+                if (Math.random() > 0.9) {
+                    setTimeout(() => {
+                        this.triggerDonation();
+                    }, 1500);
+                }
+            },
+            
+            triggerDonation() {
+                const donation = CONFIG.donationMessages[utils.random(0, CONFIG.donationMessages.length - 1)];
+                
+                utils.createNotification(
+                    'DONATION!',
+                    donation,
+                    'success',
+                    5000
+                );
+                
+                // Play sound
+                if (CONFIG.soundEnabled) {
+                    utils.playSound('success');
+                }
+                
+                // Confetti effect
+                utils.createConfetti(150, ['#d4af37', '#ffd700', '#ffff00', '#ffffff']);
+                
+                // Particle effect
+                const rect = DOM.viewerCounter.getBoundingClientRect();
+                utils.createParticleEffect(
+                    rect.left + rect.width / 2,
+                    rect.top + rect.height / 2,
+                    '#ffd700',
+                    50
+                );
+                
+                // Update viewer count with donation boost
+                setTimeout(() => {
+                    const donationBoost = utils.random(10, 30);
+                    const newCount = Math.min(CONFIG.maxViewers, CONFIG.viewerCount + donationBoost);
+                    
+                    utils.animateValue(DOM.liveViewers, CONFIG.viewerCount, newCount, 800);
+                    utils.animateValue(DOM.viewerCounter, CONFIG.viewerCount, newCount, 800);
+                    
+                    CONFIG.viewerCount = newCount;
+                }, 300);
+            }
+        };
+        
+        // ===========================================
+        // UI FUNCTIONS
+        // ===========================================
+        
+        const ui = {
+            initNavigation() {
+                // Mobile menu toggle
+                DOM.mobileMenuToggle.addEventListener('click', () => {
+                    const isExpanded = DOM.mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+                    DOM.mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+                    DOM.navMenu.classList.toggle('active');
+                    DOM.mobileMenuToggle.classList.toggle('active');
+                    
+                    // Update icon
+                    const icon = DOM.mobileMenuToggle.querySelector('i');
+                    icon.className = isExpanded ? 'fas fa-bars' : 'fas fa-times';
+                    
+                    // Play sound
+                    if (CONFIG.soundEnabled) {
+                        utils.playSound('click');
+                    }
+                });
+                
+                // Nav link clicks
+                DOM.navLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        
+                        // Play sound
+                        if (CONFIG.soundEnabled) {
+                            utils.playSound('click');
+                        }
+                        
+                        // Update active state
+                        DOM.navLinks.forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+                        
+                        // Close mobile menu if open
+                        if (DOM.navMenu.classList.contains('active')) {
+                            DOM.mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                            DOM.navMenu.classList.remove('active');
+                            DOM.mobileMenuToggle.classList.remove('active');
+                            DOM.mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
+                        }
+                        
+                        // Smooth scroll to section
+                        const targetId = link.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                    
+                    // Hover sound
+                    link.addEventListener('mouseenter', () => {
+                        if (CONFIG.soundEnabled) {
+                            utils.playSound('hover');
+                        }
+                    });
+                });
+                
+                // Nav scroll effect
+                window.addEventListener('scroll', utils.debounce(() => {
+                    if (window.scrollY > 100) {
+                        DOM.mainNav.classList.add('scrolled');
+                    } else {
+                        DOM.mainNav.classList.remove('scrolled');
+                    }
+                    
+                    // Update active nav link based on scroll position
+                    const sections = document.querySelectorAll('section');
+                    const navHeight = DOM.mainNav.offsetHeight;
+                    
+                    let current = '';
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        const sectionHeight = section.clientHeight;
+                        if (scrollY >= (sectionTop - navHeight - 100)) {
+                            current = section.getAttribute('id');
+                        }
+                    });
+                    
+                    DOM.navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${current}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }, 10));
+            },
+            
+            initSchedule() {
+                DOM.scheduleDays.forEach(day => {
+                    day.addEventListener('click', () => {
+                        // Play sound
+                        if (CONFIG.soundEnabled) {
+                            utils.playSound('click');
+                        }
+                        
+                        // Update active day
+                        DOM.scheduleDays.forEach(d => {
+                            d.classList.remove('active');
+                            d.style.transform = 'translateY(0)';
+                        });
+                        day.classList.add('active');
+                        day.style.transform = 'translateY(-5px)';
+                        
+                        // Update schedule content
+                        const dayType = day.getAttribute('data-day');
+                        const scheduleItems = DOM.scheduleTimeline.querySelectorAll('.schedule-item');
+                        
+                        // Hide all items first
+                        scheduleItems.forEach(item => {
+                            item.classList.add('d-none');
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateX(-30px)';
+                        });
+                        
+                        // Show items for selected day
+                        const itemsToShow = DOM.scheduleTimeline.querySelectorAll(`.schedule-item[data-day="${dayType}"], .schedule-item:not([data-day])`);
+                        
+                        itemsToShow.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.classList.remove('d-none');
+                                setTimeout(() => {
+                                    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                                    item.style.opacity = '1';
+                                    item.style.transform = 'translateX(0)';
+                                }, 10);
+                            }, index * 100);
+                        });
+                        
+                        // Animation effect
+                        day.style.animation = 'none';
+                        setTimeout(() => {
+                            day.style.animation = 'pulse 0.5s ease';
+                        }, 10);
+                    });
+                    
+                    // Hover sound
+                    day.addEventListener('mouseenter', () => {
+                        if (CONFIG.soundEnabled) {
+                            utils.playSound('hover');
+                        }
+                    });
+                });
+            },
+            
+            initCTAButtons() {
+                // Follow button
+                DOM.ctaFollow.addEventListener('click', () => {
+                    // Play sound
+                    if (CONFIG.soundEnabled) {
+                        utils.playSound('success');
+                    }
+                    
+                    // Create ripple effect
+                    utils.createRipple(event);
+                    
+                    // Animate button
+                    DOM.ctaFollow.style.animation = 'none';
+                    setTimeout(() => {
+                        DOM.ctaFollow.style.animation = 'heartbeat 0.5s ease';
+                    }, 10);
+                    
+                    utils.createNotification(
+                        'Followed!',
+                        'Thanks for following! Welcome to the community!',
+                        'success',
+                        4000
+                    );
+                    
+                    // Add confetti effect
+                    setTimeout(() => {
+                        utils.createConfetti(100);
+                    }, 200);
+                    
+                    // Update follower count
+                    const currentFollowers = parseInt(DOM.liveViewers.nextElementSibling.textContent.replace(/,/g, ''));
+                    const newFollowers = currentFollowers + 1;
+                    
+                    setTimeout(() => {
+                        utils.animateValue(
+                            DOM.liveViewers.nextElementSibling,
+                            currentFollowers,
+                            newFollowers,
+                            1000
+                        );
+                    }, 500);
+                });
+                
+                // Join community button
+                DOM.ctaJoin.addEventListener('click', () => {
+                    // Play sound
+                    if (CONFIG.soundEnabled) {
+                        utils.playSound('notification');
+                    }
+                    
+                    // Create ripple effect
+                    utils.createRipple(event);
+                    
+                    utils.createNotification(
+                        'Discord',
+                        'Redirecting to Discord community...',
+                        'info',
+                        3000
+                    );
+                    
+                    // Simulate redirect
+                    setTimeout(() => {
+                        window.open('https://discord.gg/YawXU3zCBh', '_blank');
+                    }, 500);
+                });
+                
+                // Contact button
+                DOM.ctaContact.addEventListener('click', () => {
+                    // Play sound
+                    if (CONFIG.soundEnabled) {
+                        utils.playSound('click');
+                    }
+                    
+                    // Create ripple effect
+                    utils.createRipple(event);
+                    
+                    // Scroll to contact section
+                    const contactSection = document.querySelector('#contact');
+                    if (contactSection) {
+                        window.scrollTo({
+                            top: contactSection.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                    
+                    // Update nav
+                    DOM.navLinks.forEach(l => l.classList.remove('active'));
+                    document.querySelector('a[href="#contact"]').classList.add('active');
+                });
+                
+                // Add hover sounds to all buttons
+                document.querySelectorAll('.btn').forEach(btn => {
+                    btn.addEventListener('mouseenter', () => {
+                        if (CONFIG.soundEnabled) {
+                            utils.playSound('hover');
+                        }
+                    });
+                    
+                    btn.addEventListener('click', (e) => {
+                        if (CONFIG.soundEnabled) {
+                            utils.playSound('click');
+                        }
+                        utils.createRipple(e);
+                    });
+                });
+            },
+            
+            initSoundControls() {
+                // Sound toggle
+                DOM.soundToggle.addEventListener('click', () => {
+                    utils.toggleSound();
+                    // Button animation
+                    DOM.soundToggle.style.animation = 'none';
+                    setTimeout(() => {
+                        DOM.soundToggle.style.animation = 'pulse 0.5s ease';
+                    }, 10);
+                });
+                
+                // Music toggle
+                DOM.musicToggle.addEventListener('click', () => {
+                    utils.toggleMusic();
+                    // Button animation
+                    DOM.musicToggle.style.animation = 'none';
+                    setTimeout(() => {
+                        DOM.musicToggle.style.animation = 'pulse 0.5s ease';
+                    }, 10);
+                });
+                
+                // Hover sounds for sound controls
+                [DOM.soundToggle, DOM.musicToggle].forEach(btn => {
+                    btn.addEventListener('mouseenter', () => {
+                        if (CONFIG.soundEnabled) {
+                            utils.playSound('hover');
+                        }
+                    });
+                });
+            },
+            
+            initThemeToggler() {
+                DOM.themeToggler.addEventListener('click', () => {
+                    // Play sound
+                    if (CONFIG.soundEnabled) {
+                        utils.playSound('click');
+                    }
+                    
+                    const currentTheme = document.body.getAttribute('data-theme');
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                    
+                    // Animation
+                    DOM.themeToggler.style.animation = 'none';
+                    setTimeout(() => {
+                        DOM.themeToggler.style.animation = 'rotate 0.5s ease';
+                    }, 10);
+                    
+                    // Update theme
+                    document.body.setAttribute('data-theme', newTheme);
+                    DOM.themeToggler.innerHTML = newTheme === 'dark' ? 
+                        '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+                    
+                    utils.createNotification(
+                        'Theme Changed',
+                        `Switched to ${newTheme} theme`,
+                        'info',
+                        2000
+                    );
+                });
+                
+                // Hover sound
+                DOM.themeToggler.addEventListener('mouseenter', () => {
+                    if (CONFIG.soundEnabled) {
+                        utils.playSound('hover');
+                    }
+                });
+            },
+            
+            initScrollAnimations() {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -100px 0px'
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            
+                            // Play sound for some elements
+                            if (CONFIG.soundEnabled && entry.target.classList.contains('section-title')) {
+                                setTimeout(() => {
+                                    utils.playSound('notification');
+                                }, 300);
+                            }
+                        }
+                    });
+                }, observerOptions);
+                
+                // Observe all animate-on-scroll elements
+                document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                    observer.observe(el);
+                });
+                
+                // Add animation classes to elements
+                document.querySelectorAll('.stat-card, .theme-card, .social-card, .schedule-item').forEach((el, index) => {
+                    el.classList.add('animate-on-scroll');
+                    el.style.animationDelay = `${index * 0.1}s`;
+                });
+            },
+            
+            initTooltips() {
+                // Simple tooltip implementation
+                document.querySelectorAll('[data-tooltip]').forEach(el => {
+                    el.addEventListener('mouseenter', (e) => {
+                        const tooltip = document.createElement('div');
+                        tooltip.className = 'tooltip';
+                        tooltip.textContent = el.getAttribute('data-tooltip');
+                        tooltip.style.cssText = `
+                            position: absolute;
+                            background: var(--gradient-card);
+                            color: var(--text-primary);
+                            padding: var(--space-sm) var(--space-md);
+                            border-radius: var(--radius-small);
+                            font-size: 0.9rem;
+                            white-space: nowrap;
+                            z-index: 10000;
+                            pointer-events: none;
+                            border: 1px solid var(--holy-gold);
+                            transform: translate(-50%, -100%);
+                            top: -10px;
+                            left: 50%;
+                        `;
+                        
+                        document.body.appendChild(tooltip);
+                        el.tooltipElement = tooltip;
+                        
+                        // Play sound
+                        if (CONFIG.soundEnabled) {
+                            utils.playSound('hover');
+                        }
+                    });
+                    
+                    el.addEventListener('mouseleave', () => {
+                        if (el.tooltipElement && el.tooltipElement.parentNode) {
+                            el.tooltipElement.parentNode.removeChild(el.tooltipElement);
+                        }
+                    });
+                });
+            }
+        };
+        
+        // ===========================================
+        // ANIMATION FUNCTIONS
+        // ===========================================
+        
+        const animations = {
+            initParticles() {
+                if (DOM.particlesContainer) {
+                    particlesJS('particles-js', {
+                        particles: {
+                            number: {
+                                value: 120,
+                                density: {
+                                    enable: true,
+                                    value_area: 1000
+                                }
+                            },
+                            color: {
+                                value: ["#d4af37", "#8b0000", "#ff8c00", "#228b22", "#4169e1", "#00ffff", "#ff00ff"]
+                            },
+                            shape: {
+                                type: ["circle", "triangle", "polygon"],
+                                stroke: {
+                                    width: 0,
+                                    color: "#000000"
+                                },
+                                polygon: {
+                                    nb_sides: 6
+                                }
+                            },
+                            opacity: {
+                                value: 0.6,
+                                random: true,
+                                anim: {
+                                    enable: true,
+                                    speed: 1,
+                                    opacity_min: 0.1,
+                                    sync: false
+                                }
+                            },
+                            size: {
+                                value: 4,
+                                random: true,
+                                anim: {
+                                    enable: true,
+                                    speed: 3,
+                                    size_min: 0.1,
+                                    sync: false
+                                }
+                            },
+                            line_linked: {
+                                enable: true,
+                                distance: 180,
+                                color: "#d4af37",
+                                opacity: 0.3,
+                                width: 2
+                            },
+                            move: {
+                                enable: true,
+                                speed: 3,
+                                direction: "none",
+                                random: true,
+                                straight: false,
+                                out_mode: "out",
+                                bounce: false,
+                                attract: {
+                                    enable: true,
+                                    rotateX: 800,
+                                    rotateY: 1600
+                                }
+                            }
+                        },
+                        interactivity: {
+                            detect_on: "canvas",
+                            events: {
+                                onhover: {
+                                    enable: true,
+                                    mode: "repulse"
+                                },
+                                onclick: {
+                                    enable: true,
+                                    mode: "push"
+                                },
+                                resize: true
+                            }
+                        },
+                        retina_detect: true
+                    });
+                }
+            },
+            
+            createTypingEffect(element, text, speed = 50) {
+                let i = 0;
+                element.textContent = '';
+                
+                const type = () => {
+                    if (i < text.length) {
+                        element.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(type, speed);
+                    }
+                };
+                
+                type();
+            }
+        };
+        
+        // ===========================================
+        // COMMUNITY FUNCTIONS
+        // ===========================================
+        
+        function joinCommunity() {
+            // Play sound
+            if (CONFIG.soundEnabled) {
+                utils.playSound('success');
+            }
+            
+            utils.createNotification(
+                'Welcome!',
+                'Welcome to the damagedlols community!',
+                'success',
+                4000
+            );
+            
+            // Create welcome modal
+            const welcomeModal = document.createElement('div');
+            welcomeModal.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: var(--gradient-card);
+                backdrop-filter: blur(30px);
+                padding: var(--space-xxl);
+                border-radius: var(--radius-xlarge);
+                border: 3px solid var(--holy-gold);
+                z-index: 10001;
+                max-width: 600px;
+                width: 90%;
+                text-align: center;
+                box-shadow: var(--shadow-heavy), 0 0 100px rgba(212, 175, 55, 0.5);
+                animation: fadeInScale 0.5s ease;
+            `;
+            
+            welcomeModal.innerHTML = `
+                <h3 style="color: var(--holy-gold); margin-bottom: var(--space-lg); font-size: 2.5rem; animation: textShadowPulse 2s infinite;">
+                    🎉 Welcome to the Community!
+                </h3>
+                <p style="margin-bottom: var(--space-xl); font-size: 1.2rem; line-height: 1.8; color: var(--text-secondary);">
+                    You're now part of something special. Here's what's next:
+                </p>
+                <div style="text-align: left; margin-bottom: var(--space-xl); font-size: 1.1rem;">
+                    <p style="margin-bottom: var(--space-md);">
+                        <i class="fas fa-check" style="color: var(--demonslayer-green); margin-right: var(--space-sm);"></i>
+                        <strong>Join our Discord server</strong> - The main community hub
+                    </p>
+                    <p style="margin-bottom: var(--space-md);">
+                        <i class="fas fa-check" style="color: var(--demonslayer-green); margin-right: var(--space-sm);"></i>
+                        <strong>Follow on all platforms</strong> - Never miss an update
+                    </p>
+                    <p style="margin-bottom: var(--space-md);">
+                        <i class="fas fa-check" style="color: var(--demonslayer-green); margin-right: var(--space-sm);"></i>
+                        <strong>Participate in community events</strong> - Game nights, watch parties, and more
+                    </p>
+                    <p style="margin-bottom: var(--space-md);">
+                        <i class="fas fa-check" style="color: var(--demonslayer-green); margin-right: var(--space-sm);"></i>
+                        <strong>Share your thoughts and ideas</strong> - Your voice matters here
+                    </p>
+                    <p>
+                        <i class="fas fa-check" style="color: var(--demonslayer-green); margin-right: var(--space-sm);"></i>
+                        <strong>Most importantly: Have fun!</strong> - That's what it's all about
+                    </p>
+                </div>
+                <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+                    <button onclick="window.open('https://discord.gg/YawXU3zCBh', '_blank'); this.parentElement.parentElement.remove(); document.getElementById('modal-overlay').remove();" style="
+                        background: var(--gradient-anime);
+                        color: black;
+                        border: none;
+                        padding: var(--space-md) var(--space-xl);
+                        border-radius: var(--radius-large);
+                        font-weight: bold;
+                        font-size: 1.2rem;
+                        cursor: pointer;
+                        transition: var(--transition-smooth);
+                    ">
+                        <i class="fab fa-discord"></i> Join Discord
+                    </button>
+                    <button onclick="this.parentElement.parentElement.remove(); document.getElementById('modal-overlay').remove();" style="
+                        background: transparent;
+                        color: var(--text-primary);
+                        border: 2px solid var(--holy-gold);
+                        padding: var(--space-md) var(--space-xl);
+                        border-radius: var(--radius-large);
+                        font-weight: bold;
+                        font-size: 1.2rem;
+                        cursor: pointer;
+                        transition: var(--transition-smooth);
+                    ">
+                        Let's Go! 🔥
+                    </button>
+                </div>
+            `;
+            
+            // Add overlay
+            const overlay = document.createElement('div');
+            overlay.id = 'modal-overlay';
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.85);
+                backdrop-filter: blur(10px);
+                z-index: 10000;
+                animation: fadeIn 0.3s ease;
+            `;
+            
+            document.body.appendChild(overlay);
+            document.body.appendChild(welcomeModal);
+            
+            // Remove both on click outside
+            overlay.addEventListener('click', () => {
+                document.body.removeChild(welcomeModal);
+                document.body.removeChild(overlay);
+            });
+            
+            // Confetti effect
+            setTimeout(() => {
+                utils.createConfetti(200);
+            }, 300);
+        }
+        
+        function viewCommunityRules() {
+            utils.createNotification(
+                'Community Rules',
+                'Opening community rules...',
+                'info',
+                3000
+            );
+            
+            // In a real implementation, this would open a modal or page with rules
+            setTimeout(() => {
+                // Simulate opening rules
+                window.open('#', '_blank');
+            }, 500);
+        }
+        
+        function meetTheTeam() {
+            utils.createNotification(
+                'Community Team',
+                'Meet our amazing community moderators and helpers!',
+                'info',
+                4000
+            );
+            
+            // This would normally show a team modal
+        }
+        
+        // ===========================================
+        // INITIALIZATION
+        // ===========================================
+        
+        function init() {
+            // Hide loading screen
+            setTimeout(() => {
+                DOM.loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    DOM.loadingScreen.style.display = 'none';
+                    
+                    // Play welcome sound
+                    if (CONFIG.soundEnabled) {
+                        setTimeout(() => {
+                            utils.playSound('success');
+                        }, 200);
+                    }
+                    
+                    // Welcome notification
+                    setTimeout(() => {
+                        utils.createNotification(
+                            'Welcome to damagedlols Hub!',
+                            'Enjoy your stay in our community!',
+                            'success',
+                            5000
+                        );
+                    }, 500);
+                }, 800);
+            }, 3000);
+            
+            // Initialize all components
+            utils.initAudio();
+            ui.initNavigation();
+            ui.initSchedule();
+            ui.initCTAButtons();
+            ui.initSoundControls();
+            ui.initThemeToggler();
+            ui.initScrollAnimations();
+            ui.initTooltips();
+            animations.initParticles();
+            
+            // Set initial game
+            DOM.currentGame.textContent = CONFIG.games[CONFIG.currentGameIndex];
+            
+            // Update viewer count periodically
+            setInterval(() => {
+                stream.updateViewerCount();
+            }, 20000);
+            
+            // Random chat messages
+            setInterval(() => {
+                if (Math.random() > 0.6) {
+                    stream.simulateChat();
+                }
+            }, 8000);
+            
+            // Random donations
+            setInterval(() => {
+                if (Math.random() > 0.9) {
+                    stream.triggerDonation();
+                }
+            }, 30000);
+            
+            // Initial animations
+            setTimeout(() => {
+                document.querySelectorAll('.hero-left, .hero-right').forEach((el, index) => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(50px)';
+                    
+                    setTimeout(() => {
+                        el.style.transition = 'opacity 1s ease, transform 1s ease';
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }, index * 300);
+                });
+            }, 100);
+            
+            // Welcome message in console
+            console.log('%c🔥 damagedlols Hub 🔥', 'color: #d4af37; font-size: 28px; font-weight: bold; text-shadow: 0 0 10px #d4af37;');
+            console.log('%cAnime + Gaming + Faith = Ultimate Community', 'color: #4169e1; font-size: 18px; font-weight: bold;');
+            console.log('%cWebsite loaded successfully! Ready for action!', 'color: #228b22; font-size: 16px;');
+            console.log('%cStream Schedule: Friday 9:30PM-1:00AM | Saturday 7:30PM-12:00AM EST', 'color: #ff8c00;');
+            console.log('%cContact: crabtluke@gmail.com', 'color: #00ffff;');
+            
+            // Expose functions to window for button onclick
+            window.addViewer = stream.addViewer;
+            window.changeGame = stream.changeGame;
+            window.simulateChat = stream.simulateChat;
+            window.triggerDonation = stream.triggerDonation;
+            window.joinCommunity = joinCommunity;
+            window.viewCommunityRules = viewCommunityRules;
+            window.meetTheTeam = meetTheTeam;
+            window.sendEmail = utils.sendEmail;
+            window.copyEmail = utils.copyEmail;
+            window.scheduleMeeting = utils.scheduleMeeting;
+        }
+        
+        // ===========================================
+        // START EVERYTHING
+        // ===========================================
+        
+        // Wait for DOM to be fully loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+        
+        // Handle window resize
+        window.addEventListener('resize', utils.debounce(() => {
+            // Update particles if needed
+            if (window.pJSDom && window.pJSDom.length > 0) {
+                window.pJSDom[0].pJS.fn.canvas_resize();
+            }
+        }, 250));
+        
+        // Easter egg: Konami code
+        let konamiCode = [];
+        const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.key);
+            if (konamiCode.length > konamiSequence.length) {
+                konamiCode.shift();
+            }
+            
+            if (konamiCode.join(',') === konamiSequence.join(',')) {
+                utils.createNotification(
+                    'Secret Unlocked!',
+                    'You found the Konami code! Enjoy some extra confetti! 🎉',
+                    'success',
+                    5000
+                );
+                utils.createConfetti(500);
+                konamiCode = [];
+                
+                // Play special sound
+                if (CONFIG.soundEnabled) {
+                    for (let i = 0; i < 5; i++) {
+                        setTimeout(() => {
+                            utils.playSound('success', 440 + i * 100, 0.3);
+                        }, i * 100);
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
