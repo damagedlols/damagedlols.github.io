@@ -1,1142 +1,418 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ==================== META & TITLE ==================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#0a192f">
-    
-    <!-- Primary Meta Tags -->
-    <title>damagedlols | Professional Gaming & Anime Content Creator</title>
-    <meta name="title" content="damagedlols | Professional Gaming & Anime Content Creator">
-    <meta name="description" content="Aiden (damagedlols) - Professional content creator specializing in gaming, anime analysis, and community building. Streaming indie games, anime content with integrated faith values.">
-    <meta name="keywords" content="damagedlols, Aiden, professional streaming, gaming content, anime analysis, content creator, indie games, community building">
-    <meta name="author" content="damagedlols (Aiden)">
-    <meta name="copyright" content="Copyright 2023 damagedlols. All rights reserved.">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://damagedlols.ddns.net/">
-    <meta property="og:title" content="damagedlols | Professional Gaming & Anime Content Creator">
-    <meta property="og:description" content="Professional content creator specializing in gaming and anime content with integrated faith values.">
-    <meta property="og:image" content="https://damagedlols.ddns.net/og-image.jpg">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://damagedlols.ddns.net/">
-    <meta property="twitter:title" content="damagedlols | Professional Gaming & Anime Content Creator">
-    <meta property="twitter:description" content="Professional content creator specializing in gaming and anime content with integrated faith values.">
-    <meta property="twitter:image" content="https://damagedlols.ddns.net/og-image.jpg">
-    
-    <!-- Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Damaged Zone | Gaming & Anime Content</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Oswald:wght@500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* ===========================================
-           CSS RESET & GLOBAL VARIABLES
-           =========================================== */
+        :root {
+            /* One Piece Colors */
+            --one-piece-red: #c91a1a;
+            --one-piece-yellow: #ffcc00;
+            --one-piece-blue: #1e3a8a;
+            --one-piece-black: #0a0a0a;
+            
+            /* Demon Slayer Colors */
+            --demon-red: #8b0000;
+            --demon-blue: #1a365d;
+            --demon-purple: #4a1e5a;
+            --demon-gray: #2d3748;
+            
+            /* Theme Colors */
+            --primary: var(--demon-red);
+            --secondary: var(--one-piece-blue);
+            --accent: var(--one-piece-yellow);
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --light: #f8f9fa;
+            --text: #e2e8f0;
+        }
         
-        *, *::before, *::after {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
-        :root {
-            /* Professional Color Palette */
-            --primary-dark: #0a192f;
-            --secondary-dark: #112240;
-            --accent-dark: #233554;
-            --light-dark: #172a45;
-            
-            --primary-blue: #0077b6;
-            --secondary-blue: #0096c7;
-            --accent-blue: #00b4d8;
-            --light-blue: #90e0ef;
-            
-            --text-primary: #e6f1ff;
-            --text-secondary: #a8b2d1;
-            --text-tertiary: #8892b0;
-            --text-muted: #495670;
-            
-            --success: #00c851;
-            --warning: #ffbb33;
-            --error: #ff4444;
-            --info: #33b5e5;
-            
-            --border-color: #2d3a54;
-            --border-light: #3a4866;
-            
-            /* Typography */
-            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-secondary: 'Playfair Display', Georgia, serif;
-            --font-mono: 'Source Code Pro', 'Courier New', monospace;
-            
-            /* Spacing */
-            --space-unit: 1rem;
-            --space-xs: calc(var(--space-unit) * 0.25);
-            --space-sm: calc(var(--space-unit) * 0.5);
-            --space-md: var(--space-unit);
-            --space-lg: calc(var(--space-unit) * 2);
-            --space-xl: calc(var(--space-unit) * 4);
-            --space-xxl: calc(var(--space-unit) * 8);
-            
-            /* Border Radius */
-            --radius-sm: 4px;
-            --radius-md: 8px;
-            --radius-lg: 12px;
-            --radius-xl: 16px;
-            --radius-round: 50%;
-            
-            /* Shadows */
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.2);
-            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.3);
-            
-            /* Transitions */
-            --transition-fast: 150ms ease;
-            --transition-base: 250ms ease;
-            --transition-slow: 350ms ease;
-            
-            /* Z-index */
-            --z-dropdown: 1000;
-            --z-sticky: 1020;
-            --z-fixed: 1030;
-            --z-modal-backdrop: 1040;
-            --z-modal: 1050;
-            --z-popover: 1060;
-            --z-tooltip: 1070;
-        }
-        
-        /* ==================== BASE STYLES ==================== */
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-        
         body {
-            font-family: var(--font-primary);
-            font-weight: 400;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--primary-dark);
-            min-height: 100vh;
+            color: var(--text);
+            background-color: var(--dark);
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(139, 0, 0, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 80% 20%, rgba(30, 58, 138, 0.15) 0%, transparent 20%);
             overflow-x: hidden;
         }
         
-        /* Selection */
-        ::selection {
-            background-color: var(--primary-blue);
-            color: var(--text-primary);
-        }
-        
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: var(--secondary-dark);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent-dark);
-            border-radius: var(--radius-sm);
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-blue);
-        }
-        
-        /* ==================== TYPOGRAPHY ==================== */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-secondary);
+        h1, h2, h3, h4 {
+            font-family: 'Oswald', sans-serif;
             font-weight: 600;
-            line-height: 1.2;
-            margin-bottom: var(--space-md);
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-        
-        h2 {
-            font-size: 2.5rem;
-            color: var(--text-primary);
-        }
-        
-        h3 {
-            font-size: 1.75rem;
-            color: var(--text-secondary);
-        }
-        
-        h4 {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-        }
-        
-        p {
-            margin-bottom: var(--space-md);
-            color: var(--text-secondary);
+            letter-spacing: 0.5px;
         }
         
         a {
-            color: var(--accent-blue);
             text-decoration: none;
-            transition: color var(--transition-fast);
+            color: inherit;
+            transition: all 0.3s ease;
         }
         
-        a:hover {
-            color: var(--light-blue);
-        }
-        
-        .text-gradient {
-            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .text-muted {
-            color: var(--text-muted);
-        }
-        
-        /* ==================== LAYOUT & CONTAINERS ==================== */
         .container {
-            width: 100%;
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 var(--space-lg);
+            padding: 0 15px;
         }
         
+        /* Header & Navigation */
+        header {
+            background-color: rgba(10, 10, 10, 0.95);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .logo-text span {
+            color: var(--text);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 8px 15px;
+            border-radius: 4px;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        nav a.active {
+            color: var(--accent);
+            background-color: rgba(139, 0, 0, 0.2);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.9)), url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 70% 30%, rgba(30, 58, 138, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero h1 span {
+            color: var(--text);
+            display: block;
+            font-size: 2.5rem;
+            margin-top: 5px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            color: #cbd5e0;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Content Sections */
         .section {
-            padding: var(--space-xxl) 0;
+            padding: 80px 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: var(--space-xl);
+            margin-bottom: 50px;
+            position: relative;
         }
         
         .section-title h2 {
-            position: relative;
+            font-size: 2.5rem;
             display: inline-block;
-            padding-bottom: var(--space-sm);
+            padding-bottom: 15px;
+            position: relative;
         }
         
         .section-title h2::after {
             content: '';
             position: absolute;
+            width: 70%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
             bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--primary-blue);
+            left: 15%;
+            border-radius: 2px;
         }
         
-        /* ==================== LOADING SCREEN ==================== */
-        #loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--primary-dark);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        
-        .loading-content {
-            text-align: center;
-        }
-        
-        .loading-spinner {
-            width: 60px;
-            height: 60px;
-            border: 3px solid var(--accent-dark);
-            border-top-color: var(--primary-blue);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto var(--space-lg);
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        /* ==================== NAVIGATION ==================== */
-        .main-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(10, 25, 47, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: var(--z-fixed);
-            border-bottom: 1px solid var(--border-color);
-            padding: var(--space-md) 0;
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-        }
-        
-        .brand-logo {
-            font-size: 1.5rem;
-            color: var(--primary-blue);
-        }
-        
-        .brand-text {
-            font-family: var(--font-secondary);
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--text-primary);
-        }
-        
-        .nav-menu {
-            display: flex;
-            gap: var(--space-xl);
-            list-style: none;
-        }
-        
-        .nav-link {
-            color: var(--text-secondary);
-            font-weight: 500;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: color var(--transition-fast);
-        }
-        
-        .nav-link:hover {
-            color: var(--text-primary);
-        }
-        
-        .nav-link.active {
-            color: var(--primary-blue);
-        }
-        
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* ==================== HERO SECTION ==================== */
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            padding-top: 80px;
-        }
-        
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
-            z-index: -1;
-        }
-        
-        .hero-content {
+        /* About Section */
+        .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--space-xl);
+            gap: 50px;
             align-items: center;
         }
         
-        .hero-left {
+        .about-text {
+            background-color: rgba(26, 54, 93, 0.2);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--primary);
             position: relative;
         }
         
-        .profile-container {
-            width: 400px;
+        .about-image img {
+            width: 100%;
             height: 400px;
-            margin: 0 auto;
-            position: relative;
+            object-fit: cover;
+            display: block;
         }
         
-        .profile-image {
-            width: 100%;
-            height: 100%;
-            background: var(--secondary-dark);
-            border-radius: var(--radius-round);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 6rem;
-            color: var(--primary-blue);
-            border: 4px solid var(--primary-blue);
-        }
-        
-        .profile-badges {
+        .image-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .badge {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background: var(--accent-dark);
-            border-radius: var(--radius-round);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            color: var(--primary-blue);
-            border: 2px solid var(--primary-blue);
-        }
-        
-        .badge:nth-child(1) { top: 10%; left: 10%; }
-        .badge:nth-child(2) { top: 10%; right: 10%; }
-        .badge:nth-child(3) { bottom: 10%; left: 10%; }
-        .badge:nth-child(4) { bottom: 10%; right: 10%; }
-        
-        .hero-right h1 {
-            margin-bottom: var(--space-sm);
-        }
-        
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            margin-bottom: var(--space-lg);
-        }
-        
-        .hero-bio {
-            background: var(--secondary-dark);
-            padding: var(--space-lg);
-            border-radius: var(--radius-md);
-            border-left: 4px solid var(--primary-blue);
-            margin-bottom: var(--space-lg);
-        }
-        
-        .bio-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: var(--space-md);
-            margin-top: var(--space-xl);
-        }
-        
-        /* ==================== BUTTONS ==================== */
-        .btn {
-            padding: var(--space-md) var(--space-lg);
-            border-radius: var(--radius-md);
-            font-weight: 600;
-            font-size: 1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            transition: all var(--transition-base);
-            border: 2px solid transparent;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .btn-primary {
-            background: var(--primary-blue);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background: var(--secondary-blue);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border-color: var(--primary-blue);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--primary-blue);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            color: var(--text-primary);
-            border-color: var(--border-color);
-        }
-        
-        .btn-outline:hover {
-            border-color: var(--primary-blue);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        /* ==================== STATS SECTION ==================== */
-        .stats-section {
-            background: var(--secondary-dark);
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-lg);
-        }
-        
-        .stat-card {
-            background: var(--accent-dark);
-            padding: var(--space-lg);
-            border-radius: var(--radius-md);
-            text-align: center;
-            transition: transform var(--transition-base);
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .stat-icon {
-            font-size: 2.5rem;
-            color: var(--primary-blue);
-            margin-bottom: var(--space-md);
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: var(--space-sm);
-        }
-        
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        /* ==================== SCHEDULE SECTION ==================== */
-        .schedule-section {
-            background: var(--primary-dark);
-        }
-        
-        .schedule-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .schedule-header {
-            text-align: center;
-            margin-bottom: var(--space-xl);
-        }
-        
-        .schedule-legend {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-lg);
-            margin-top: var(--space-md);
-            flex-wrap: wrap;
-        }
-        
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-        }
-        
-        .legend-color {
-            width: 20px;
-            height: 20px;
-            border-radius: var(--radius-sm);
-        }
-        
-        .legend-color.friday { background: var(--primary-blue); }
-        .legend-color.saturday { background: var(--secondary-blue); }
-        
-        .schedule-timeline {
-            position: relative;
-            padding-left: 60px;
-        }
-        
-        .schedule-timeline::before {
-            content: '';
-            position: absolute;
-            left: 30px;
-            top: 0;
             bottom: 0;
-            width: 2px;
-            background: var(--border-color);
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(10, 10, 10, 0.9));
+            padding: 20px;
+            color: var(--text);
         }
         
-        .schedule-day {
-            margin-bottom: var(--space-xl);
-            position: relative;
+        /* Games Section */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
         }
         
-        .schedule-day::before {
-            content: '';
-            position: absolute;
-            left: -40px;
-            top: 0;
-            width: 20px;
-            height: 20px;
-            background: var(--primary-blue);
-            border-radius: 50%;
-            border: 4px solid var(--primary-dark);
+        .game-card {
+            background-color: rgba(45, 55, 72, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(139, 0, 0, 0.3);
         }
         
-        .schedule-day.saturday::before {
-            background: var(--secondary-blue);
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(139, 0, 0, 0.3);
         }
         
-        .schedule-day-header {
-            margin-bottom: var(--space-md);
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
+        .game-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
         }
         
-        .schedule-day-title {
+        .game-card-content {
+            padding: 25px;
+        }
+        
+        .game-card h3 {
             font-size: 1.5rem;
-            color: var(--text-primary);
+            margin-bottom: 10px;
+            color: var(--accent);
         }
         
-        .schedule-day-subtitle {
-            color: var(--text-secondary);
-            font-size: 1rem;
+        .game-card p {
+            color: #cbd5e0;
         }
         
-        .schedule-slot {
-            background: var(--secondary-dark);
-            padding: var(--space-md);
-            border-radius: var(--radius-md);
-            margin-bottom: var(--space-md);
-            border-left: 4px solid var(--primary-blue);
-        }
-        
-        .schedule-slot.saturday {
-            border-left-color: var(--secondary-blue);
-        }
-        
-        .schedule-time {
-            font-size: 1.1rem;
-            color: var(--primary-blue);
-            font-weight: 600;
-            margin-bottom: var(--space-xs);
-        }
-        
-        .schedule-slot.saturday .schedule-time {
-            color: var(--secondary-blue);
-        }
-        
-        .schedule-content {
-            color: var(--text-secondary);
-        }
-        
-        /* ==================== CONTACT SECTION ==================== */
-        .contact-section {
-            background: var(--secondary-dark);
-        }
-        
-        .contact-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .contact-card {
-            background: var(--accent-dark);
-            padding: var(--space-xl);
-            border-radius: var(--radius-lg);
-            text-align: center;
-        }
-        
-        .contact-icon {
-            font-size: 4rem;
-            color: var(--primary-blue);
-            margin-bottom: var(--space-lg);
-        }
-        
-        .contact-title {
-            margin-bottom: var(--space-md);
-        }
-        
-        .contact-description {
-            margin-bottom: var(--space-xl);
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .contact-email {
-            display: inline-block;
-            background: var(--primary-dark);
-            padding: var(--space-md) var(--space-lg);
-            border-radius: var(--radius-md);
-            font-size: 1.25rem;
-            color: var(--text-primary);
-            margin-bottom: var(--space-xl);
-            border: 2px solid var(--border-color);
-            transition: all var(--transition-base);
-        }
-        
-        .contact-email:hover {
-            border-color: var(--primary-blue);
-            transform: translateY(-2px);
-        }
-        
-        .contact-actions {
-            display: flex;
-            gap: var(--space-md);
-            justify-content: center;
-        }
-        
-        /* ==================== SOCIAL MEDIA ==================== */
+        /* Social Links */
         .social-section {
-            background: var(--primary-dark);
+            text-align: center;
+            background-color: rgba(10, 10, 10, 0.7);
+            padding: 60px 0;
+            border-top: 1px solid rgba(255, 204, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 204, 0, 0.2);
         }
         
         .social-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-lg);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
         
         .social-card {
-            background: var(--secondary-dark);
-            padding: var(--space-lg);
-            border-radius: var(--radius-md);
-            transition: transform var(--transition-base);
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(30, 58, 138, 0.2));
+            border-radius: 10px;
+            padding: 30px 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 204, 0, 0.1);
         }
         
         .social-card:hover {
             transform: translateY(-5px);
-        }
-        
-        .social-header {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-            margin-bottom: var(--space-md);
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(30, 58, 138, 0.3));
+            border-color: var(--accent);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
         
         .social-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: var(--radius-round);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-        }
-        
-        .social-card.youtube .social-icon { background: #ff0000; }
-        .social-card.twitch .social-icon { background: #9146ff; }
-        .social-card.discord .social-icon { background: #7289da; }
-        .social-card.youtube .social-icon { background: #ff0000; }
-        .social-card.instagram .social-icon { background: #e4405f; }
-        .social-card.tiktok .social-icon { background: #000000; }
-        .social-card.reddit .social-icon { background: #ff4500; }
-        
-        .social-title {
-            font-size: 1.25rem;
-            color: var(--text-primary);
-        }
-        
-        .social-description {
-            color: var(--text-secondary);
-            margin-bottom: var(--space-md);
-            font-size: 0.95rem;
-        }
-        
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            color: var(--primary-blue);
-            font-weight: 500;
-        }
-        
-        /* ==================== CONTENT THEMES ==================== */
-        .themes-section {
-            background: var(--secondary-dark);
-        }
-        
-        .themes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--space-lg);
-        }
-        
-        .theme-card {
-            background: var(--accent-dark);
-            padding: var(--space-lg);
-            border-radius: var(--radius-md);
-            transition: transform var(--transition-base);
-            height: 100%;
-        }
-        
-        .theme-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .theme-icon {
             font-size: 2.5rem;
-            color: var(--primary-blue);
-            margin-bottom: var(--space-md);
+            margin-bottom: 15px;
         }
         
-        .theme-title {
-            font-size: 1.5rem;
-            margin-bottom: var(--space-md);
-            color: var(--text-primary);
+        .social-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
         }
         
-        .theme-description {
-            color: var(--text-secondary);
-            margin-bottom: var(--space-lg);
-        }
-        
-        .theme-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-sm);
-        }
-        
-        .theme-tag {
-            background: var(--primary-dark);
-            padding: var(--space-xs) var(--space-sm);
-            border-radius: var(--radius-sm);
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-        
-        /* ==================== ABOUT SECTION ==================== */
-        .about-section {
-            background: var(--primary-dark);
-        }
-        
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: var(--space-xl);
-        }
-        
-        .about-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--space-lg);
-        }
-        
-        .highlight {
-            text-align: center;
-            padding: var(--space-lg);
-        }
-        
-        .highlight-icon {
-            font-size: 2.5rem;
-            color: var(--primary-blue);
-            margin-bottom: var(--space-md);
-        }
-        
-        .highlight-title {
-            font-size: 1.25rem;
-            color: var(--text-primary);
-            margin-bottom: var(--space-sm);
-        }
-        
-        .highlight-description {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-        
-        /* ==================== EQUIPMENT SECTION ==================== */
-        .equipment-section {
-            background: var(--secondary-dark);
-        }
-        
-        .equipment-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-lg);
-        }
-        
-        .equipment-card {
-            background: var(--accent-dark);
-            padding: var(--space-lg);
-            border-radius: var(--radius-md);
-        }
-        
-        .equipment-category {
-            font-size: 1rem;
-            color: var(--primary-blue);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: var(--space-md);
-        }
-        
-        .equipment-list {
-            list-style: none;
-        }
-        
-        .equipment-item {
-            padding: var(--space-sm) 0;
-            border-bottom: 1px solid var(--border-light);
+        /* Anime Theme Elements */
+        .anime-theme-elements {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-        }
-        
-        .equipment-item:last-child {
-            border-bottom: none;
-        }
-        
-        .equipment-name {
-            color: var(--text-primary);
-        }
-        
-        .equipment-spec {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-        
-        /* ==================== TESTIMONIALS SECTION ==================== */
-        .testimonials-section {
-            background: var(--primary-dark);
-        }
-        
-        .testimonial-slider {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .testimonial {
-            background: var(--secondary-dark);
-            padding: var(--space-xl);
-            border-radius: var(--radius-lg);
-            text-align: center;
-        }
-        
-        .testimonial-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-            margin-bottom: var(--space-lg);
-            font-style: italic;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-md);
-        }
-        
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--accent-dark);
-        }
-        
-        .author-info h4 {
-            margin-bottom: var(--space-xs);
-        }
-        
-        .author-role {
-            color: var(--text-tertiary);
-            font-size: 0.9rem;
-        }
-        
-        /* ==================== PARTNERSHIPS SECTION ==================== */
-        .partnerships-section {
-            background: var(--secondary-dark);
-        }
-        
-        .partnerships-grid {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-xl);
+            margin: 50px 0;
             flex-wrap: wrap;
+            gap: 20px;
         }
         
-        .partnership-logo {
-            width: 120px;
-            height: 60px;
-            background: var(--accent-dark);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-        
-        /* ==================== BLOG SECTION ==================== */
-        .blog-section {
-            background: var(--primary-dark);
-        }
-        
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-lg);
-        }
-        
-        .blog-card {
-            background: var(--secondary-dark);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            transition: transform var(--transition-base);
-        }
-        
-        .blog-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .blog-image {
-            height: 200px;
-            background: var(--accent-dark);
-        }
-        
-        .blog-content {
-            padding: var(--space-lg);
-        }
-        
-        .blog-category {
-            display: inline-block;
-            background: var(--primary-blue);
-            color: white;
-            padding: var(--space-xs) var(--space-sm);
-            border-radius: var(--radius-sm);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: var(--space-md);
-        }
-        
-        .blog-title {
-            font-size: 1.25rem;
-            color: var(--text-primary);
-            margin-bottom: var(--space-sm);
-        }
-        
-        .blog-excerpt {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: var(--space-md);
-        }
-        
-        .blog-meta {
-            display: flex;
-            justify-content: space-between;
-            color: var(--text-tertiary);
-            font-size: 0.85rem;
-        }
-        
-        /* ==================== NEWSLETTER SECTION ==================== */
-        .newsletter-section {
-            background: var(--secondary-dark);
-        }
-        
-        .newsletter-container {
-            max-width: 600px;
-            margin: 0 auto;
+        .theme-element {
             text-align: center;
-        }
-        
-        .newsletter-form {
-            display: flex;
-            gap: var(--space-sm);
-            margin-top: var(--space-xl);
-        }
-        
-        .newsletter-input {
             flex: 1;
-            padding: var(--space-md);
-            background: var(--primary-dark);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            color: var(--text-primary);
-            font-size: 1rem;
+            min-width: 250px;
         }
         
-        .newsletter-input:focus {
-            outline: none;
-            border-color: var(--primary-blue);
+        .theme-element img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 2px solid var(--primary);
         }
         
-        /* ==================== FOOTER ==================== */
-        .main-footer {
-            background: var(--primary-dark);
-            padding: var(--space-xxl) 0 var(--space-xl);
-            border-top: 1px solid var(--border-color);
+        /* Footer */
+        footer {
+            background-color: var(--darker);
+            padding: 60px 0 30px;
+            border-top: 2px solid var(--primary);
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-xl);
-            margin-bottom: var(--space-xl);
+            gap: 40px;
+            margin-bottom: 40px;
         }
         
         .footer-section h3 {
-            font-size: 1.25rem;
-            color: var(--text-primary);
-            margin-bottom: var(--space-lg);
-            position: relative;
-            padding-bottom: var(--space-sm);
-        }
-        
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
         }
         
         .footer-links {
@@ -1144,1173 +420,592 @@
         }
         
         .footer-links li {
-            margin-bottom: var(--space-sm);
-        }
-        
-        .footer-links a {
-            color: var(--text-secondary);
-            transition: color var(--transition-fast);
+            margin-bottom: 12px;
         }
         
         .footer-links a:hover {
-            color: var(--text-primary);
+            color: var(--accent);
+            padding-left: 5px;
         }
         
-        .footer-social {
-            display: flex;
-            gap: var(--space-md);
-            margin-top: var(--space-lg);
-        }
-        
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-round);
-            background: var(--accent-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            transition: all var(--transition-base);
-        }
-        
-        .footer-social a:hover {
-            background: var(--primary-blue);
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        .footer-bottom {
+        .copyright {
             text-align: center;
-            padding-top: var(--space-xl);
-            border-top: 1px solid var(--border-color);
-            color: var(--text-tertiary);
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0aec0;
             font-size: 0.9rem;
         }
         
-        /* ==================== UTILITY CLASSES ==================== */
-        .text-center { text-align: center; }
-        .text-left { text-align: left; }
-        .text-right { text-align: right; }
+        /* About Page Styles */
+        .about-page {
+            padding-top: 140px;
+        }
         
-        .mt-1 { margin-top: var(--space-sm); }
-        .mt-2 { margin-top: var(--space-md); }
-        .mt-3 { margin-top: var(--space-lg); }
-        .mt-4 { margin-top: var(--space-xl); }
-        .mb-1 { margin-bottom: var(--space-sm); }
-        .mb-2 { margin-bottom: var(--space-md); }
-        .mb-3 { margin-bottom: var(--space-lg); }
-        .mb-4 { margin-bottom: var(--space-xl); }
+        .about-hero {
+            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), url('https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+        }
         
-        .d-none { display: none !important; }
-        .d-block { display: block !important; }
-        .d-flex { display: flex !important; }
-        .d-grid { display: grid !important; }
+        .about-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
         
-        /* ==================== RESPONSIVE DESIGN ==================== */
-        @media (max-width: 1024px) {
-            .container {
-                padding: 0 var(--space-md);
-            }
-            
-            .hero-content {
+        .about-details {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(26, 54, 93, 0.2);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: -50px;
+            position: relative;
+            z-index: 2;
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .about-details p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #e2e8f0;
+        }
+        
+        .about-details .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .interest-item {
+            background-color: rgba(139, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(255, 204, 0, 0.1);
+        }
+        
+        .interest-item i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
                 grid-template-columns: 1fr;
-                gap: var(--space-xl);
             }
             
-            .profile-container {
-                width: 300px;
-                height: 300px;
+            .hero h1 {
+                font-size: 2.8rem;
             }
         }
         
         @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
-            .nav-menu {
-                position: fixed;
+            nav ul {
+                display: none;
+                position: absolute;
                 top: 70px;
                 left: 0;
                 width: 100%;
-                background: var(--primary-dark);
+                background-color: rgba(10, 10, 10, 0.98);
                 flex-direction: column;
-                padding: var(--space-lg);
-                gap: var(--space-md);
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: all var(--transition-base);
-                z-index: var(--z-fixed);
-                border-top: 1px solid var(--border-color);
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+                z-index: 100;
             }
             
-            .nav-menu.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
+            nav ul.active {
+                display: flex;
             }
             
-            .cta-buttons {
-                flex-direction: column;
+            .mobile-menu-btn {
+                display: block;
             }
             
-            .schedule-timeline {
-                padding-left: 40px;
+            .hero h1 {
+                font-size: 2.2rem;
             }
             
-            .schedule-timeline::before {
-                left: 20px;
+            .hero h1 span {
+                font-size: 1.8rem;
             }
             
-            .schedule-day::before {
-                left: -30px;
-            }
-            
-            .newsletter-form {
-                flex-direction: column;
+            .section-title h2 {
+                font-size: 2rem;
             }
         }
         
         @media (max-width: 576px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            h2 {
-                font-size: 2rem;
+            .hero {
+                padding: 140px 0 80px;
             }
             
             .section {
-                padding: var(--space-xl) 0;
+                padding: 60px 0;
             }
             
-            .profile-container {
-                width: 250px;
-                height: 250px;
+            .about-details {
+                padding: 30px 20px;
             }
-            
-            .contact-actions {
-                flex-direction: column;
-            }
-        }
-        
-        /* ==================== ACCESSIBILITY ==================== */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-        
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--primary-blue);
-            color: white;
-            padding: var(--space-sm) var(--space-md);
-            text-decoration: none;
-            z-index: var(--z-tooltip);
-            transition: top 0.3s ease;
-        }
-        
-        .skip-link:focus {
-            top: 0;
-        }
-        
-        /* ==================== DARK/LIGHT THEME ==================== */
-        [data-theme="light"] {
-            --primary-dark: #f8f9fa;
-            --secondary-dark: #e9ecef;
-            --accent-dark: #dee2e6;
-            --light-dark: #ced4da;
-            
-            --text-primary: #212529;
-            --text-secondary: #495057;
-            --text-tertiary: #6c757d;
-            --text-muted: #adb5bd;
-            
-            --border-color: #ced4da;
-            --border-light: #dee2e6;
-        }
-        
-        .theme-toggle {
-            position: fixed;
-            bottom: var(--space-lg);
-            right: var(--space-lg);
-            width: 50px;
-            height: 50px;
-            border-radius: var(--radius-round);
-            background: var(--secondary-dark);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: var(--z-fixed);
-            transition: all var(--transition-base);
-        }
-        
-        .theme-toggle:hover {
-            background: var(--primary-blue);
-            color: white;
-            transform: scale(1.1);
         }
     </style>
 </head>
-<body data-theme="dark">
-    <!-- Skip link for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Loading Screen -->
-    <div id="loading-screen">
-        <div class="loading-content">
-            <div class="loading-spinner"></div>
-            <p>Loading damagedlols...</p>
-        </div>
-    </div>
-    
-    <!-- Navigation -->
-    <nav class="main-nav" id="main-nav">
-        <div class="container nav-container">
-            <div class="nav-brand">
-                <div class="brand-logo">DL</div>
-                <div class="brand-text">damagedlols</div>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-gamepad"></i></div>
+                <div class="logo-text">DAMAGED<span>ZONE</span></div>
             </div>
             
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
             
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#schedule" class="nav-link">Schedule</a></li>
-                <li><a href="#content" class="nav-link">Content</a></li>
-                <li><a href="#equipment" class="nav-link">Equipment</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="#social" class="nav-link">Social</a></li>
-            </ul>
+            <nav>
+                <ul id="mainNav">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="#games">Games</a></li>
+                    <li><a href="#social">Social Links</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </nav>
-    
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-        <i class="fas fa-moon"></i>
-    </button>
-    
-    <!-- Main Content -->
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section class="hero-section" id="home">
-            <div class="hero-background"></div>
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-left">
-                        <div class="profile-container">
-                            <div class="profile-image">
-                                <i class="fas fa-gamepad"></i>
-                            </div>
-                            <div class="profile-badges">
-                                <div class="badge"><i class="fas fa-cross"></i></div>
-                                <div class="badge"><i class="fas fa-sword"></i></div>
-                                <div class="badge"><i class="fas fa-hat-cowboy"></i></div>
-                                <div class="badge"><i class="fas fa-headset"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="hero-right">
-                        <h1><span class="text-gradient">damagedlols</span></h1>
-                        <p class="hero-subtitle">Professional Content Creator & Community Builder</p>
-                        
-                        <div class="hero-bio">
-                            <p class="bio-text">
-                                Aiden (damagedlols) is a professional content creator specializing in gaming, anime analysis, and community development. 
-                                With a focus on indie games and meaningful content creation, I build engaged communities around shared interests 
-                                in gaming, anime, and faith-based discussions.
-                            </p>
-                        </div>
-                        
-                        <div class="cta-buttons">
-                            <button class="btn btn-primary" onclick="window.open('https://twitch.tv/damagedlols', '_blank')">
-                                <i class="fab fa-twitch"></i> Watch Stream
-                            </button>
-                            <button class="btn btn-secondary" onclick="scrollToContact()">
-                                <i class="fas fa-envelope"></i> Contact
-                            </button>
-                            <button class="btn btn-outline" onclick="window.open('https://discord.gg/YawXU3zCBh', '_blank')">
-                                <i class="fab fa-discord"></i> Join Discord
-                            </button>
-                        </div>
-                    </div>
-                </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Welcome to the <span>Damaged Zone</span> 🎮</h1>
+            <p>Hey, I'm Damaged – your go-to gamer for chaotic fun, indie game gems, Fortnite madness, and creative rides in Planet Coaster 2 (new series dropping now!).</p>
+            <p>I post gameplay, walkthroughs, and wild gaming moments you won't want to miss. If you're into cool builds, clutch plays, and chill vibes, you're in the right place. Smash that subscribe button and join the ride.</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About My Content</h2>
             </div>
-        </section>
-        
-        <!-- Stats Section -->
-        <section class="section stats-section">
-            <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon"><i class="fas fa-users"></i></div>
-                        <div class="stat-number">3.2K+</div>
-                        <div class="stat-label">Community Members</div>
-                    </div>
-                    
-                    <div class="stat-card">
-                        <div class="stat-icon"><i class="fas fa-stream"></i></div>
-                        <div class="stat-number">150+</div>
-                        <div class="stat-label">Streams Hosted</div>
-                    </div>
-                    
-                    <div class="stat-card">
-                        <div class="stat-icon"><i class="fas fa-clock"></i></div>
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Hours Streamed</div>
-                    </div>
-                    
-                    <div class="stat-card">
-                        <div class="stat-icon"><i class="fas fa-heart"></i></div>
-                        <div class="stat-number">98%</div>
-                        <div class="stat-label">Positive Feedback</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- About Section -->
-        <section class="section about-section" id="about">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Professional Profile</h2>
-                    <p class="text-muted">Content creation with purpose and professionalism</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Chaotic Fun & Epic Gaming Moments</h3>
+                    <p>I'm all about creating entertaining gaming content that combines skill, humor, and creativity. Whether I'm pulling off insane plays in Fortnite or building the wildest roller coasters in Planet Coaster 2, my goal is to make every stream and video an experience you'll remember.</p>
+                    <p>I love discovering hidden indie gems and giving them the attention they deserve. There's nothing better than sharing an underrated game that blows everyone away!</p>
+                    <p>My current focus is Planet Coaster 2 - building epic parks with creative theming and insane coasters. New episodes drop regularly!</p>
                 </div>
                 
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>
-                            As a professional content creator, I specialize in creating engaging gaming and anime content 
-                            while maintaining a professional approach to community building. My content focuses on indie 
-                            game exploration, in-depth anime analysis, and creating a positive community environment.
-                        </p>
-                        <p>
-                            With a background in community management and content strategy, I bring a professional 
-                            approach to streaming that focuses on quality, consistency, and meaningful engagement. 
-                            Each stream is carefully planned to deliver maximum value to the community.
-                        </p>
-                    </div>
-                    
-                    <div class="about-highlights">
-                        <div class="highlight">
-                            <div class="highlight-icon"><i class="fas fa-bullseye"></i></div>
-                            <h3 class="highlight-title">Quality Focus</h3>
-                            <p class="highlight-description">High-quality production and professional presentation</p>
-                        </div>
-                        
-                        <div class="highlight">
-                            <div class="highlight-icon"><i class="fas fa-hands-helping"></i></div>
-                            <h3 class="highlight-title">Community First</h3>
-                            <p class="highlight-description">Building and nurturing engaged, positive communities</p>
-                        </div>
-                        
-                        <div class="highlight">
-                            <div class="highlight-icon"><i class="fas fa-chart-line"></i></div>
-                            <h3 class="highlight-title">Strategic Growth</h3>
-                            <p class="highlight-description">Data-driven approach to content and community development</p>
-                        </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gaming Setup">
+                    <div class="image-overlay">
+                        <h3>Live Streams & Gameplay</h3>
+                        <p>Join me for live gaming sessions and interactive fun!</p>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- Schedule Section -->
-        <section class="section schedule-section" id="schedule">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Streaming Schedule</h2>
-                    <p class="text-muted">Professional streaming times (Eastern Time Zone)</p>
-                </div>
-                
-                <div class="schedule-header">
-                    <div class="schedule-legend">
-                        <div class="legend-item">
-                            <div class="legend-color friday"></div>
-                            <span>Friday Streams</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color saturday"></div>
-                            <span>Saturday Streams</span>
-                        </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section class="section" id="games">
+        <div class="container">
+            <div class="section-title">
+                <h2>Games I Play</h2>
+            </div>
+            
+            <div class="games-grid">
+                <div class="game-card">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Indie Games">
+                    <div class="game-card-content">
+                        <h3>Indie Games</h3>
+                        <p>Exploring underrated bangers and hidden gems that deserve more attention. From pixel-art adventures to innovative gameplay mechanics.</p>
                     </div>
                 </div>
                 
-                <div class="schedule-container">
-                    <div class="schedule-timeline">
-                        <!-- Friday Schedule -->
-                        <div class="schedule-day friday">
-                            <div class="schedule-day-header">
-                                <h3 class="schedule-day-title">Friday Night Streams</h3>
-                                <span class="schedule-day-subtitle">Primary Streaming Session</span>
-                            </div>
-                            
-                            <div class="schedule-slot friday">
-                                <div class="schedule-time">9:30 PM - 1:00 AM EST</div>
-                                <div class="schedule-content">
-                                    <p><strong>Main Streaming Session:</strong> Extended gameplay, community interaction, and featured content.</p>
-                                    <p>Focus on indie game exploration, in-depth gaming sessions, and community Q&A.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="schedule-slot friday">
-                                <div class="schedule-time">9:30 PM - 11:00 PM</div>
-                                <div class="schedule-content">
-                                    <strong>Featured Gameplay:</strong> Primary game of the week with community interaction.
-                                </div>
-                            </div>
-                            
-                            <div class="schedule-slot friday">
-                                <div class="schedule-time">11:00 PM - 1:00 AM</div>
-                                <div class="schedule-content">
-                                    <strong>Community Hours:</strong> Viewer interaction, multiplayer sessions, and community building.
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Saturday Schedule -->
-                        <div class="schedule-day saturday">
-                            <div class="schedule-day-header">
-                                <h3 class="schedule-day-title">Saturday Night Streams</h3>
-                                <span class="schedule-day-subtitle">Weekend Special Session</span>
-                            </div>
-                            
-                            <div class="schedule-slot saturday">
-                                <div class="schedule-time">7:30 PM - 12:00 AM EST</div>
-                                <div class="schedule-content">
-                                    <p><strong>Weekend Special Session:</strong> Longer format content, special guests, and community events.</p>
-                                    <p>Focus on anime discussions, special gaming events, and community challenges.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="schedule-slot saturday">
-                                <div class="schedule-time">7:30 PM - 9:30 PM</div>
-                                <div class="schedule-content">
-                                    <strong>Anime & Gaming Discussion:</strong> Weekly anime reviews, gaming news, and community topics.
-                                </div>
-                            </div>
-                            
-                            <div class="schedule-slot saturday">
-                                <div class="schedule-time">9:30 PM - 12:00 AM</div>
-                                <div class="schedule-content">
-                                    <strong>Special Event Gaming:</strong> Featured games, challenges, and community participation events.
-                                </div>
-                            </div>
-                        </div>
+                <div class="game-card">
+                    <img src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fortnite">
+                    <div class="game-card-content">
+                        <h3>Fortnite</h3>
+                        <p>W's only! Clutch plays, building battles, and Victory Royale chases. Join me for competitive matches and hilarious moments in Fortnite.</p>
                     </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Content Themes Section -->
-        <section class="section themes-section" id="content">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Content Focus Areas</h2>
-                    <p class="text-muted">Professional content creation across multiple themes</p>
                 </div>
                 
-                <div class="themes-grid">
-                    <div class="theme-card">
-                        <div class="theme-icon"><i class="fas fa-gamepad"></i></div>
-                        <h3 class="theme-title">Gaming Content</h3>
-                        <p class="theme-description">
-                            Professional gameplay, indie game exploration, and gaming industry analysis. 
-                            Focus on quality gameplay and informative commentary.
-                        </p>
-                        <div class="theme-tags">
-                            <span class="theme-tag">Indie Games</span>
-                            <span class="theme-tag">Game Analysis</span>
-                            <span class="theme-tag">Live Gameplay</span>
-                        </div>
-                    </div>
-                    
-                    <div class="theme-card">
-                        <div class="theme-icon"><i class="fas fa-film"></i></div>
-                        <h3 class="theme-title">Anime Analysis</h3>
-                        <p class="theme-description">
-                            In-depth anime reviews, character analysis, and industry discussion. 
-                            Professional approach to anime content creation.
-                        </p>
-                        <div class="theme-tags">
-                            <span class="theme-tag">One Piece</span>
-                            <span class="theme-tag">Demon Slayer</span>
-                            <span class="theme-tag">Analysis</span>
-                        </div>
-                    </div>
-                    
-                    <div class="theme-card">
-                        <div class="theme-icon"><i class="fas fa-users"></i></div>
-                        <h3 class="theme-title">Community Building</h3>
-                        <p class="theme-description">
-                            Professional community management, engagement strategies, and community development. 
-                            Building positive, engaged communities.
-                        </p>
-                        <div class="theme-tags">
-                            <span class="theme-tag">Community</span>
-                            <span class="theme-tag">Engagement</span>
-                            <span class="theme-tag">Management</span>
-                        </div>
-                    </div>
-                    
-                    <div class="theme-card">
-                        <div class="theme-icon"><i class="fas fa-church"></i></div>
-                        <h3 class="theme-title">Faith Integration</h3>
-                        <p class="theme-description">
-                            Integrating faith values with gaming and anime content. 
-                            Professional approach to meaningful content creation.
-                        </p>
-                        <div class="theme-tags">
-                            <span class="theme-tag">Values</span>
-                            <span class="theme-tag">Discussion</span>
-                            <span class="theme-tag">Community</span>
-                        </div>
+                <div class="game-card">
+                    <img src="https://images.unsplash.com/photo-1511882150382-421056c89033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Planet Coaster 2">
+                    <div class="game-card-content">
+                        <h3>Planet Coaster 2</h3>
+                        <p>My current series - building epic parks with creative theming, insane coasters, and detailed scenery. Theme park design at its finest!</p>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- Equipment Section -->
-        <section class="section equipment-section" id="equipment">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Professional Setup</h2>
-                    <p class="text-muted">Professional-grade equipment for quality content creation</p>
+        </div>
+    </section>
+
+    <!-- Anime Theme Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Anime Inspiration</h2>
+            </div>
+            
+            <div class="anime-theme-elements">
+                <div class="theme-element">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Demon Slayer Theme">
+                    <h3>Demon Slayer Theme</h3>
+                    <p>Inspired by the dark yet vibrant aesthetic of Demon Slayer</p>
                 </div>
                 
-                <div class="equipment-grid">
-                    <div class="equipment-card">
-                        <div class="equipment-category">Streaming Hardware</div>
-                        <ul class="equipment-list">
-                            <li class="equipment-item">
-                                <span class="equipment-name">Gaming PC</span>
-                                <span class="equipment-spec">RTX 3080, Ryzen 9</span>
-                            </li>
-                            <li class="equipment-item">
-                                <span class="equipment-name">Capture Card</span>
-                                <span class="equipment-spec">Elgato 4K60 Pro</span>
-                            </li>
-                            <li class="equipment-item">
-                                <span class="equipment-name">Streaming PC</span>
-                                <span class="equipment-spec">Dedicated Encoding</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="equipment-card">
-                        <div class="equipment-category">Audio/Visual</div>
-                        <ul class="equipment-list">
-                            <li class="equipment-item">
-                                <span class="equipment-name">Microphone</span>
-                                <span class="equipment-spec">Shure SM7B</span>
-                            </li>
-                            <li class="equipment-item">
-                                <span class="equipment-name">Camera</span>
-                                <span class="equipment-spec">Sony A6400</span>
-                            </li>
-                            <li class="equipment-item">
-                                <span class="equipment-name">Lighting</span>
-                                <span class="equipment-spec">Professional Setup</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="equipment-card">
-                        <div class="equipment-category">Software</div>
-                        <ul class="equipment-list">
-                            <li class="equipment-item">
-                                <span class="equipment-name">Streaming</span>
-                                <span class="equipment-spec">OBS Studio</span>
-                            </li>
-                            <li class="equipment-item">
-                                <span class="equipment-name">Editing</span>
-                                <span class="equipment-spec">Adobe Suite</span>
-                            </li>
-                            <li class="equipment-item">
-                                <span class="equipment-name">Management</span>
-                                <span class="equipment-spec">StreamElements</span>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="theme-element">
+                    <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="One Piece Theme">
+                    <h3>One Piece Theme</h3>
+                    <p>Adventure and freedom inspired by the world of One Piece</p>
                 </div>
             </div>
-        </section>
-        
-        <!-- Contact Section -->
-        <section class="section contact-section" id="contact">
-            <div class="container">
-                <div class="contact-container">
-                    <div class="contact-card">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="contact-title">
-                            <h2>Professional Contact</h2>
-                        </div>
-                        <p class="contact-description">
-                            For business inquiries, collaboration opportunities, or professional discussions, 
-                            please contact me directly. I typically respond within 24-48 hours.
-                        </p>
-                        
-                        <a href="mailto:crabtluke@gmail.com" class="contact-email">
-                            <i class="fas fa-envelope"></i> crabtluke@gmail.com
-                        </a>
-                        
-                        <div class="contact-actions">
-                            <button class="btn btn-primary" onclick="sendEmail()">
-                                <i class="fas fa-paper-plane"></i> Send Email
-                            </button>
-                            <button class="btn btn-secondary" onclick="copyEmail()">
-                                <i class="fas fa-copy"></i> Copy Address
-                            </button>
-                        </div>
-                    </div>
-                </div>
+        </div>
+    </section>
+
+    <!-- Social Links Section -->
+    <section class="social-section" id="social">
+        <div class="container">
+            <div class="section-title">
+                <h2>Follow Me on Socials</h2>
             </div>
-        </section>
-        
-        <!-- Social Media Section -->
-        <section class="section social-section" id="social">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Professional Platforms</h2>
-                    <p class="text-muted">Connect across professional content platforms</p>
-                </div>
+            
+            <div class="social-grid">
+                <a href="https://tiktok.com/@damagedgaming0_o" target="_blank" class="social-card">
+                    <div class="social-icon"><i class="fab fa-tiktok"></i></div>
+                    <h3>TikTok</h3>
+                    <p>@damagedgaming0_o</p>
+                    <p>Short gaming clips and highlights</p>
+                </a>
                 
-                <div class="social-grid">
-                    <div class="social-card twitch">
-                        <div class="social-header">
-                            <div class="social-icon"><i class="fab fa-twitch"></i></div>
-                            <div>
-                                <h3 class="social-title">Twitch</h3>
-                                <p class="text-muted">Primary Streaming Platform</p>
-                            </div>
-                        </div>
-                        <p class="social-description">
-                            Professional live streaming platform for gaming, anime discussions, and community interaction.
-                        </p>
-                        <a href="https://twitch.tv/damagedlols" target="_blank" class="social-link">
-                            View Channel <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                    
-                    <div class="social-card youtube">
-                        <div class="social-header">
-                            <div class="social-icon"><i class="fab fa-youtube"></i></div>
-                            <div>
-                                <h3 class="social-title">YouTube</h3>
-                                <p class="text-muted">Content Archive & Highlights</p>
-                            </div>
-                        </div>
-                        <p class="social-description">
-                            Professional video content including stream highlights, tutorials, and edited content.
-                        </p>
-                        <a href="https://youtube.com/@Sv1-um9xt" target="_blank" class="social-link">
-                            View Channel <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                    
-                    <div class="social-card discord">
-                        <div class="social-header">
-                            <div class="social-icon"><i class="fab fa-discord"></i></div>
-                            <div>
-                                <h3 class="social-title">Discord</h3>
-                                <p class="text-muted">Community Hub</p>
-                            </div>
-                        </div>
-                        <p class="social-description">
-                            Professional community management and engagement platform for members and collaborators.
-                        </p>
-                        <a href="https://discord.gg/YawXU3zCBh" target="_blank" class="social-link">
-                            Join Server <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                    
-                    <div class="social-card instagram">
-                        <div class="social-header">
-                            <div class="social-icon"><i class="fab fa-instagram"></i></div>
-                            <div>
-                                <h3 class="social-title">Instagram</h3>
-                                <p class="text-muted">Visual Content & Updates</p>
-                            </div>
-                        </div>
-                        <p class="social-description">
-                            Professional visual content, behind-the-scenes, and community updates.
-                        </p>
-                        <a href="https://instagram.com/damagedgaminglol" target="_blank" class="social-link">
-                            View Profile <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Testimonials Section -->
-        <section class="section testimonials-section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Community Feedback</h2>
-                    <p class="text-muted">Professional testimonials and community feedback</p>
-                </div>
+                <a href="https://instagram.com/damagedgaminglol" target="_blank" class="social-card">
+                    <div class="social-icon"><i class="fab fa-instagram"></i></div>
+                    <h3>Instagram</h3>
+                    <p>@damagedgaminglol</p>
+                    <p>Gaming photos and updates</p>
+                </a>
                 
-                <div class="testimonial-slider">
-                    <div class="testimonial">
-                        <p class="testimonial-text">
-                            "Professional approach to content creation with consistent quality and meaningful community engagement. 
-                            The balance between gaming content and community building is exceptional."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar"></div>
-                            <div class="author-info">
-                                <h4>Alex Morgan</h4>
-                                <p class="author-role">Community Member</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Blog Section -->
-        <section class="section blog-section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Professional Insights</h2>
-                    <p class="text-muted">Industry analysis and professional content</p>
-                </div>
+                <a href="https://discord.gg/YawXU3zCBh" target="_blank" class="social-card">
+                    <div class="social-icon"><i class="fab fa-discord"></i></div>
+                    <h3>Discord</h3>
+                    <p>Join our community</p>
+                    <p>Chat, game together, and get updates</p>
+                </a>
                 
-                <div class="blog-grid">
-                    <div class="blog-card">
-                        <div class="blog-image"></div>
-                        <div class="blog-content">
-                            <span class="blog-category">Industry</span>
-                            <h3 class="blog-title">The Future of Content Creation</h3>
-                            <p class="blog-excerpt">
-                                Analysis of emerging trends in professional content creation and community building.
-                            </p>
-                            <div class="blog-meta">
-                                <span>October 2023</span>
-                                <span>5 min read</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="blog-card">
-                        <div class="blog-image"></div>
-                        <div class="blog-content">
-                            <span class="blog-category">Gaming</span>
-                            <h3 class="blog-title">Indie Game Development</h3>
-                            <p class="blog-excerpt">
-                                Professional analysis of indie game development trends and community impact.
-                            </p>
-                            <div class="blog-meta">
-                                <span>September 2023</span>
-                                <span>7 min read</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="blog-card">
-                        <div class="blog-image"></div>
-                        <div class="blog-content">
-                            <span class="blog-category">Community</span>
-                            <h3 class="blog-title">Building Engaged Communities</h3>
-                            <p class="blog-excerpt">
-                                Professional strategies for building and maintaining engaged online communities.
-                            </p>
-                            <div class="blog-meta">
-                                <span>August 2023</span>
-                                <span>6 min read</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <a href="https://reddit.com/u/Obvious_Customer1406" target="_blank" class="social-card">
+                    <div class="social-icon"><i class="fab fa-reddit"></i></div>
+                    <h3>Reddit</h3>
+                    <p>u/Obvious_Customer1406</p>
+                    <p>Gaming discussions and content</p>
+                </a>
+                
+                <a href="https://twitch.tv/damagedlols" target="_blank" class="social-card">
+                    <div class="social-icon"><i class="fab fa-twitch"></i></div>
+                    <h3>Twitch</h3>
+                    <p>@damagedlols</p>
+                    <p>Live streams and gaming sessions</p>
+                </a>
             </div>
-        </section>
-        
-        <!-- Newsletter Section -->
-        <section class="section newsletter-section">
-            <div class="container">
-                <div class="newsletter-container">
-                    <div class="section-title">
-                        <h2>Professional Updates</h2>
-                        <p class="text-muted">Stay updated with professional content and industry insights</p>
-                    </div>
-                    
-                    <form class="newsletter-form" id="newsletter-form">
-                        <input type="email" class="newsletter-input" placeholder="Enter your professional email" required>
-                        <button type="submit" class="btn btn-primary">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-    
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="main-footer">
+    <footer id="contact">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>damagedlols</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: var(--space-md);">
-                        Professional content creator specializing in gaming, anime, and community development.
-                    </p>
-                    <div class="footer-social">
-                        <a href="https://twitch.tv/damagedlols" target="_blank" aria-label="Twitch"><i class="fab fa-twitch"></i></a>
-                        <a href="https://youtube.com/@Sv1-um9xt" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="https://discord.gg/YawXU3zCBh" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                        <a href="https://instagram.com/damagedgaminglol" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
+                    <h3>Damaged Zone</h3>
+                    <p>Your destination for chaotic gaming fun, indie gems, and epic content inspired by anime and gaming culture.</p>
+                    <p>Join the community and let's game together!</p>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">Professional Profile</a></li>
-                        <li><a href="#schedule">Stream Schedule</a></li>
-                        <li><a href="#content">Content Focus</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Me</a></li>
+                        <li><a href="#games">Games</a></li>
+                        <li><a href="#social">Social Links</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Resources</h3>
+                    <h3>Primary Games</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Content Archive</a></li>
-                        <li><a href="#">Community Guidelines</a></li>
-                        <li><a href="#">Stream Schedule</a></li>
-                        <li><a href="#">Equipment Specs</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#games">Indie Games</a></li>
+                        <li><a href="#games">Fortnite</a></li>
+                        <li><a href="#games">Planet Coaster 2</a></li>
+                        <li><a href="#games">Minecraft</a></li>
+                        <li><a href="#games">Call of Duty</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Legal</h3>
+                    <h3>Anime Inspirations</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                        <li><a href="#">Content Policy</a></li>
+                        <li><a href="#">Demon Slayer</a></li>
+                        <li><a href="#">One Piece</a></li>
+                        <li><a href="#">Other Anime</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="footer-bottom">
-                <p>&copy; 2023 damagedlols. All rights reserved.</p>
-                <p style="margin-top: var(--space-sm); color: var(--text-tertiary); font-size: 0.85rem;">
-                    Professional Content Creator | Gaming & Anime Specialist | Community Builder
-                </p>
+            <div class="copyright">
+                <p>&copy; 2023 Damaged Zone. All rights reserved. | Designed with passion for gaming and anime</p>
+                <p>This is a fan-made website for content creation purposes.</p>
             </div>
         </div>
     </footer>
-    
-    <!-- JavaScript -->
+
+    <!-- About Page (Hidden by default, shown when navigating to about.html) -->
+    <div id="aboutPage" style="display: none;">
+        <section class="about-page">
+            <div class="about-hero">
+                <div class="container">
+                    <h1>About Me</h1>
+                    <p>Get to know the person behind Damaged Zone</p>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="about-details">
+                    <p>Hey, I'm <span class="highlight">Aiden</span>, aka <span class="highlight">damagedlols</span> online. I'm a high school freshman who's super into gaming—stuff like Call of Duty, Fortnite, and Minecraft are my go-tos, and I stream on Twitch whenever I can.</p>
+                    
+                    <p>Love watching anime, especially <span class="highlight">Demon Slayer</span> and <span class="highlight">One Piece</span>, and I'm big on roller coasters too; nothing beats that adrenaline rush. I read a ton of fantasy and historical fiction books, and yeah, I'm Catholic so faith stuff like Jesus and all that means a lot to me.</p>
+                    
+                    <p>Also messing around with 3D printing and content creation on YouTube, Instagram, and TikTok. Hit me up if you wanna chat games, anime, or just vibe!</p>
+                    
+                    <div class="interests-grid">
+                        <div class="interest-item">
+                            <i class="fas fa-gamepad"></i>
+                            <h4>Gaming</h4>
+                            <p>Fortnite, COD, Minecraft, Indie Games</p>
+                        </div>
+                        
+                        <div class="interest-item">
+                            <i class="fas fa-tv"></i>
+                            <h4>Anime</h4>
+                            <p>Demon Slayer, One Piece, and more</p>
+                        </div>
+                        
+                        <div class="interest-item">
+                            <i class="fas fa-cross"></i>
+                            <h4>Faith</h4>
+                            <p>Catholic beliefs and values</p>
+                        </div>
+                        
+                        <div class="interest-item">
+                            <i class="fas fa-book"></i>
+                            <h4>Reading</h4>
+                            <p>Fantasy & Historical Fiction</p>
+                        </div>
+                        
+                        <div class="interest-item">
+                            <i class="fas fa-print"></i>
+                            <h4>3D Printing</h4>
+                            <p>Creating cool 3D models</p>
+                        </div>
+                        
+                        <div class="interest-item">
+                            <i class="fas fa-video"></i>
+                            <h4>Content Creation</h4>
+                            <p>YouTube, TikTok, Instagram</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>About Me</h3>
+                        <p>High school freshman, gamer, anime fan, and content creator. Always down to chat about games, anime, or anything interesting!</p>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Connect With Me</h3>
+                        <ul class="footer-links">
+                            <li><a href="https://tiktok.com/@damagedgaming0_o" target="_blank">TikTok</a></li>
+                            <li><a href="https://instagram.com/damagedgaminglol" target="_blank">Instagram</a></li>
+                            <li><a href="https://discord.gg/YawXU3zCBh" target="_blank">Discord</a></li>
+                            <li><a href="https://reddit.com/u/Obvious_Customer1406" target="_blank">Reddit</a></li>
+                            <li><a href="https://twitch.tv/damagedlols" target="_blank">Twitch</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>My Interests</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Gaming</a></li>
+                            <li><a href="#">Anime</a></li>
+                            <li><a href="#">Roller Coasters</a></li>
+                            <li><a href="#">3D Printing</a></li>
+                            <li><a href="#">Reading</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="copyright">
+                    <p>&copy; 2023 Damaged Zone | Aiden (damagedlols)</p>
+                    <p><a href="index.html" style="color: var(--accent);">← Back to Home</a></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
     <script>
-        // ===========================================
-        // DOM ELEMENTS
-        // ===========================================
-        const DOM = {
-            loadingScreen: document.getElementById('loading-screen'),
-            mainNav: document.getElementById('main-nav'),
-            mobileMenuToggle: document.getElementById('mobile-menu-toggle'),
-            navMenu: document.getElementById('nav-menu'),
-            navLinks: document.querySelectorAll('.nav-link'),
-            themeToggle: document.getElementById('theme-toggle'),
-            newsletterForm: document.getElementById('newsletter-form')
-        };
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
         
-        // ===========================================
-        // UTILITY FUNCTIONS
-        // ===========================================
-        const utils = {
-            debounce(func, wait) {
-                let timeout;
-                return function executedFunction(...args) {
-                    const later = () => {
-                        clearTimeout(timeout);
-                        func(...args);
-                    };
-                    clearTimeout(timeout);
-                    timeout = setTimeout(later, wait);
-                };
-            },
-            
-            showNotification(message, type = 'info') {
-                const notification = document.createElement('div');
-                notification.className = `notification notification-${type}`;
-                notification.textContent = message;
-                notification.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    background: ${type === 'success' ? 'var(--success)' : 'var(--info)'};
-                    color: white;
-                    padding: var(--space-md) var(--space-lg);
-                    border-radius: var(--radius-md);
-                    z-index: 9999;
-                    transform: translateX(100%);
-                    transition: transform 0.3s ease;
-                `;
-                
-                document.body.appendChild(notification);
-                
-                setTimeout(() => {
-                    notification.style.transform = 'translateX(0)';
-                }, 10);
-                
-                setTimeout(() => {
-                    notification.style.transform = 'translateX(100%)';
-                    setTimeout(() => {
-                        if (notification.parentNode) {
-                            notification.parentNode.removeChild(notification);
-                        }
-                    }, 300);
-                }, 3000);
-            },
-            
-            sendEmail() {
-                window.location.href = 'mailto:crabtluke@gmail.com?subject=Professional Inquiry&body=Dear Aiden,%0D%0A%0D%0AI would like to discuss...';
-                this.showNotification('Opening email client...', 'info');
-            },
-            
-            copyEmail() {
-                navigator.clipboard.writeText('crabtluke@gmail.com')
-                    .then(() => {
-                        this.showNotification('Email address copied to clipboard', 'success');
-                    })
-                    .catch(err => {
-                        this.showNotification('Failed to copy email address', 'error');
-                    });
-            }
-        };
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
         
-        // ===========================================
-        // UI FUNCTIONS
-        // ===========================================
-        const ui = {
-            initNavigation() {
-                // Mobile menu toggle
-                DOM.mobileMenuToggle.addEventListener('click', () => {
-                    const isExpanded = DOM.mobileMenuToggle.getAttribute('aria-expanded') === 'true';
-                    DOM.mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
-                    DOM.navMenu.classList.toggle('active');
-                });
-                
-                // Nav link clicks
-                DOM.navLinks.forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        
-                        // Update active state
-                        DOM.navLinks.forEach(l => l.classList.remove('active'));
-                        link.classList.add('active');
-                        
-                        // Close mobile menu if open
-                        if (DOM.navMenu.classList.contains('active')) {
-                            DOM.mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                            DOM.navMenu.classList.remove('active');
-                        }
-                        
-                        // Scroll to section
-                        const targetId = link.getAttribute('href');
-                        const targetElement = document.querySelector(targetId);
-                        if (targetElement) {
-                            window.scrollTo({
-                                top: targetElement.offsetTop - 80,
-                                behavior: 'smooth'
-                            });
-                        }
-                    });
-                });
-                
-                // Nav scroll effect
-                window.addEventListener('scroll', utils.debounce(() => {
-                    if (window.scrollY > 100) {
-                        DOM.mainNav.style.padding = 'var(--space-sm) 0';
-                        DOM.mainNav.style.boxShadow = 'var(--shadow-md)';
-                    } else {
-                        DOM.mainNav.style.padding = 'var(--space-md) 0';
-                        DOM.mainNav.style.boxShadow = 'none';
-                    }
-                    
-                    // Update active nav link
-                    const sections = document.querySelectorAll('section');
-                    const navHeight = DOM.mainNav.offsetHeight;
-                    
-                    let current = '';
-                    sections.forEach(section => {
-                        const sectionTop = section.offsetTop;
-                        if (scrollY >= (sectionTop - navHeight - 100)) {
-                            current = section.getAttribute('id');
-                        }
-                    });
-                    
-                    DOM.navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${current}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }, 10));
-            },
-            
-            initThemeToggle() {
-                DOM.themeToggle.addEventListener('click', () => {
-                    const currentTheme = document.body.getAttribute('data-theme');
-                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                    
-                    document.body.setAttribute('data-theme', newTheme);
-                    DOM.themeToggle.innerHTML = newTheme === 'dark' ? 
-                        '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
-                    
-                    // Save preference
-                    localStorage.setItem('theme', newTheme);
-                });
-                
-                // Load saved theme
-                const savedTheme = localStorage.getItem('theme');
-                if (savedTheme) {
-                    document.body.setAttribute('data-theme', savedTheme);
-                    DOM.themeToggle.innerHTML = savedTheme === 'dark' ? 
-                        '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
-                }
-            },
-            
-            initNewsletter() {
-                if (DOM.newsletterForm) {
-                    DOM.newsletterForm.addEventListener('submit', (e) => {
-                        e.preventDefault();
-                        const email = DOM.newsletterForm.querySelector('input').value;
-                        
-                        // Simulate subscription
-                        setTimeout(() => {
-                            utils.showNotification('Thank you for subscribing to professional updates', 'success');
-                            DOM.newsletterForm.reset();
-                        }, 500);
-                    });
-                }
-            },
-            
-            initSmoothScrolling() {
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        const targetId = this.getAttribute('href');
-                        if (targetId === '#') return;
-                        
-                        const targetElement = document.querySelector(targetId);
-                        if (targetElement) {
-                            window.scrollTo({
-                                top: targetElement.offsetTop - 80,
-                                behavior: 'smooth'
-                            });
-                        }
-                    });
-                });
-            }
-        };
-        
-        // ===========================================
-        // INITIALIZATION
-        // ===========================================
-        function init() {
-            // Hide loading screen
-            setTimeout(() => {
-                DOM.loadingScreen.style.opacity = '0';
-                setTimeout(() => {
-                    DOM.loadingScreen.style.display = 'none';
-                }, 300);
-            }, 1000);
-            
-            // Initialize components
-            ui.initNavigation();
-            ui.initThemeToggle();
-            ui.initNewsletter();
-            ui.initSmoothScrolling();
-            
-            // Initialize tooltips
-            const tooltips = document.querySelectorAll('[data-tooltip]');
-            tooltips.forEach(el => {
-                el.addEventListener('mouseenter', (e) => {
-                    const tooltip = document.createElement('div');
-                    tooltip.textContent = el.getAttribute('data-tooltip');
-                    tooltip.style.cssText = `
-                        position: absolute;
-                        background: var(--secondary-dark);
-                        color: var(--text-primary);
-                        padding: var(--space-xs) var(--space-sm);
-                        border-radius: var(--radius-sm);
-                        font-size: 0.85rem;
-                        white-space: nowrap;
-                        z-index: 10000;
-                        pointer-events: none;
-                        border: 1px solid var(--border-color);
-                        transform: translate(-50%, -100%);
-                        top: -10px;
-                        left: 50%;
-                    `;
-                    
-                    document.body.appendChild(tooltip);
-                    el.tooltipElement = tooltip;
-                });
-                
-                el.addEventListener('mouseleave', () => {
-                    if (el.tooltipElement && el.tooltipElement.parentNode) {
-                        el.tooltipElement.parentNode.removeChild(el.tooltipElement);
-                    }
-                });
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             });
+        });
+        
+        // Simple page routing for the About page
+        // In a real implementation, this would be separate HTML files
+        // For this demo, we'll simulate page navigation
+        const aboutPage = document.getElementById('aboutPage');
+        const mainContent = document.querySelector('body > :not(#aboutPage)');
+        
+        // Check if we're on the about page (simulating separate page)
+        const isAboutPage = window.location.hash === '#about-page';
+        
+        if (isAboutPage) {
+            mainContent.style.display = 'none';
+            aboutPage.style.display = 'block';
             
-            // Console welcome message
-            console.log('%cdamagedlols Professional Portfolio', 'color: #0077b6; font-size: 18px; font-weight: bold;');
-            console.log('%cProfessional content creation and community development', 'color: #8892b0;');
+            // Update active nav link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === 'about.html') {
+                    link.classList.add('active');
+                }
+            });
         }
         
-        // ===========================================
-        // GLOBAL FUNCTIONS
-        // ===========================================
-        window.scrollToContact = function() {
-            const contactSection = document.querySelector('#contact');
-            if (contactSection) {
-                window.scrollTo({
-                    top: contactSection.offsetTop - 80,
-                    behavior: 'smooth'
+        // Handle navigation between pages
+        document.querySelectorAll('a[href="about.html"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.location.hash = 'about-page';
+                mainContent.style.display = 'none';
+                aboutPage.style.display = 'block';
+                
+                // Update active nav link
+                document.querySelectorAll('nav a').forEach(navLink => {
+                    navLink.classList.remove('active');
                 });
-            }
+                link.classList.add('active');
+                
+                // Close mobile menu if open
+                mainNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+        
+        document.querySelectorAll('a[href="index.html"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.location.hash = '';
+                aboutPage.style.display = 'none';
+                mainContent.style.display = 'block';
+                
+                // Update active nav link
+                document.querySelectorAll('nav a').forEach(navLink => {
+                    navLink.classList.remove('active');
+                    if (navLink.getAttribute('href') === 'index.html') {
+                        navLink.classList.add('active');
+                    }
+                });
+                
+                // Close mobile menu if open
+                mainNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            if (anchor.getAttribute('href') === '#' || 
+                anchor.getAttribute('href') === '#about-page' || 
+                anchor.getAttribute('href').startsWith('http')) return;
+            
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add animation to elements when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
         
-        window.sendEmail = utils.sendEmail;
-        window.copyEmail = utils.copyEmail;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
         
-        // ===========================================
-        // START APPLICATION
-        // ===========================================
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', init);
-        } else {
-            init();
-        }
-        
-        // Handle window resize
-        window.addEventListener('resize', utils.debounce(() => {
-            // Update mobile menu if needed
-            if (window.innerWidth > 768 && DOM.navMenu.classList.contains('active')) {
-                DOM.mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                DOM.navMenu.classList.remove('active');
-            }
-        }, 250));
+        // Observe elements for animation
+        document.querySelectorAll('.game-card, .social-card, .about-text, .about-image').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>
