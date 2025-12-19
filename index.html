@@ -3,31 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Damaged Zone | Gaming & Anime Content</title>
+    <title>Damaged Zone | Gaming & Anime Content Creator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Oswald:wght@500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Oswald:wght@500;600;700&family=Roboto:wght@300;400;500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
+            /* Demon Slayer Theme Colors */
+            --demon-purple: #4a1e5a;
+            --demon-dark-purple: #2d0a3a;
+            --demon-orange: #ff7b25;
+            --demon-light-orange: #ff9e5c;
+            --demon-white: #f5f5f5;
+            --demon-gray: #2a2a2a;
+            --demon-red: #c53030;
+            --demon-blue: #2a4365;
+            --demon-teal: #0d9488;
+            
             /* One Piece Colors */
             --one-piece-red: #c91a1a;
             --one-piece-yellow: #ffcc00;
             --one-piece-blue: #1e3a8a;
             --one-piece-black: #0a0a0a;
             
-            /* Demon Slayer Colors */
-            --demon-red: #8b0000;
-            --demon-blue: #1a365d;
-            --demon-purple: #4a1e5a;
-            --demon-gray: #2d3748;
-            
-            /* Theme Colors */
-            --primary: var(--demon-red);
-            --secondary: var(--one-piece-blue);
+            /* Theme Variables */
+            --primary: var(--demon-purple);
+            --secondary: var(--demon-orange);
             --accent: var(--one-piece-yellow);
             --dark: #121212;
             --darker: #0a0a0a;
-            --light: #f8f9fa;
+            --light: var(--demon-white);
             --text: #e2e8f0;
+            --section-bg: rgba(42, 42, 42, 0.7);
         }
         
         * {
@@ -36,46 +42,74 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
             color: var(--text);
             background-color: var(--dark);
             background-image: 
-                radial-gradient(circle at 20% 80%, rgba(139, 0, 0, 0.15) 0%, transparent 20%),
-                radial-gradient(circle at 80% 20%, rgba(30, 58, 138, 0.15) 0%, transparent 20%);
+                radial-gradient(circle at 10% 20%, rgba(74, 30, 90, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 90% 80%, rgba(255, 123, 37, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 50% 50%, rgba(42, 42, 42, 0.2) 0%, transparent 50%);
             overflow-x: hidden;
+            position: relative;
         }
         
-        h1, h2, h3, h4 {
-            font-family: 'Oswald', sans-serif;
-            font-weight: 600;
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'),
+                url('https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: 40%, 30%;
+            background-position: left top, right bottom;
+            background-repeat: no-repeat;
+            opacity: 0.03;
+            z-index: -1;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
             letter-spacing: 0.5px;
         }
         
         a {
             text-decoration: none;
             color: inherit;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
+        }
+        
+        .section-padding {
+            padding: 100px 0;
         }
         
         /* Header & Navigation */
         header {
-            background-color: rgba(10, 10, 10, 0.95);
-            padding: 15px 0;
+            background-color: rgba(10, 10, 10, 0.97);
+            padding: 18px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-            border-bottom: 2px solid var(--primary);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);
+            border-bottom: 3px solid var(--secondary);
+            backdrop-filter: blur(10px);
         }
         
         .header-container {
@@ -87,66 +121,72 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
         
         .logo-icon {
-            color: var(--accent);
-            font-size: 1.8rem;
+            color: var(--secondary);
+            font-size: 2.2rem;
+            text-shadow: 0 0 10px rgba(255, 123, 37, 0.5);
         }
         
         .logo-text {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.8rem;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            font-weight: 800;
+            font-size: 2rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+            letter-spacing: 1px;
         }
         
         .logo-text span {
-            color: var(--text);
+            color: var(--light);
+            font-weight: 600;
         }
         
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 30px;
         }
         
         nav a {
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             font-size: 1.1rem;
-            padding: 8px 15px;
-            border-radius: 4px;
+            padding: 10px 20px;
+            border-radius: 50px;
             position: relative;
+            overflow: hidden;
         }
         
         nav a:hover {
-            color: var(--accent);
+            color: var(--secondary);
+            transform: translateY(-3px);
         }
         
         nav a.active {
-            color: var(--accent);
-            background-color: rgba(139, 0, 0, 0.2);
+            color: var(--light);
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            box-shadow: 0 5px 15px rgba(255, 123, 37, 0.3);
         }
         
-        nav a::after {
+        nav a::before {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            bottom: 0;
-            left: 0;
-            transition: width 0.3s ease;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.7s;
         }
         
-        nav a:hover::after {
-            width: 100%;
+        nav a:hover::before {
+            left: 100%;
         }
         
         .mobile-menu-btn {
@@ -154,16 +194,19 @@
             background: none;
             border: none;
             color: var(--text);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
+            z-index: 1001;
         }
         
         /* Hero Section */
         .hero {
-            padding: 160px 0 100px;
-            background: linear-gradient(rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.9)), url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            padding: 180px 0 120px;
+            background: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.9)), 
+                        url('https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -176,108 +219,239 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 30% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
-                      radial-gradient(circle at 70% 30%, rgba(30, 58, 138, 0.1) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 30%, rgba(74, 30, 90, 0.2) 0%, transparent 40%),
+                      radial-gradient(circle at 80% 70%, rgba(255, 123, 37, 0.15) 0%, transparent 40%);
             z-index: 1;
         }
         
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+            font-size: 4rem;
+            margin-bottom: 25px;
             text-transform: uppercase;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            line-height: 1.1;
         }
         
         .hero h1 span {
-            color: var(--text);
+            color: var(--light);
             display: block;
-            font-size: 2.5rem;
-            margin-top: 5px;
+            font-size: 3rem;
+            margin-top: 10px;
         }
         
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 35px;
-            color: #cbd5e0;
-            max-width: 700px;
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: #d1d5db;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.8;
         }
         
-        /* Content Sections */
-        .section {
-            padding: 80px 0;
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: var(--light);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            margin-top: 20px;
+            box-shadow: 0 8px 25px rgba(255, 123, 37, 0.3);
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(255, 123, 37, 0.5);
+            color: var(--light);
+        }
+        
+        /* Socials Section - Now before About Content */
+        .socials-section {
+            padding: 120px 0;
+            background-color: rgba(42, 42, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 123, 37, 0.2);
+            border-bottom: 1px solid rgba(255, 123, 37, 0.2);
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 70px;
             position: relative;
         }
         
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             display: inline-block;
-            padding-bottom: 15px;
+            padding-bottom: 20px;
             position: relative;
+            color: var(--light);
         }
         
         .section-title h2::after {
             content: '';
             position: absolute;
-            width: 70%;
-            height: 4px;
+            width: 100px;
+            height: 5px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             bottom: 0;
-            left: 15%;
-            border-radius: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: #cbd5e0;
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+        
+        .socials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+        
+        .social-card {
+            background: linear-gradient(145deg, rgba(74, 30, 90, 0.3), rgba(45, 10, 58, 0.3));
+            border-radius: 15px;
+            padding: 40px 30px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 123, 37, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, rgba(74, 30, 90, 0.5), rgba(255, 123, 37, 0.3));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .social-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--secondary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .social-card:hover::before {
+            opacity: 1;
+        }
+        
+        .social-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .social-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+        
+        .social-card p {
+            color: #d1d5db;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .social-handle {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: rgba(255, 123, 37, 0.1);
+            border-radius: 30px;
+            margin-top: 15px;
+            font-weight: 600;
+            color: var(--secondary);
+            border: 1px solid rgba(255, 123, 37, 0.3);
         }
         
         /* About Section */
+        .about-section {
+            padding: 120px 0;
+            background-color: rgba(18, 18, 18, 0.9);
+        }
+        
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 60px;
             align-items: center;
         }
         
         .about-text {
-            background-color: rgba(26, 54, 93, 0.2);
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 4px solid var(--primary);
+            background: linear-gradient(145deg, rgba(42, 42, 42, 0.8), rgba(30, 30, 30, 0.9));
+            padding: 50px;
+            border-radius: 15px;
+            border-left: 6px solid var(--secondary);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         }
         
         .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: var(--secondary);
+            line-height: 1.2;
+        }
+        
+        .about-text p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: #d1d5db;
         }
         
         .about-image {
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 2px solid var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border: 3px solid var(--primary);
             position: relative;
+            height: 500px;
         }
         
         .about-image img {
             width: 100%;
-            height: 400px;
+            height: 100%;
             object-fit: cover;
             display: block;
+            transition: transform 0.7s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
         }
         
         .image-overlay {
@@ -285,134 +459,168 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(10, 10, 10, 0.9));
-            padding: 20px;
-            color: var(--text);
+            background: linear-gradient(transparent, rgba(74, 30, 90, 0.9));
+            padding: 30px;
+            color: var(--light);
         }
         
         /* Games Section */
+        .games-section {
+            padding: 120px 0;
+            background-color: rgba(42, 42, 42, 0.8);
+        }
+        
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
         }
         
         .game-card {
-            background-color: rgba(45, 55, 72, 0.3);
-            border-radius: 10px;
+            background: linear-gradient(145deg, rgba(42, 42, 42, 0.8), rgba(30, 30, 30, 0.9));
+            border-radius: 15px;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(139, 0, 0, 0.3);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 123, 37, 0.2);
+            position: relative;
         }
         
         .game-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(139, 0, 0, 0.3);
+            transform: translateY(-15px) scale(1.03);
+            border-color: var(--secondary);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+        
+        .game-card-image {
+            height: 250px;
+            overflow: hidden;
         }
         
         .game-card img {
             width: 100%;
-            height: 200px;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+        
+        .game-card:hover img {
+            transform: scale(1.1);
         }
         
         .game-card-content {
-            padding: 25px;
+            padding: 35px;
         }
         
         .game-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
         }
         
         .game-card p {
             color: #cbd5e0;
+            font-size: 1.1rem;
         }
         
-        /* Social Links */
-        .social-section {
-            text-align: center;
-            background-color: rgba(10, 10, 10, 0.7);
-            padding: 60px 0;
-            border-top: 1px solid rgba(255, 204, 0, 0.2);
-            border-bottom: 1px solid rgba(255, 204, 0, 0.2);
-        }
-        
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-        
-        .social-card {
-            background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(30, 58, 138, 0.2));
-            border-radius: 10px;
-            padding: 30px 20px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 204, 0, 0.1);
-        }
-        
-        .social-card:hover {
-            transform: translateY(-5px);
-            background: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(30, 58, 138, 0.3));
-            border-color: var(--accent);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .social-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .social-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-        
-        /* Anime Theme Elements */
-        .anime-theme-elements {
+        .game-icon {
+            position: absolute;
+            top: -25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
             display: flex;
-            justify-content: space-between;
-            margin: 50px 0;
-            flex-wrap: wrap;
-            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--light);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
-        .theme-element {
-            text-align: center;
-            flex: 1;
-            min-width: 250px;
+        /* Anime Showcase Section */
+        .anime-showcase {
+            padding: 120px 0;
+            background-color: rgba(18, 18, 18, 0.9);
         }
         
-        .theme-element img {
+        .anime-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 35px;
+        }
+        
+        .anime-card {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            height: 400px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s ease;
+        }
+        
+        .anime-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+        }
+        
+        .anime-card img {
             width: 100%;
-            max-height: 200px;
+            height: 100%;
             object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border: 2px solid var(--primary);
+            transition: transform 0.7s ease;
+        }
+        
+        .anime-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .anime-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(74, 30, 90, 0.9));
+            padding: 30px;
+            color: var(--light);
+        }
+        
+        .anime-card-overlay h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
         }
         
         /* Footer */
         footer {
             background-color: var(--darker);
-            padding: 60px 0 30px;
-            border-top: 2px solid var(--primary);
+            padding: 80px 0 40px;
+            border-top: 3px solid var(--primary);
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 50px;
+            margin-bottom: 50px;
         }
         
         .footer-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            bottom: 0;
+            left: 0;
         }
         
         .footer-links {
@@ -420,111 +628,202 @@
         }
         
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .footer-links li::before {
+            content: '►';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-size: 0.8rem;
         }
         
         .footer-links a:hover {
-            color: var(--accent);
-            padding-left: 5px;
+            color: var(--secondary);
+            padding-left: 10px;
         }
         
         .copyright {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #a0aec0;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
         
         /* About Page Styles */
         .about-page {
-            padding-top: 140px;
+            padding-top: 160px;
         }
         
         .about-hero {
-            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), url('https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.9)), 
+                        url('https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            padding: 80px 0;
+            padding: 100px 0;
             text-align: center;
             border-bottom: 3px solid var(--primary);
+            position: relative;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(74, 30, 90, 0.2) 0%, transparent 50%),
+                      radial-gradient(circle at 70% 30%, rgba(255, 123, 37, 0.15) 0%, transparent 50%);
+        }
+        
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
         }
         
         .about-hero h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             margin-bottom: 20px;
-            color: var(--accent);
+            color: var(--secondary);
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .about-hero p {
+            font-size: 1.4rem;
+            color: #d1d5db;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .about-details {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
-            background-color: rgba(26, 54, 93, 0.2);
-            padding: 40px;
-            border-radius: 15px;
+            background: linear-gradient(145deg, rgba(42, 42, 42, 0.8), rgba(30, 30, 30, 0.9));
+            padding: 60px;
+            border-radius: 20px;
             margin-top: -50px;
             position: relative;
             z-index: 2;
-            border: 1px solid rgba(139, 0, 0, 0.3);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 123, 37, 0.2);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
         }
         
         .about-details p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 25px;
+            font-size: 1.3rem;
+            line-height: 1.9;
+            margin-bottom: 35px;
             color: #e2e8f0;
         }
         
         .about-details .highlight {
-            color: var(--accent);
-            font-weight: 600;
+            color: var(--secondary);
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(255, 123, 37, 0.3);
         }
         
         .interests-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
         }
         
         .interest-item {
-            background-color: rgba(139, 0, 0, 0.1);
-            padding: 20px;
-            border-radius: 10px;
+            background: linear-gradient(145deg, rgba(74, 30, 90, 0.3), rgba(45, 10, 58, 0.3));
+            padding: 30px;
+            border-radius: 15px;
             text-align: center;
-            border: 1px solid rgba(255, 204, 0, 0.1);
+            border: 1px solid rgba(255, 123, 37, 0.2);
+            transition: all 0.4s ease;
+        }
+        
+        .interest-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
         
         .interest-item i {
-            font-size: 2rem;
-            color: var(--accent);
-            margin-bottom: 15px;
+            font-size: 2.8rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .interest-item h4 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--light);
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .floating {
+            animation: float 5s ease-in-out infinite;
         }
         
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .about-content {
+                gap: 40px;
+            }
+        }
+        
         @media (max-width: 992px) {
             .about-content {
                 grid-template-columns: 1fr;
             }
             
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 3rem;
+            }
+            
+            .hero h1 span {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .socials-grid, .games-grid, .anime-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
         }
         
         @media (max-width: 768px) {
             nav ul {
                 display: none;
-                position: absolute;
-                top: 70px;
+                position: fixed;
+                top: 0;
                 left: 0;
                 width: 100%;
+                height: 100vh;
                 background-color: rgba(10, 10, 10, 0.98);
                 flex-direction: column;
+                justify-content: center;
+                align-items: center;
                 padding: 20px;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
                 z-index: 100;
+                gap: 30px;
             }
             
             nav ul.active {
@@ -535,6 +834,32 @@
                 display: block;
             }
             
+            .hero {
+                padding: 160px 0 100px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h1 span {
+                font-size: 2rem;
+            }
+            
+            .section-padding {
+                padding: 80px 0;
+            }
+            
+            .about-text {
+                padding: 35px;
+            }
+            
+            .about-details {
+                padding: 40px 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
             .hero h1 {
                 font-size: 2.2rem;
             }
@@ -546,19 +871,19 @@
             .section-title h2 {
                 font-size: 2rem;
             }
-        }
-        
-        @media (max-width: 576px) {
-            .hero {
-                padding: 140px 0 80px;
+            
+            .cta-button {
+                padding: 15px 35px;
+                font-size: 1.1rem;
             }
             
-            .section {
-                padding: 60px 0;
-            }
-            
-            .about-details {
+            .social-card, .game-card-content {
                 padding: 30px 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
         }
     </style>
@@ -568,7 +893,7 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <div class="logo-icon"><i class="fas fa-gamepad"></i></div>
+                <div class="logo-icon floating"><i class="fas fa-gamepad"></i></div>
                 <div class="logo-text">DAMAGED<span>ZONE</span></div>
             </div>
             
@@ -580,8 +905,9 @@
                 <ul id="mainNav">
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About Me</a></li>
+                    <li><a href="#socials">Socials</a></li>
                     <li><a href="#games">Games</a></li>
-                    <li><a href="#social">Social Links</a></li>
+                    <li><a href="#anime">Anime</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -594,14 +920,63 @@
             <h1>Welcome to the <span>Damaged Zone</span> 🎮</h1>
             <p>Hey, I'm Damaged – your go-to gamer for chaotic fun, indie game gems, Fortnite madness, and creative rides in Planet Coaster 2 (new series dropping now!).</p>
             <p>I post gameplay, walkthroughs, and wild gaming moments you won't want to miss. If you're into cool builds, clutch plays, and chill vibes, you're in the right place. Smash that subscribe button and join the ride.</p>
+            <a href="#socials" class="cta-button">Join The Community</a>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="section" id="about">
+    <!-- Socials Section - Now First after Hero -->
+    <section class="socials-section" id="socials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Connect With Me</h2>
+                <p>Follow me on all platforms to stay updated with my latest content, streams, and gaming adventures!</p>
+            </div>
+            
+            <div class="socials-grid">
+                <a href="https://tiktok.com/@damagedgaming0_o" target="_blank" class="social-card">
+                    <div class="social-icon"><i class="fab fa-tiktok"></i></div>
+                    <h3>TikTok</h3>
+                    <p>Short-form gaming clips, highlights, and fun content</p>
+                    <div class="social-handle">@damagedgaming0_o</div>
+                </a>
+                
+                <a href="https://instagram.com/@damagedgaminglol" target="_blank" class="social-card">
+                    <div class="social-icon"><i class="fab fa-instagram"></i></div>
+                    <h3>Instagram</h3>
+                    <p>Gaming photos, behind-the-scenes, and updates</p>
+                    <div class="social-handle">@damagedgaminglol</div>
+                </a>
+                
+                <a href="https://discord.gg/YawXU3zCBh" target="_blank" class="social-card">
+                    <div class="social-icon"><i class="fab fa-discord"></i></div>
+                    <h3>Discord</h3>
+                    <p>Join our gaming community, chat, and play together</p>
+                    <div class="social-handle">Join Server</div>
+                </a>
+                
+                <a href="https://reddit.com/u/Obvious_Customer1406" target="_blank" class="social-card">
+                    <div class="social-icon"><i class="fab fa-reddit"></i></div>
+                    <h3>Reddit</h3>
+                    <p>Gaming discussions, content shares, and AMAs</p>
+                    <div class="social-handle">u/Obvious_Customer1406</div>
+                </a>
+                
+                <a href="https://twitch.tv/damagedlols" target="_blank" class="social-card">
+                    <div class="social-icon"><i class="fab fa-twitch"></i></div>
+                    <h3>Twitch</h3>
+                    <p>Live streams, gaming sessions, and interactive fun</p>
+                    <div class="social-handle">@damagedlols</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About My Content Section -->
+    <section class="about-section" id="about">
         <div class="container">
             <div class="section-title">
                 <h2>About My Content</h2>
+                <p>Creating entertaining gaming experiences with a mix of skill, humor, and creativity</p>
             </div>
             
             <div class="about-content">
@@ -610,6 +985,7 @@
                     <p>I'm all about creating entertaining gaming content that combines skill, humor, and creativity. Whether I'm pulling off insane plays in Fortnite or building the wildest roller coasters in Planet Coaster 2, my goal is to make every stream and video an experience you'll remember.</p>
                     <p>I love discovering hidden indie gems and giving them the attention they deserve. There's nothing better than sharing an underrated game that blows everyone away!</p>
                     <p>My current focus is Planet Coaster 2 - building epic parks with creative theming and insane coasters. New episodes drop regularly!</p>
+                    <p>Join me for the wildest gaming adventures where anything can happen, from clutch victories to hilarious fails and everything in between!</p>
                 </div>
                 
                 <div class="about-image">
@@ -624,105 +1000,88 @@
     </section>
 
     <!-- Games Section -->
-    <section class="section" id="games">
+    <section class="games-section" id="games">
         <div class="container">
             <div class="section-title">
                 <h2>Games I Play</h2>
+                <p>From intense battles to creative building - here's what you'll find on my channel</p>
             </div>
             
             <div class="games-grid">
                 <div class="game-card">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Indie Games">
+                    <div class="game-card-image">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Indie Games">
+                    </div>
                     <div class="game-card-content">
+                        <div class="game-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
                         <h3>Indie Games</h3>
-                        <p>Exploring underrated bangers and hidden gems that deserve more attention. From pixel-art adventures to innovative gameplay mechanics.</p>
+                        <p>Exploring underrated bangers and hidden gems that deserve more attention. From pixel-art adventures to innovative gameplay mechanics. I love discovering diamonds in the rough!</p>
                     </div>
                 </div>
                 
                 <div class="game-card">
-                    <img src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fortnite">
+                    <div class="game-card-image">
+                        <img src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fortnite">
+                    </div>
                     <div class="game-card-content">
+                        <div class="game-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
                         <h3>Fortnite</h3>
-                        <p>W's only! Clutch plays, building battles, and Victory Royale chases. Join me for competitive matches and hilarious moments in Fortnite.</p>
+                        <p>W's only! Clutch plays, building battles, and Victory Royale chases. Join me for competitive matches and hilarious moments in Fortnite. Expect high-energy gameplay and epic wins!</p>
                     </div>
                 </div>
                 
                 <div class="game-card">
-                    <img src="https://images.unsplash.com/photo-1511882150382-421056c89033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Planet Coaster 2">
+                    <div class="game-card-image">
+                        <img src="https://images.unsplash.com/photo-1511882150382-421056c89033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Planet Coaster 2">
+                    </div>
                     <div class="game-card-content">
+                        <div class="game-icon">
+                            <i class="fas fa-roller-coaster"></i>
+                        </div>
                         <h3>Planet Coaster 2</h3>
-                        <p>My current series - building epic parks with creative theming, insane coasters, and detailed scenery. Theme park design at its finest!</p>
+                        <p>My current series - building epic parks with creative theming, insane coasters, and detailed scenery. Theme park design at its finest! Join me as I create the ultimate virtual amusement parks.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Anime Theme Section -->
-    <section class="section">
+    <!-- Anime Showcase Section -->
+    <section class="anime-showcase" id="anime">
         <div class="container">
             <div class="section-title">
                 <h2>Anime Inspiration</h2>
+                <p>The shows that inspire my content and creative style</p>
             </div>
             
-            <div class="anime-theme-elements">
-                <div class="theme-element">
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Demon Slayer Theme">
-                    <h3>Demon Slayer Theme</h3>
-                    <p>Inspired by the dark yet vibrant aesthetic of Demon Slayer</p>
+            <div class="anime-grid">
+                <div class="anime-card">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Demon Slayer">
+                    <div class="anime-card-overlay">
+                        <h3>Demon Slayer</h3>
+                        <p>Inspired by the beautiful animation, intense battles, and emotional storytelling</p>
+                    </div>
                 </div>
                 
-                <div class="theme-element">
-                    <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="One Piece Theme">
-                    <h3>One Piece Theme</h3>
-                    <p>Adventure and freedom inspired by the world of One Piece</p>
+                <div class="anime-card">
+                    <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="One Piece">
+                    <div class="anime-card-overlay">
+                        <h3>One Piece</h3>
+                        <p>The adventure, friendship, and epic scale inspire my content creation journey</p>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Links Section -->
-    <section class="social-section" id="social">
-        <div class="container">
-            <div class="section-title">
-                <h2>Follow Me on Socials</h2>
-            </div>
-            
-            <div class="social-grid">
-                <a href="https://tiktok.com/@damagedgaming0_o" target="_blank" class="social-card">
-                    <div class="social-icon"><i class="fab fa-tiktok"></i></div>
-                    <h3>TikTok</h3>
-                    <p>@damagedgaming0_o</p>
-                    <p>Short gaming clips and highlights</p>
-                </a>
                 
-                <a href="https://instagram.com/damagedgaminglol" target="_blank" class="social-card">
-                    <div class="social-icon"><i class="fab fa-instagram"></i></div>
-                    <h3>Instagram</h3>
-                    <p>@damagedgaminglol</p>
-                    <p>Gaming photos and updates</p>
-                </a>
-                
-                <a href="https://discord.gg/YawXU3zCBh" target="_blank" class="social-card">
-                    <div class="social-icon"><i class="fab fa-discord"></i></div>
-                    <h3>Discord</h3>
-                    <p>Join our community</p>
-                    <p>Chat, game together, and get updates</p>
-                </a>
-                
-                <a href="https://reddit.com/u/Obvious_Customer1406" target="_blank" class="social-card">
-                    <div class="social-icon"><i class="fab fa-reddit"></i></div>
-                    <h3>Reddit</h3>
-                    <p>u/Obvious_Customer1406</p>
-                    <p>Gaming discussions and content</p>
-                </a>
-                
-                <a href="https://twitch.tv/damagedlols" target="_blank" class="social-card">
-                    <div class="social-icon"><i class="fab fa-twitch"></i></div>
-                    <h3>Twitch</h3>
-                    <p>@damagedlols</p>
-                    <p>Live streams and gaming sessions</p>
-                </a>
+                <div class="anime-card">
+                    <img src="https://images.unsplash.com/photo-1639322537506-9d5e48e9e5c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Anime Collection">
+                    <div class="anime-card-overlay">
+                        <h3>Anime Universe</h3>
+                        <p>Drawing inspiration from various anime for creative content and storytelling</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -733,8 +1092,8 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Damaged Zone</h3>
-                    <p>Your destination for chaotic gaming fun, indie gems, and epic content inspired by anime and gaming culture.</p>
-                    <p>Join the community and let's game together!</p>
+                    <p>Your destination for chaotic gaming fun, indie gems, and epic content inspired by anime and gaming culture. Join the community and let's game together!</p>
+                    <p>Inspired by Demon Slayer and One Piece - two anime that fuel my creativity!</p>
                 </div>
                 
                 <div class="footer-section">
@@ -742,8 +1101,9 @@
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Me</a></li>
+                        <li><a href="#socials">Social Links</a></li>
                         <li><a href="#games">Games</a></li>
-                        <li><a href="#social">Social Links</a></li>
+                        <li><a href="#anime">Anime Inspiration</a></li>
                     </ul>
                 </div>
                 
@@ -761,9 +1121,9 @@
                 <div class="footer-section">
                     <h3>Anime Inspirations</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Demon Slayer</a></li>
-                        <li><a href="#">One Piece</a></li>
-                        <li><a href="#">Other Anime</a></li>
+                        <li><a href="#anime">Demon Slayer</a></li>
+                        <li><a href="#anime">One Piece</a></li>
+                        <li><a href="#anime">Other Anime</a></li>
                     </ul>
                 </div>
             </div>
@@ -779,7 +1139,7 @@
     <div id="aboutPage" style="display: none;">
         <section class="about-page">
             <div class="about-hero">
-                <div class="container">
+                <div class="container about-hero-content">
                     <h1>About Me</h1>
                     <p>Get to know the person behind Damaged Zone</p>
                 </div>
@@ -856,18 +1216,18 @@
                     <div class="footer-section">
                         <h3>My Interests</h3>
                         <ul class="footer-links">
-                            <li><a href="#">Gaming</a></li>
-                            <li><a href="#">Anime</a></li>
-                            <li><a href="#">Roller Coasters</a></li>
-                            <li><a href="#">3D Printing</a></li>
-                            <li><a href="#">Reading</a></li>
+                            <li><a href="#games">Gaming</a></li>
+                            <li><a href="#anime">Anime</a></li>
+                            <li><a href="#about">Roller Coasters</a></li>
+                            <li><a href="#about">3D Printing</a></li>
+                            <li><a href="#about">Reading</a></li>
                         </ul>
                     </div>
                 </div>
                 
                 <div class="copyright">
                     <p>&copy; 2023 Damaged Zone | Aiden (damagedlols)</p>
-                    <p><a href="index.html" style="color: var(--accent);">← Back to Home</a></p>
+                    <p><a href="index.html" style="color: var(--secondary); font-weight: 600;">← Back to Home</a></p>
                 </div>
             </div>
         </footer>
@@ -894,8 +1254,6 @@
         });
         
         // Simple page routing for the About page
-        // In a real implementation, this would be separate HTML files
-        // For this demo, we'll simulate page navigation
         const aboutPage = document.getElementById('aboutPage');
         const mainContent = document.querySelector('body > :not(#aboutPage)');
         
@@ -977,7 +1335,7 @@
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
                 }
@@ -987,25 +1345,99 @@
         // Add animation to elements when they come into view
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
         
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('animated');
                 }
             });
         }, observerOptions);
         
         // Observe elements for animation
-        document.querySelectorAll('.game-card, .social-card, .about-text, .about-image').forEach(el => {
+        document.querySelectorAll('.social-card, .game-card, .anime-card, .about-text, .about-image').forEach(el => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+            
             observer.observe(el);
+            
+            // Add a delay based on element position
+            const delay = Array.from(el.parentNode.children).indexOf(el) * 0.1;
+            el.style.transitionDelay = delay + 's';
+            
+            // Custom animation when element comes into view
+            const customObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            customObserver.observe(el);
         });
+        
+        // Add parallax effect to background images
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.backgroundPosition = `center ${scrolled * 0.5}px`;
+            }
+            
+            const aboutHero = document.querySelector('.about-hero');
+            if (aboutHero) {
+                aboutHero.style.backgroundPosition = `center ${scrolled * 0.3}px`;
+            }
+        });
+        
+        // Add ripple effect to buttons
+        document.querySelectorAll('.cta-button, .social-card').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const x = e.clientX - e.target.getBoundingClientRect().left;
+                const y = e.clientY - e.target.getBoundingClientRect().top;
+                
+                const ripple = document.createElement('span');
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+        
+        // Add CSS for ripple effect
+        const style = document.createElement('style');
+        style.textContent = `
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.7);
+                transform: scale(0);
+                animation: ripple-animation 0.6s linear;
+                width: 100px;
+                height: 100px;
+                margin-left: -50px;
+                margin-top: -50px;
+                pointer-events: none;
+            }
+            
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
