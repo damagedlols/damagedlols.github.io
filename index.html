@@ -2,494 +2,755 @@
 <html lang="en">
 <head>
   <!--
-    HEY THIS IS MY WEBSITE I MADE IT MYSELF!!!
-    I'm 13 and I love gaming and anime and Jesus
-    This took me like 3 days to make but it's worth it
-    Follow me on TikTok @damagedgaming0_o
+    UPDATED VERSION!!!
+    Changed all the stuff you said was wrong
+    Now it has Xbox, Lulu my dog, and correct schedules
+    I'm getting better at coding!!!
   -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DAMAGED GAMING - BEST GAMER EVER!!! 🎮🔥✝️</title>
-  <meta name="description" content="Damaged Gaming is the BEST gaming channel EVER! Fortnite, Minecraft, anime, and Jesus stuff. Subscribe now or you're missing out!!!" />
+  <title>DAMAGED GAMING - Xbox Gamer & Content Creator!!! 🎮🔥</title>
+  <meta name="description" content="Damaged Gaming - Xbox player, Fortnite, Minecraft, COD, RDR2 gamer, and content creator. Watch my streams and videos!!!" />
   
-  <!-- FONTS FROM GOOGLE -->
+  <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&family=Poppins:wght@300;400;600;700;800&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
   
-  <!-- FONT AWESOME ICONS -->
+  <!-- ICONS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   
-  <!-- MY SUPER AWESOME CSS -->
+  <!-- MY CSS - WAY LONGER NOW!!! -->
   <style>
     /* 
-      HEY THIS IS MY CSS CODE 
-      I WATCHED A YOUTUBE TUTORIAL TO LEARN THIS
-      DON'T STEAL IT!!!
+      WOW THIS CSS IS GETTING HUGE!!!
+      I ADDED SO MUCH STUFF
+      MY DAD SAYS I'M GETTING GOOD AT THIS
     */
     
+    /* VARIABLES */
     :root {
-      --main-red: #FF0000;  /* YouTube red! */
-      --twitch-purple: #9146FF; /* Twitch purple! */
-      --discord-blue: #5865F2; /* Discord blue! */
-      --minecraft-green: #55FF55; /* Minecraft green! */
-      --fortnite-yellow: #FFAA00; /* Fortnite yellow! */
-      --anime-pink: #FF66CC; /* Anime pink! */
-      --god-gold: #FFD700; /* Gold for God stuff */
-      --dark-bg: #0a0a1a; /* Space background color */
-      --text-white: #FFFFFF; /* White text */
-      --text-gray: #CCCCCC; /* Gray text */
-      --neon-blue: #00FFFF; /* NEON BLUE!!! */
-      --neon-green: #00FF00; /* NEON GREEN!!! */
-      --neon-pink: #FF00FF; /* NEON PINK!!! */
+      --xbox-green: #107c10;
+      --fortnite-yellow: #FFAA00;
+      --minecraft-green: #55FF55;
+      --cod-orange: #FF6B00;
+      --rdr-red: #8B0000;
+      --tiktok-black: #000000;
+      --youtube-red: #FF0000;
+      --instagram-purple: #E1306C;
+      --twitch-purple: #9146FF;
+      --discord-blue: #5865F2;
+      --dark-bg: #0a0a1a;
+      --darker-bg: #050510;
+      --text-white: #FFFFFF;
+      --text-gray: #CCCCCC;
+      --text-light: #EEEEEE;
+      --neon-blue: #00FFFF;
+      --neon-green: #00FF00;
+      --neon-pink: #FF00FF;
+      --neon-yellow: #FFFF00;
+      --card-bg: rgba(20, 20, 40, 0.8);
+      --card-border: rgba(100, 100, 255, 0.3);
+      --glow-blue: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF;
+      --glow-green: 0 0 10px #00FF00, 0 0 20px #00FF00, 0 0 30px #00FF00;
+      --glow-pink: 0 0 10px #FF00FF, 0 0 20px #FF00FF, 0 0 30px #FF00FF;
+      --glow-yellow: 0 0 10px #FFFF00, 0 0 20px #FFFF00, 0 0 30px #FFFF00;
+      --transition-fast: 0.2s ease;
+      --transition-medium: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      --transition-slow: 0.6s ease;
     }
     
-    /* RESET STUFF */
+    /* RESET AND BASE */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     
-    html, body {
-      height: 100%;
+    html {
       scroll-behavior: smooth;
+      font-size: 16px;
     }
     
     body {
       font-family: 'Poppins', sans-serif;
       background-color: var(--dark-bg);
-      background-image: 
-        radial-gradient(circle at 10% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 20%),
-        radial-gradient(circle at 90% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 20%),
-        radial-gradient(circle at 50% 50%, rgba(255, 255, 0, 0.05) 0%, transparent 30%);
       color: var(--text-white);
+      line-height: 1.6;
       overflow-x: hidden;
       position: relative;
+      min-height: 100vh;
     }
     
-    /* COOL ANIMATED BACKGROUND */
-    .floating-shapes {
+    /* BACKGROUND EFFECTS */
+    .bg-effects {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: -1;
+      z-index: -100;
+      overflow: hidden;
     }
     
-    .shape {
+    .particle {
       position: absolute;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      animation: float 20s infinite linear;
+      background: radial-gradient(circle, var(--neon-blue), transparent 70%);
+      opacity: 0.3;
+      animation: float-particle 15s infinite linear;
     }
     
-    .shape:nth-child(1) {
-      width: 100px;
-      height: 100px;
-      top: 10%;
-      left: 5%;
-      background: rgba(255, 0, 0, 0.2);
-      animation-delay: 0s;
+    @keyframes float-particle {
+      0% { transform: translateY(0) translateX(0) rotate(0deg); }
+      25% { transform: translateY(-100px) translateX(100px) rotate(90deg); }
+      50% { transform: translateY(-200px) translateX(0) rotate(180deg); }
+      75% { transform: translateY(-100px) translateX(-100px) rotate(270deg); }
+      100% { transform: translateY(0) translateX(0) rotate(360deg); }
     }
     
-    .shape:nth-child(2) {
-      width: 150px;
-      height: 150px;
-      top: 60%;
-      right: 10%;
-      background: rgba(0, 255, 255, 0.2);
-      animation-delay: 5s;
+    .grid-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(16, 124, 16, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 124, 16, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: -99;
+      opacity: 0.3;
     }
     
-    .shape:nth-child(3) {
-      width: 80px;
-      height: 80px;
-      bottom: 20%;
-      left: 15%;
-      background: rgba(255, 255, 0, 0.2);
-      animation-delay: 10s;
-    }
-    
-    .shape:nth-child(4) {
-      width: 120px;
-      height: 120px;
-      top: 30%;
-      right: 20%;
-      background: rgba(255, 0, 255, 0.2);
-      animation-delay: 15s;
-    }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-30px) rotate(180deg); }
-    }
-    
-    /* CUSTOM SCROLLBAR BECAUSE IT LOOKS COOL */
+    /* CUSTOM SCROLLBAR */
     ::-webkit-scrollbar {
-      width: 12px;
+      width: 14px;
+      height: 14px;
     }
     
     ::-webkit-scrollbar-track {
-      background: rgba(0, 0, 0, 0.3);
+      background: linear-gradient(180deg, var(--darker-bg), #000000);
       border-radius: 10px;
     }
     
     ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, var(--main-red), var(--twitch-purple));
+      background: linear-gradient(180deg, var(--xbox-green), var(--fortnite-yellow));
       border-radius: 10px;
+      border: 3px solid var(--darker-bg);
     }
     
     ::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(180deg, var(--fortnite-yellow), var(--anime-pink));
+      background: linear-gradient(180deg, var(--neon-blue), var(--neon-pink));
+      box-shadow: var(--glow-blue);
     }
     
-    /* HEADER WITH NAVIGATION */
-    .header {
+    ::-webkit-scrollbar-corner {
+      background: var(--darker-bg);
+    }
+    
+    /* HEADER */
+    .main-header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       background: rgba(10, 10, 26, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 3px solid var(--main-red);
-      z-index: 1000;
+      backdrop-filter: blur(15px);
+      border-bottom: 3px solid var(--xbox-green);
+      z-index: 10000;
       padding: 15px 0;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.7);
+      transition: all var(--transition-medium);
     }
     
     .header-container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 20px;
+      padding: 0 30px;
     }
     
-    .logo {
+    .logo-area {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 15px;
       text-decoration: none;
     }
     
     .logo-icon {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(45deg, var(--main-red), var(--twitch-purple));
-      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--xbox-green), #000000);
+      border-radius: 15px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
+      font-size: 28px;
       color: white;
+      border: 3px solid var(--fortnite-yellow);
+      box-shadow: 0 0 20px rgba(255, 170, 0, 0.5);
+      transition: all var(--transition-medium);
+    }
+    
+    .logo-icon:hover {
+      transform: rotate(15deg) scale(1.1);
+      box-shadow: 0 0 30px rgba(255, 170, 0, 0.8);
     }
     
     .logo-text {
-      font-family: 'Bangers', cursive;
-      font-size: 28px;
-      background: linear-gradient(90deg, var(--main-red), var(--fortnite-yellow), var(--anime-pink));
+      font-family: 'Orbitron', sans-serif;
+      font-size: 32px;
+      font-weight: 900;
+      background: linear-gradient(90deg, var(--xbox-green), var(--fortnite-yellow), var(--neon-blue));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      text-shadow: 0 0 15px rgba(16, 124, 16, 0.5);
+      letter-spacing: 1px;
     }
     
-    .nav-links {
-      display: flex;
-      gap: 30px;
-    }
-    
-    .nav-link {
-      color: var(--text-white);
-      text-decoration: none;
+    .logo-tagline {
       font-family: 'Comic Neue', cursive;
-      font-size: 18px;
-      font-weight: 700;
-      padding: 5px 10px;
-      border-radius: 5px;
-      transition: all 0.3s;
+      font-size: 14px;
+      color: var(--text-gray);
+      margin-top: -5px;
+      letter-spacing: 2px;
+    }
+    
+    /* NAVIGATION */
+    .main-nav {
+      display: flex;
+      gap: 35px;
+    }
+    
+    .nav-item {
       position: relative;
+      text-decoration: none;
+      color: var(--text-white);
+      font-family: 'Comic Neue', cursive;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 8px 0;
+      transition: all var(--transition-fast);
     }
     
-    .nav-link:hover {
-      color: var(--neon-blue);
-      transform: translateY(-3px);
-    }
-    
-    .nav-link::after {
+    .nav-item::after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 0;
       width: 0;
       height: 3px;
-      background: var(--neon-blue);
-      transition: width 0.3s;
+      background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+      transition: width var(--transition-medium);
+      border-radius: 3px;
     }
     
-    .nav-link:hover::after {
+    .nav-item:hover {
+      color: var(--neon-blue);
+      transform: translateY(-3px);
+    }
+    
+    .nav-item:hover::after {
       width: 100%;
     }
     
-    .mobile-menu-btn {
+    .nav-icon {
+      margin-right: 8px;
+      font-size: 16px;
+    }
+    
+    .mobile-nav-toggle {
       display: none;
-      font-size: 24px;
       background: none;
       border: none;
-      color: white;
+      color: var(--text-white);
+      font-size: 28px;
       cursor: pointer;
+      padding: 5px;
     }
     
     /* MAIN CONTENT */
     .main-content {
-      margin-top: 100px;
-      padding: 20px;
-    }
-    
-    /* HERO SECTION */
-    .hero {
-      max-width: 1200px;
-      margin: 0 auto 50px;
-      text-align: center;
-      padding: 40px 20px;
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 20px;
-      border: 3px solid var(--main-red);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -10px;
-      left: -10px;
-      right: -10px;
-      bottom: -10px;
-      background: linear-gradient(45deg, transparent, rgba(255, 0, 0, 0.1), transparent);
-      z-index: -1;
-    }
-    
-    .hero-title {
-      font-family: 'Bangers', cursive;
-      font-size: 60px;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    
-    .hero-title span {
-      display: block;
-    }
-    
-    .hero-title .red {
-      color: var(--main-red);
-      text-shadow: 0 0 10px var(--main-red);
-    }
-    
-    .hero-title .blue {
-      color: var(--neon-blue);
-      text-shadow: 0 0 10px var(--neon-blue);
-    }
-    
-    .hero-title .pink {
-      color: var(--anime-pink);
-      text-shadow: 0 0 10px var(--anime-pink);
-    }
-    
-    .hero-subtitle {
-      font-size: 24px;
-      margin-bottom: 30px;
-      color: var(--text-gray);
-      max-width: 800px;
+      margin-top: 120px;
+      padding: 30px;
+      max-width: 1400px;
       margin-left: auto;
       margin-right: auto;
     }
     
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 30px;
+    /* SECTIONS COMMON */
+    .content-section {
+      margin-bottom: 80px;
+      position: relative;
     }
     
-    .btn {
-      padding: 15px 30px;
+    .section-header {
+      margin-bottom: 40px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 48px;
+      font-weight: 900;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, var(--xbox-green), var(--neon-blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: inline-block;
+    }
+    
+    .section-subtitle {
+      font-family: 'Comic Neue', cursive;
+      font-size: 20px;
+      color: var(--text-gray);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .section-divider {
+      width: 200px;
+      height: 5px;
+      background: linear-gradient(90deg, transparent, var(--xbox-green), transparent);
+      margin: 20px auto 40px;
+      border-radius: 5px;
+    }
+    
+    /* HERO SECTION */
+    .hero-section {
+      background: linear-gradient(135deg, rgba(16, 124, 16, 0.1), rgba(10, 10, 26, 0.9));
+      border-radius: 30px;
+      padding: 60px 40px;
+      border: 3px solid var(--xbox-green);
+      box-shadow: 0 20px 60px rgba(16, 124, 16, 0.3);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 80px;
+    }
+    
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 170, 0, 0.1) 0%, transparent 70%);
+      z-index: -1;
+    }
+    
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    
+    .hero-text {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--xbox-green), #000000);
+      color: white;
+      padding: 8px 20px;
       border-radius: 50px;
+      font-family: 'Comic Neue', cursive;
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 20px;
+      border: 2px solid var(--fortnite-yellow);
+      box-shadow: 0 5px 15px rgba(16, 124, 16, 0.5);
+    }
+    
+    .hero-main-title {
+      font-family: 'Bangers', cursive;
+      font-size: 72px;
+      line-height: 1;
+      margin-bottom: 20px;
+      text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-main-title .xbox {
+      color: var(--xbox-green);
+      text-shadow: var(--glow-green);
+    }
+    
+    .hero-main-title .gamer {
+      color: var(--fortnite-yellow);
+      text-shadow: var(--glow-yellow);
+    }
+    
+    .hero-main-title .creator {
+      color: var(--neon-blue);
+      text-shadow: var(--glow-blue);
+    }
+    
+    .hero-description {
+      font-size: 20px;
+      color: var(--text-light);
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+    
+    .hero-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    
+    .highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 12px 20px;
+      border-radius: 10px;
+      border-left: 4px solid var(--xbox-green);
+    }
+    
+    .highlight-icon {
+      color: var(--fortnite-yellow);
+      font-size: 20px;
+    }
+    
+    .highlight-text {
+      font-weight: 600;
+      color: var(--text-white);
+    }
+    
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    /* BUTTONS */
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 35px;
+      border-radius: 15px;
       font-family: 'Comic Neue', cursive;
       font-weight: 700;
       font-size: 18px;
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.3s;
       border: none;
       cursor: pointer;
-    }
-    
-    .btn-primary {
-      background: linear-gradient(90deg, var(--main-red), var(--twitch-purple));
-      color: white;
-      box-shadow: 0 5px 15px rgba(255, 0, 0, 0.5);
-    }
-    
-    .btn-primary:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(255, 0, 0, 0.7);
-      background: linear-gradient(90deg, var(--twitch-purple), var(--main-red));
-    }
-    
-    .btn-secondary {
-      background: linear-gradient(90deg, var(--neon-blue), var(--minecraft-green));
-      color: white;
-      box-shadow: 0 5px 15px rgba(0, 255, 255, 0.5);
-    }
-    
-    .btn-secondary:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 255, 255, 0.7);
-    }
-    
-    .btn-god {
-      background: linear-gradient(90deg, var(--god-gold), #FFAA00);
-      color: black;
-      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.5);
-    }
-    
-    .btn-god:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(255, 215, 0, 0.7);
-    }
-    
-    /* ABOUT ME SECTION */
-    .about-section {
-      max-width: 1200px;
-      margin: 0 auto 50px;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 20px;
-      padding: 30px;
-      border: 3px solid var(--neon-blue);
-    }
-    
-    .section-title {
-      font-family: 'Bangers', cursive;
-      font-size: 40px;
-      margin-bottom: 20px;
-      color: var(--neon-blue);
-      text-align: center;
+      transition: all var(--transition-medium);
       position: relative;
-      display: inline-block;
-      left: 50%;
-      transform: translateX(-50%);
+      overflow: hidden;
+      z-index: 1;
     }
     
-    .section-title::after {
+    .cta-button::before {
       content: '';
       position: absolute;
-      bottom: -10px;
-      left: 0;
+      top: 0;
+      left: -100%;
       width: 100%;
-      height: 5px;
-      background: linear-gradient(90deg, var(--neon-blue), transparent);
-      border-radius: 5px;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.7s;
+      z-index: -1;
     }
     
-    .about-content {
+    .cta-button:hover::before {
+      left: 100%;
+    }
+    
+    .cta-button-primary {
+      background: linear-gradient(135deg, var(--xbox-green), #000000);
+      color: white;
+      border: 3px solid var(--fortnite-yellow);
+      box-shadow: 0 10px 30px rgba(16, 124, 16, 0.5);
+    }
+    
+    .cta-button-primary:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(16, 124, 16, 0.8);
+      border-color: var(--neon-blue);
+    }
+    
+    .cta-button-secondary {
+      background: linear-gradient(135deg, var(--fortnite-yellow), #FF6B00);
+      color: #000000;
+      border: 3px solid var(--xbox-green);
+      box-shadow: 0 10px 30px rgba(255, 170, 0, 0.5);
+    }
+    
+    .cta-button-secondary:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(255, 170, 0, 0.8);
+    }
+    
+    .cta-button-outline {
+      background: transparent;
+      color: var(--text-white);
+      border: 3px solid var(--neon-blue);
+      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+    }
+    
+    .cta-button-outline:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0, 255, 255, 0.4);
+      background: rgba(0, 255, 255, 0.1);
+    }
+    
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .xbox-visual {
+      width: 100%;
+      max-width: 500px;
+      position: relative;
+    }
+    
+    .console-graphic {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, #000000, #1a1a1a);
+      border-radius: 20px;
+      position: relative;
+      border: 5px solid var(--xbox-green);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+    }
+    
+    .console-screen {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      height: 180px;
+      background: linear-gradient(135deg, #0a0a1a, #000000);
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    
+    .screen-content {
+      text-align: center;
+      color: var(--neon-green);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 24px;
+      text-shadow: 0 0 10px var(--neon-green);
+      animation: screen-glow 2s infinite alternate;
+    }
+    
+    @keyframes screen-glow {
+      0% { opacity: 0.8; text-shadow: 0 0 5px var(--neon-green); }
+      100% { opacity: 1; text-shadow: 0 0 15px var(--neon-green), 0 0 25px var(--neon-green); }
+    }
+    
+    .console-buttons {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      display: flex;
+      justify-content: space-around;
+    }
+    
+    .console-button {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #333333, #000000);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--xbox-green);
+      font-size: 24px;
+      border: 3px solid var(--xbox-green);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* ABOUT SECTION */
+    .about-section {
+      background: var(--card-bg);
+      border-radius: 30px;
+      padding: 50px;
+      border: 3px solid var(--card-border);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      margin-bottom: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .about-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--xbox-green), var(--fortnite-yellow), var(--neon-blue));
+    }
+    
+    .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 30px;
+      gap: 50px;
+      align-items: start;
+    }
+    
+    .about-text-content {
+      position: relative;
+    }
+    
+    .about-intro {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 30px;
+      line-height: 1.4;
+    }
+    
+    .about-intro .highlight {
+      color: var(--fortnite-yellow);
+      text-shadow: 0 0 10px rgba(255, 170, 0, 0.5);
+    }
+    
+    .about-details {
+      font-size: 18px;
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    
+    .about-details p {
+      margin-bottom: 20px;
+    }
+    
+    .fun-facts {
+      background: rgba(16, 124, 16, 0.1);
+      border-radius: 15px;
+      padding: 25px;
+      border-left: 5px solid var(--fortnite-yellow);
       margin-top: 30px;
     }
     
-    @media (max-width: 768px) {
-      .about-content {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    .about-text {
-      font-size: 18px;
-      line-height: 1.6;
-      color: var(--text-gray);
-    }
-    
-    .about-text p {
-      margin-bottom: 20px;
-    }
-    
-    .about-text strong {
+    .fun-facts-title {
+      font-family: 'Comic Neue', cursive;
+      font-size: 24px;
       color: var(--fortnite-yellow);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
     
-    .about-text em {
-      color: var(--anime-pink);
-      font-style: italic;
+    .fun-facts-list {
+      list-style: none;
+    }
+    
+    .fun-fact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      color: var(--text-light);
+      font-size: 16px;
+    }
+    
+    .fact-icon {
+      color: var(--neon-blue);
+      font-size: 18px;
     }
     
     .about-stats {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 25px;
     }
     
     .stat-card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 20px;
-      text-align: center;
-      border: 2px solid transparent;
-      transition: all 0.3s;
+      background: linear-gradient(135deg, rgba(20, 20, 40, 0.9), rgba(10, 10, 26, 0.9));
+      border-radius: 20px;
+      padding: 25px;
+      border: 2px solid var(--card-border);
+      transition: all var(--transition-medium);
+      position: relative;
+      overflow: hidden;
     }
     
     .stat-card:hover {
-      border-color: var(--minecraft-green);
-      transform: translateY(-5px);
+      transform: translateY(-10px);
+      border-color: var(--fortnite-yellow);
+      box-shadow: 0 15px 40px rgba(255, 170, 0, 0.3);
     }
     
-    .stat-icon {
-      font-size: 40px;
-      margin-bottom: 10px;
+    .stat-icon-wrapper {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--xbox-green), #000000);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 30px;
+      color: white;
+      border: 3px solid var(--fortnite-yellow);
     }
     
     .stat-number {
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--minecraft-green);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--neon-blue);
       margin-bottom: 5px;
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
     }
     
     .stat-label {
-      font-size: 16px;
+      font-family: 'Comic Neue', cursive;
+      font-size: 18px;
       color: var(--text-gray);
     }
     
-    /* GAMES I PLAY SECTION */
+    /* GAMES SECTION */
     .games-section {
-      max-width: 1200px;
-      margin: 0 auto 50px;
+      margin-bottom: 80px;
     }
     
     .games-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
     }
     
     .game-card {
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 15px;
-      padding: 20px;
-      text-align: center;
+      background: linear-gradient(135deg, rgba(30, 30, 60, 0.9), rgba(15, 15, 40, 0.9));
+      border-radius: 25px;
+      padding: 30px;
       border: 3px solid transparent;
-      transition: all 0.3s;
+      transition: all var(--transition-medium);
       position: relative;
       overflow: hidden;
+      height: 100%;
     }
     
     .game-card::before {
@@ -498,395 +759,828 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 5px;
+      height: 8px;
     }
     
     .game-card.fortnite::before {
-      background: var(--fortnite-yellow);
+      background: linear-gradient(90deg, var(--fortnite-yellow), #FF6B00);
     }
     
     .game-card.minecraft::before {
-      background: var(--minecraft-green);
+      background: linear-gradient(90deg, var(--minecraft-green), #00AA00);
     }
     
-    .game-card.anime::before {
-      background: var(--anime-pink);
+    .game-card.cod::before {
+      background: linear-gradient(90deg, var(--cod-orange), #8B0000);
     }
     
-    .game-card.god::before {
-      background: var(--god-gold);
+    .game-card.rdr::before {
+      background: linear-gradient(90deg, var(--rdr-red), #8B0000);
     }
     
     .game-card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-15px) scale(1.03);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
       border-color: var(--neon-blue);
-      box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
     }
     
-    .game-icon {
-      font-size: 50px;
-      margin-bottom: 15px;
+    .game-logo {
+      font-size: 60px;
+      margin-bottom: 25px;
+      text-align: center;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     
     .game-title {
       font-family: 'Bangers', cursive;
-      font-size: 24px;
-      margin-bottom: 10px;
+      font-size: 32px;
+      color: var(--text-white);
+      margin-bottom: 15px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
     
     .game-description {
+      color: var(--text-light);
+      font-size: 16px;
+      line-height: 1.7;
+      text-align: center;
+    }
+    
+    .game-status {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-gray);
+      border-left: 4px solid var(--neon-blue);
+    }
+    
+    /* SETUP SECTION */
+    .setup-section {
+      background: var(--card-bg);
+      border-radius: 30px;
+      padding: 50px;
+      border: 3px solid var(--card-border);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      margin-bottom: 80px;
+    }
+    
+    .setup-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      margin-top: 40px;
+    }
+    
+    .setup-main {
+      position: relative;
+    }
+    
+    .setup-image {
+      width: 100%;
+      height: 350px;
+      background: linear-gradient(135deg, #000000, #1a1a1a);
+      border-radius: 20px;
+      border: 5px solid var(--xbox-green);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 100px;
+      color: var(--xbox-green);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .setup-image::after {
+      content: 'XBOX SERIES X';
+      position: absolute;
+      bottom: 20px;
+      color: var(--fortnite-yellow);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 24px;
+      text-shadow: 0 0 10px rgba(255, 170, 0, 0.5);
+    }
+    
+    .setup-specs {
+      background: rgba(16, 124, 16, 0.1);
+      border-radius: 20px;
+      padding: 25px;
+      border: 2px solid var(--xbox-green);
+    }
+    
+    .specs-title {
+      font-family: 'Comic Neue', cursive;
+      font-size: 24px;
+      color: var(--fortnite-yellow);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .specs-list {
+      list-style: none;
+    }
+    
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .spec-label {
       color: var(--text-gray);
       font-size: 16px;
-      line-height: 1.5;
     }
     
-    /* MY SETUP SECTION */
-    .setup-section {
-      max-width: 1200px;
-      margin: 0 auto 50px;
-      background: rgba(0, 0, 0, 0.6);
+    .spec-value {
+      color: var(--text-white);
+      font-weight: 600;
+      font-size: 16px;
+    }
+    
+    .spec-item:last-child {
+      border-bottom: none;
+    }
+    
+    .setup-peripherals {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    .peripheral-card {
+      background: linear-gradient(135deg, rgba(30, 30, 60, 0.9), rgba(15, 15, 40, 0.9));
       border-radius: 20px;
-      padding: 30px;
-      border: 3px solid var(--anime-pink);
+      padding: 25px;
+      border: 2px solid var(--card-border);
+      transition: all var(--transition-medium);
     }
     
-    .setup-list {
-      margin-top: 30px;
+    .peripheral-card:hover {
+      transform: translateX(10px);
+      border-color: var(--neon-blue);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
     }
     
-    .setup-item {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      padding: 15px 20px;
-      margin-bottom: 15px;
+    .peripheral-header {
       display: flex;
       align-items: center;
       gap: 15px;
-      transition: all 0.3s;
+      margin-bottom: 15px;
     }
     
-    .setup-item:hover {
-      background: rgba(255, 255, 255, 0.1);
-      transform: translateX(10px);
-    }
-    
-    .setup-item-icon {
+    .peripheral-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--fortnite-yellow), #000000);
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: 24px;
-      color: var(--anime-pink);
+      color: white;
     }
     
-    .setup-item-content h4 {
-      font-size: 20px;
-      margin-bottom: 5px;
+    .peripheral-title {
+      font-family: 'Comic Neue', cursive;
+      font-size: 22px;
       color: var(--text-white);
     }
     
-    .setup-item-content p {
-      color: var(--text-gray);
+    .peripheral-desc {
+      color: var(--text-light);
       font-size: 16px;
+      line-height: 1.6;
     }
     
     /* SCHEDULE SECTION */
     .schedule-section {
-      max-width: 1200px;
-      margin: 0 auto 50px;
+      margin-bottom: 80px;
     }
     
-    .schedule-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 30px;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 15px;
-      overflow: hidden;
+    .schedule-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
     }
     
-    .schedule-table th,
-    .schedule-table td {
-      padding: 15px;
-      text-align: left;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    .schedule-tab {
+      padding: 15px 35px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      border: 2px solid transparent;
+      font-family: 'Comic Neue', cursive;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--text-white);
+      cursor: pointer;
+      transition: all var(--transition-medium);
     }
     
-    .schedule-table th {
-      background: rgba(255, 0, 0, 0.3);
-      font-family: 'Bangers', cursive;
-      font-size: 20px;
+    .schedule-tab:hover {
+      background: rgba(16, 124, 16, 0.3);
+      transform: translateY(-5px);
+    }
+    
+    .schedule-tab.active {
+      background: linear-gradient(135deg, var(--xbox-green), #000000);
+      border-color: var(--fortnite-yellow);
+      box-shadow: 0 10px 30px rgba(16, 124, 16, 0.5);
+    }
+    
+    .schedule-content {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    .schedule-content.active {
+      display: block;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .schedule-card {
+      background: linear-gradient(135deg, rgba(30, 30, 60, 0.9), rgba(15, 15, 40, 0.9));
+      border-radius: 25px;
+      padding: 30px;
+      border: 3px solid var(--card-border);
+      transition: all var(--transition-medium);
+    }
+    
+    .schedule-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--neon-blue);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    }
+    
+    .schedule-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .schedule-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
       color: var(--text-white);
     }
     
-    .schedule-table tr:hover {
-      background: rgba(255, 255, 255, 0.05);
-    }
-    
-    .schedule-table .live {
-      color: var(--main-red);
+    .schedule-badge {
+      background: linear-gradient(135deg, var(--fortnite-yellow), #FF6B00);
+      color: #000000;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-family: 'Comic Neue', cursive;
       font-weight: 700;
-      animation: blink 1s infinite;
+      font-size: 16px;
     }
     
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
+    .schedule-list {
+      list-style: none;
+    }
+    
+    .schedule-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .schedule-item:last-child {
+      border-bottom: none;
+    }
+    
+    .schedule-day {
+      font-family: 'Comic Neue', cursive;
+      font-size: 20px;
+      color: var(--text-white);
+      font-weight: 700;
+    }
+    
+    .schedule-time {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 20px;
+      color: var(--neon-blue);
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+    
+    .schedule-desc {
+      color: var(--text-gray);
+      font-size: 16px;
+      margin-top: 5px;
+    }
+    
+    .live-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 0, 0, 0.2);
+      padding: 5px 15px;
+      border-radius: 50px;
+      margin-left: 15px;
+      border: 2px solid #FF0000;
+    }
+    
+    .live-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #FF0000;
+      animation: pulse 1.5s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.1); }
+      100% { opacity: 1; transform: scale(1); }
     }
     
     /* SOCIAL MEDIA SECTION */
     .social-section {
-      max-width: 1200px;
-      margin: 0 auto 50px;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 20px;
-      padding: 30px;
-      border: 3px solid var(--twitch-purple);
+      margin-bottom: 80px;
     }
     
     .social-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
     }
     
     .social-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      padding: 20px;
-      text-align: center;
+      background: linear-gradient(135deg, rgba(30, 30, 60, 0.9), rgba(15, 15, 40, 0.9));
+      border-radius: 25px;
+      padding: 30px;
       text-decoration: none;
-      color: white;
-      transition: all 0.3s;
-      border: 2px solid transparent;
+      border: 3px solid transparent;
+      transition: all var(--transition-medium);
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+    }
+    
+    .social-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+    }
+    
+    .social-card.youtube::before {
+      background: linear-gradient(90deg, var(--youtube-red), #8B0000);
+    }
+    
+    .social-card.tiktok::before {
+      background: linear-gradient(90deg, var(--tiktok-black), #333333);
+    }
+    
+    .social-card.instagram::before {
+      background: linear-gradient(90deg, var(--instagram-purple), #833AB4);
+    }
+    
+    .social-card.twitch::before {
+      background: linear-gradient(90deg, var(--twitch-purple), #5A3B8C);
     }
     
     .social-card:hover {
-      transform: translateY(-10px);
-      border-color: var(--twitch-purple);
-      box-shadow: 0 10px 20px rgba(145, 70, 255, 0.3);
+      transform: translateY(-15px) scale(1.03);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      border-color: var(--neon-blue);
     }
     
-    .social-card.tiktok:hover {
-      border-color: #000000;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    .social-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
     }
     
-    .social-card.instagram:hover {
-      border-color: #E1306C;
-      box-shadow: 0 10px 20px rgba(225, 48, 108, 0.3);
-    }
-    
-    .social-card.discord:hover {
-      border-color: var(--discord-blue);
-      box-shadow: 0 10px 20px rgba(88, 101, 242, 0.3);
-    }
-    
-    .social-card.youtube:hover {
-      border-color: var(--main-red);
-      box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
-    }
-    
-    .social-icon {
+    .social-icon-wrapper {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: 40px;
-      margin-bottom: 15px;
+      color: white;
+    }
+    
+    .social-card.youtube .social-icon-wrapper {
+      background: linear-gradient(135deg, var(--youtube-red), #8B0000);
+    }
+    
+    .social-card.tiktok .social-icon-wrapper {
+      background: linear-gradient(135deg, var(--tiktok-black), #333333);
+    }
+    
+    .social-card.instagram .social-icon-wrapper {
+      background: linear-gradient(135deg, var(--instagram-purple), #833AB4);
+    }
+    
+    .social-card.twitch .social-icon-wrapper {
+      background: linear-gradient(135deg, var(--twitch-purple), #5A3B8C);
+    }
+    
+    .social-badge {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-family: 'Comic Neue', cursive;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text-white);
     }
     
     .social-name {
-      font-family: 'Bangers', cursive;
-      font-size: 24px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
+      color: var(--text-white);
       margin-bottom: 10px;
     }
     
     .social-handle {
+      font-family: 'Comic Neue', cursive;
+      font-size: 20px;
       color: var(--text-gray);
+      margin-bottom: 25px;
+    }
+    
+    .social-schedule {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    
+    .schedule-title-small {
+      font-family: 'Comic Neue', cursive;
+      font-size: 18px;
+      color: var(--fortnite-yellow);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .schedule-detail {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .schedule-detail:last-child {
+      border-bottom: none;
+    }
+    
+    .schedule-day-small {
+      color: var(--text-light);
       font-size: 16px;
     }
     
-    /* BIBLE VERSE SECTION */
-    .bible-section {
-      max-width: 1200px;
-      margin: 0 auto 50px;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 20px;
-      padding: 30px;
-      border: 3px solid var(--god-gold);
-      text-align: center;
-    }
-    
-    .bible-verse {
-      font-size: 24px;
-      font-style: italic;
-      margin-bottom: 20px;
-      color: var(--text-white);
-      line-height: 1.6;
-    }
-    
-    .bible-reference {
-      font-size: 18px;
-      color: var(--god-gold);
-      font-weight: 700;
-    }
-    
-    .bible-note {
-      margin-top: 20px;
-      color: var(--text-gray);
+    .schedule-time-small {
+      color: var(--neon-blue);
+      font-family: 'Orbitron', sans-serif;
       font-size: 16px;
     }
     
     /* FOOTER */
-    .footer {
-      background: rgba(0, 0, 0, 0.8);
-      padding: 30px 20px;
-      text-align: center;
-      border-top: 3px solid var(--neon-green);
-      margin-top: 50px;
+    .main-footer {
+      background: linear-gradient(180deg, #000000, #0a0a1a);
+      border-top: 5px solid var(--xbox-green);
+      padding: 60px 0 30px;
+      margin-top: 80px;
+      position: relative;
     }
     
     .footer-content {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
+      padding: 0 30px;
     }
     
-    .footer-logo {
-      font-family: 'Bangers', cursive;
-      font-size: 32px;
-      background: linear-gradient(90deg, var(--neon-green), var(--neon-blue));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 20px;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 50px;
+      margin-bottom: 50px;
     }
     
-    .footer-text {
-      color: var(--text-gray);
-      margin-bottom: 20px;
-      font-size: 16px;
+    .footer-column {
+      position: relative;
     }
     
-    .footer-social {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 20px;
-    }
-    
-    .footer-social a {
-      color: var(--text-white);
+    .footer-title {
+      font-family: 'Orbitron', sans-serif;
       font-size: 24px;
-      transition: all 0.3s;
+      color: var(--text-white);
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
     }
     
-    .footer-social a:hover {
-      color: var(--neon-blue);
-      transform: translateY(-5px);
+    .footer-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--xbox-green), var(--fortnite-yellow));
+      border-radius: 3px;
     }
     
-    .copyright {
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-link-item {
+      margin-bottom: 15px;
+    }
+    
+    .footer-link {
       color: var(--text-gray);
-      font-size: 14px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: all var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .footer-link:hover {
+      color: var(--neon-blue);
+      transform: translateX(5px);
+    }
+    
+    .footer-about {
+      color: var(--text-light);
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+    
+    .footer-social-links {
+      display: flex;
+      gap: 15px;
       margin-top: 20px;
     }
     
-    /* RESPONSIVE DESIGN */
-    @media (max-width: 768px) {
-      .header-container {
+    .footer-social-link {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      color: var(--text-white);
+      text-decoration: none;
+      transition: all var(--transition-medium);
+    }
+    
+    .footer-social-link:hover {
+      transform: translateY(-8px);
+      background: var(--xbox-green);
+      color: white;
+    }
+    
+    .footer-newsletter {
+      margin-top: 25px;
+    }
+    
+    .newsletter-text {
+      color: var(--text-gray);
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .newsletter-input {
+      flex: 1;
+      padding: 12px 20px;
+      border-radius: 50px;
+      border: 2px solid var(--xbox-green);
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+    }
+    
+    .newsletter-button {
+      padding: 12px 25px;
+      border-radius: 50px;
+      border: none;
+      background: linear-gradient(135deg, var(--xbox-green), #000000);
+      color: white;
+      font-family: 'Comic Neue', cursive;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all var(--transition-medium);
+    }
+    
+    .newsletter-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(16, 124, 16, 0.5);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-gray);
+      font-size: 14px;
+    }
+    
+    .footer-bottom a {
+      color: var(--neon-blue);
+      text-decoration: none;
+    }
+    
+    /* RESPONSIVE */
+    @media (max-width: 1200px) {
+      .header-container, .main-content, .footer-content {
+        padding: 0 20px;
+      }
+      
+      .hero-main-title {
+        font-size: 60px;
+      }
+      
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .hero-content, .about-grid, .setup-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .main-nav {
+        display: none;
+        position: fixed;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 26, 0.98);
+        backdrop-filter: blur(15px);
         flex-direction: column;
-        gap: 15px;
+        padding: 30px;
+        gap: 25px;
+        border-bottom: 3px solid var(--xbox-green);
+        z-index: 9999;
       }
       
-      .nav-links {
-        gap: 15px;
+      .main-nav.active {
+        display: flex;
       }
       
-      .nav-link {
-        font-size: 16px;
+      .mobile-nav-toggle {
+        display: block;
       }
       
-      .hero-title {
+      .hero-main-title {
+        font-size: 50px;
+      }
+      
+      .section-title {
+        font-size: 36px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-main-title {
         font-size: 40px;
-      }
-      
-      .hero-subtitle {
-        font-size: 18px;
-      }
-      
-      .btn {
-        padding: 12px 20px;
-        font-size: 16px;
       }
       
       .section-title {
         font-size: 32px;
       }
       
-      .games-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      }
-      
-      .social-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      }
-      
-      .schedule-table {
-        display: block;
-        overflow-x: auto;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .hero-title {
-        font-size: 32px;
+      .about-stats, .games-grid, .schedule-grid, .social-grid {
+        grid-template-columns: 1fr;
       }
       
       .hero-buttons {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
       }
       
-      .games-grid {
+      .footer-grid {
         grid-template-columns: 1fr;
       }
       
-      .social-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .nav-links {
+      .newsletter-form {
         flex-direction: column;
-        text-align: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-main-title {
+        font-size: 32px;
+      }
+      
+      .section-title {
+        font-size: 28px;
+      }
+      
+      .about-section, .setup-section, .hero-section {
+        padding: 30px 20px;
+      }
+      
+      .cta-button {
+        padding: 15px 25px;
+        font-size: 16px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- COOL FLOATING SHAPES -->
-  <div class="floating-shapes">
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
+  <!-- BACKGROUND EFFECTS -->
+  <div class="bg-effects">
+    <div class="particle" style="width: 100px; height: 100px; top: 10%; left: 5%; animation-delay: 0s;"></div>
+    <div class="particle" style="width: 150px; height: 150px; top: 60%; right: 10%; animation-delay: 3s;"></div>
+    <div class="particle" style="width: 80px; height: 80px; bottom: 20%; left: 15%; animation-delay: 6s;"></div>
+    <div class="particle" style="width: 120px; height: 120px; top: 30%; right: 20%; animation-delay: 9s;"></div>
+    <div class="particle" style="width: 90px; height: 90px; top: 80%; left: 70%; animation-delay: 12s;"></div>
+    <div class="grid-overlay"></div>
   </div>
   
   <!-- HEADER -->
-  <header class="header">
+  <header class="main-header">
     <div class="header-container">
-      <a href="#" class="logo">
+      <a href="#" class="logo-area">
         <div class="logo-icon">
-          <i class="fas fa-gamepad"></i>
+          <i class="fab fa-xbox"></i>
         </div>
-        <div class="logo-text">DAMAGED GAMING</div>
+        <div>
+          <div class="logo-text">DAMAGED GAMING</div>
+          <div class="logo-tagline">XBOX • CONTENT CREATOR • CODER</div>
+        </div>
       </a>
       
-      <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <button class="mobile-nav-toggle" id="mobileNavToggle">
         <i class="fas fa-bars"></i>
       </button>
       
-      <nav class="nav-links" id="navLinks">
-        <a href="#home" class="nav-link">🏠 HOME</a>
-        <a href="#about" class="nav-link">👤 ABOUT ME</a>
-        <a href="#games" class="nav-link">🎮 GAMES</a>
-        <a href="#setup" class="nav-link">💻 MY SETUP</a>
-        <a href="#schedule" class="nav-link">📅 STREAM SCHEDULE</a>
-        <a href="#social" class="nav-link">📱 SOCIAL MEDIA</a>
-        <a href="#bible" class="nav-link">✝️ BIBLE VERSE</a>
+      <nav class="main-nav" id="mainNav">
+        <a href="#home" class="nav-item">
+          <i class="fas fa-home nav-icon"></i> HOME
+        </a>
+        <a href="#about" class="nav-item">
+          <i class="fas fa-user nav-icon"></i> ABOUT ME
+        </a>
+        <a href="#games" class="nav-item">
+          <i class="fas fa-gamepad nav-icon"></i> GAMES
+        </a>
+        <a href="#setup" class="nav-item">
+          <i class="fas fa-desktop nav-icon"></i> MY SETUP
+        </a>
+        <a href="#schedule" class="nav-item">
+          <i class="fas fa-calendar-alt nav-icon"></i> SCHEDULE
+        </a>
+        <a href="#social" class="nav-item">
+          <i class="fas fa-share-alt nav-icon"></i> SOCIAL
+        </a>
       </nav>
     </div>
   </header>
@@ -894,564 +1588,1091 @@
   <!-- MAIN CONTENT -->
   <main class="main-content">
     <!-- HERO SECTION -->
-    <section id="home" class="hero">
-      <h1 class="hero-title">
-        <span class="red">DAMAGED</span>
-        <span class="blue">GAMING</span>
-        <span class="pink">IS HERE!!!</span>
-      </h1>
-      
-      <p class="hero-subtitle">
-        Hey everyone! I'm Damaged, a 13-year-old gamer who loves Fortnite, Minecraft, anime, 
-        and most importantly, Jesus Christ! I stream games, make funny videos, and try to be 
-        a good example for other Christian gamers. Join me for some epic gameplay!!!
-      </p>
-      
-      <div class="hero-buttons">
-        <a href="https://www.twitch.tv/damagedlols" target="_blank" class="btn btn-primary">
-          <i class="fab fa-twitch"></i> WATCH MY STREAM
-        </a>
-        <a href="https://www.tiktok.com/@damagedgaming0_o" target="_blank" class="btn btn-secondary">
-          <i class="fab fa-tiktok"></i> FOLLOW ON TIKTOK
-        </a>
-        <a href="#bible" class="btn btn-god">
-          <i class="fas fa-cross"></i> BIBLE VERSE OF THE DAY
-        </a>
+    <section id="home" class="hero-section content-section">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <i class="fas fa-bolt"></i> XBOX GAMER & CONTENT CREATOR
+          </div>
+          
+          <h1 class="hero-main-title">
+            <span class="xbox">DAMAGED</span>
+            <span class="gamer">GAMING</span>
+            <span class="creator">IS LIVE!</span>
+          </h1>
+          
+          <p class="hero-description">
+            Hey everyone! I'm <strong>Damaged</strong> - a 13-year-old Xbox gamer, content creator, 
+            and aspiring coder! I play Fortnite, Minecraft, COD, RDR2, and make epic videos 
+            for YouTube, TikTok, and Instagram. Join me for some crazy gameplay and fun!
+          </p>
+          
+          <div class="hero-highlights">
+            <div class="highlight-item">
+              <i class="fas fa-xbox highlight-icon"></i>
+              <span class="highlight-text">Xbox Series X Player</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-video highlight-icon"></i>
+              <span class="highlight-text">Daily Content Creator</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-code highlight-icon"></i>
+              <span class="highlight-text">Learning to Code</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-dog highlight-icon"></i>
+              <span class="highlight-text">Dog Dad to Lulu</span>
+            </div>
+          </div>
+          
+          <div class="hero-buttons">
+            <a href="https://www.youtube.com/@Damaged" target="_blank" class="cta-button cta-button-primary">
+              <i class="fab fa-youtube"></i> WATCH MY VIDEOS
+            </a>
+            <a href="https://www.twitch.tv/damagedlols" target="_blank" class="cta-button cta-button-secondary">
+              <i class="fab fa-twitch"></i> JOIN MY STREAM
+            </a>
+            <a href="#schedule" class="cta-button cta-button-outline">
+              <i class="fas fa-calendar"></i> VIEW SCHEDULE
+            </a>
+          </div>
+        </div>
+        
+        <div class="hero-visual">
+          <div class="xbox-visual">
+            <div class="console-graphic">
+              <div class="console-screen">
+                <div class="screen-content">
+                  DAMAGED<br>GAMING<br>LIVE
+                </div>
+              </div>
+              <div class="console-buttons">
+                <div class="console-button">
+                  <i class="fab fa-fort-awesome"></i>
+                </div>
+                <div class="console-button">
+                  <i class="fas fa-cube"></i>
+                </div>
+                <div class="console-button">
+                  <i class="fas fa-crosshairs"></i>
+                </div>
+                <div class="console-button">
+                  <i class="fas fa-horse"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     
-    <!-- ABOUT ME SECTION -->
-    <section id="about" class="about-section">
-      <h2 class="section-title">ABOUT ME!!! 👤</h2>
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about-section content-section">
+      <div class="section-header">
+        <h2 class="section-title">ABOUT ME</h2>
+        <p class="section-subtitle">Get to know the gamer behind the controller!</p>
+        <div class="section-divider"></div>
+      </div>
       
-      <div class="about-content">
-        <div class="about-text">
-          <p>
-            <strong>HEY WHAT'S UP GUYS!!!</strong> My name is Damaged (well, that's my gaming name anyway) 
-            and I'm a 13-year-old gamer from the USA! I'm in 8th grade and I love video games SO MUCH. 
-            My mom says I play too much but I think she just doesn't understand how important gaming is 😂
-          </p>
+      <div class="about-grid">
+        <div class="about-text-content">
+          <h3 class="about-intro">
+            Hey, I'm <span class="highlight">Damaged</span> - a 13-year-old Xbox gamer who's passionate about gaming, creating content, and learning to code!
+          </h3>
           
-          <p>
-            I started gaming when I was like 7 years old when my dad got me a Nintendo Switch for Christmas. 
-            Now I play mostly on PC because it's way better obviously. My favorite games are Fortnite (I'm 
-            pretty good, I have like 50+ wins), Minecraft (I build epic castles), and any anime games 
-            (Demon Slayer is my favorite anime EVER!!!).
-          </p>
+          <div class="about-details">
+            <p>
+              I've been gaming since <strong>second grade</strong> when my dad got me my first Xbox! 
+              I was so excited I literally screamed when I opened it on Christmas morning. 
+              I've been hooked ever since!
+            </p>
+            
+            <p>
+              My favorite games are <strong>Fortnite, Minecraft, Red Dead Redemption 2, and Call of Duty Black Ops 7</strong>. 
+              I love the thrill of battle royale, the creativity of building, and the stories in adventure games. 
+              I'm pretty decent at Fortnite - I've got more wins than I can count!
+            </p>
+            
+            <p>
+              When I'm not gaming, I'm <strong>creating content</strong> for my YouTube channels, TikTok, and Instagram. 
+              I post gaming highlights, funny moments, tutorials, and montages. 
+              I'm also <strong>learning how to code</strong> - I started with HTML and CSS (this website is my project!), 
+              and I want to learn JavaScript and maybe even make my own game someday!
+            </p>
+            
+            <p>
+              I have an awesome dog named <strong>Lulu</strong> who sits with me while I stream sometimes. 
+              She's a golden retriever and she's the best gaming companion ever!
+            </p>
+            
+            <p>
+              My goal is to build an awesome community of gamers who love playing together 
+              and creating cool content. Whether you're here for the gameplay, the laughs, 
+              or just to hang out, you're welcome here!
+            </p>
+          </div>
           
-          <p>
-            <em>Okay so here's the important part:</em> I'm also a Christian! I go to church every Sunday 
-            with my family and I'm in the youth group. My youth pastor is actually pretty cool and he 
-            doesn't think gaming is bad as long as we don't play too much and we're nice to people online. 
-            I try to be a good example and not rage too much when I lose (but sometimes it's hard!!!).
-          </p>
-          
-          <p>
-            I started my YouTube and TikTok channels last year because I wanted to share my gameplay with 
-            other people. It's been really fun and I've met some cool friends online. My dream is to become 
-            a big streamer one day but my mom says I have to finish school first 😅
-          </p>
-          
-          <p>
-            <strong>Fun facts about me:</strong> I have a dog named Max, my favorite food is pizza, 
-            I play soccer at school, and I'm learning to play guitar (but I'm not very good yet).
-          </p>
+          <div class="fun-facts">
+            <h4 class="fun-facts-title">
+              <i class="fas fa-star"></i> FUN FACTS ABOUT ME
+            </h4>
+            <ul class="fun-facts-list">
+              <li class="fun-fact-item">
+                <i class="fas fa-paw fact-icon"></i>
+                <span>My dog Lulu is named after my grandma's favorite flower</span>
+              </li>
+              <li class="fun-fact-item">
+                <i class="fas fa-pizza-slice fact-icon"></i>
+                <span>Pizza is my ultimate gaming fuel (pepperoni forever!)</span>
+              </li>
+              <li class="fun-fact-item">
+                <i class="fas fa-music fact-icon"></i>
+                <span>I listen to lo-fi hip hop while coding and gaming</span>
+              </li>
+              <li class="fun-fact-item">
+                <i class="fas fa-code fact-icon"></i>
+                <span>This website is my first big coding project!</span>
+              </li>
+              <li class="fun-fact-item">
+                <i class="fas fa-trophy fact-icon"></i>
+                <span>My highest Fortnite kill game is 14 kills in solo</span>
+              </li>
+            </ul>
+          </div>
         </div>
         
         <div class="about-stats">
           <div class="stat-card">
-            <div class="stat-icon">
-              <i class="fas fa-birthday-cake" style="color: var(--anime-pink);"></i>
+            <div class="stat-icon-wrapper">
+              <i class="fas fa-gamepad"></i>
             </div>
-            <div class="stat-number">13</div>
-            <div class="stat-label">YEARS OLD</div>
+            <div class="stat-number">7+</div>
+            <div class="stat-label">Years Gaming</div>
           </div>
           
           <div class="stat-card">
-            <div class="stat-icon">
-              <i class="fas fa-gamepad" style="color: var(--fortnite-yellow);"></i>
+            <div class="stat-icon-wrapper">
+              <i class="fas fa-video"></i>
             </div>
-            <div class="stat-number">6</div>
-            <div class="stat-label">YEARS GAMING</div>
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Videos Created</div>
           </div>
           
           <div class="stat-card">
-            <div class="stat-icon">
-              <i class="fas fa-trophy" style="color: var(--god-gold);"></i>
+            <div class="stat-icon-wrapper">
+              <i class="fas fa-code"></i>
             </div>
-            <div class="stat-number">50+</div>
-            <div class="stat-label">FORTNITE WINS</div>
+            <div class="stat-number">2</div>
+            <div class="stat-label">Coding Languages</div>
           </div>
           
           <div class="stat-card">
-            <div class="stat-icon">
-              <i class="fas fa-users" style="color: var(--discord-blue);"></i>
+            <div class="stat-icon-wrapper">
+              <i class="fas fa-users"></i>
             </div>
-            <div class="stat-number">100+</div>
-            <div class="stat-label">DISCORD FRIENDS</div>
+            <div class="stat-number">1K+</div>
+            <div class="stat-label">Community Members</div>
           </div>
         </div>
       </div>
     </section>
     
-    <!-- GAMES I PLAY SECTION -->
-    <section id="games" class="games-section">
-      <h2 class="section-title">GAMES I PLAY 🎮</h2>
+    <!-- GAMES SECTION -->
+    <section id="games" class="games-section content-section">
+      <div class="section-header">
+        <h2 class="section-title">MY GAMES</h2>
+        <p class="section-subtitle">These are the games I play and create content for</p>
+        <div class="section-divider"></div>
+      </div>
       
       <div class="games-grid">
         <div class="game-card fortnite">
-          <div class="game-icon">
-            <i class="fab fa-fort-awesome" style="color: var(--fortnite-yellow);"></i>
+          <div class="game-logo">
+            <i class="fab fa-fort-awesome" style="color: var(--fortnite-yellow); font-size: 70px;"></i>
           </div>
           <h3 class="game-title">FORTNITE</h3>
           <p class="game-description">
-            My MAIN game!!! I play almost every day. I'm pretty good at building and editing. 
-            My highest kill game is 12 kills! I usually play with my friends from school.
+            My main game! I play Fortnite almost every day. I love the building mechanics, 
+            the constant updates, and the competitive scene. I stream my ranked matches 
+            and post my best plays on TikTok and YouTube.
           </p>
+          <div class="game-status">
+            <i class="fas fa-circle" style="color: var(--neon-green); margin-right: 8px;"></i>
+            Currently playing Chapter 5 Season 2
+          </div>
         </div>
         
         <div class="game-card minecraft">
-          <div class="game-icon">
-            <i class="fas fa-cube" style="color: var(--minecraft-green);"></i>
+          <div class="game-logo">
+            <i class="fas fa-cube" style="color: var(--minecraft-green); font-size: 70px;"></i>
           </div>
           <h3 class="game-title">MINECRAFT</h3>
           <p class="game-description">
-            I love building epic castles and redstone contraptions! I have my own survival 
-            world that I've been working on for like 2 years. It's HUGE!
+            The ultimate creative sandbox! I build massive castles, redstone contraptions, 
+            and adventure in survival mode. I have a long-running survival world that I've 
+            been working on for years.
           </p>
+          <div class="game-status">
+            <i class="fas fa-hammer" style="color: var(--fortnite-yellow); margin-right: 8px;"></i>
+            Working on a medieval castle build
+          </div>
         </div>
         
-        <div class="game-card anime">
-          <div class="game-icon">
-            <i class="fas fa-user-ninja" style="color: var(--anime-pink);"></i>
+        <div class="game-card cod">
+          <div class="game-logo">
+            <i class="fas fa-crosshairs" style="color: var(--cod-orange); font-size: 70px;"></i>
           </div>
-          <h3 class="game-title">ANIME GAMES</h3>
+          <h3 class="game-title">CALL OF DUTY</h3>
           <p class="game-description">
-            Demon Slayer games, Naruto games, Dragon Ball games - I play them ALL! 
-            Demon Slayer is my favorite anime EVER. Tanjiro is the best character!!!
+            Black Ops 7 is insane! The fast-paced multiplayer, zombies mode, 
+            and campaign keep me coming back. I post my best clips and montages 
+            from my multiplayer sessions.
           </p>
+          <div class="game-status">
+            <i class="fas fa-skull" style="color: #FF0000; margin-right: 8px;"></i>
+            Grinding multiplayer ranked matches
+          </div>
         </div>
         
-        <div class="game-card god">
-          <div class="game-icon">
-            <i class="fas fa-cross" style="color: var(--god-gold);"></i>
+        <div class="game-card rdr">
+          <div class="game-logo">
+            <i class="fas fa-horse" style="color: var(--rdr-red); font-size: 70px;"></i>
           </div>
-          <h3 class="game-title">CHRISTIAN GAMES</h3>
+          <h3 class="game-title">RED DEAD REDEMPTION</h3>
           <p class="game-description">
-            Yes there are Christian video games! I play some Bible games and Christian 
-            Minecraft servers. It's cool to play games that have good messages.
+            The best story game ever made! I love exploring the massive open world, 
+            hunting, fishing, and living the cowboy life. The attention to detail 
+            in this game is unbelievable.
           </p>
-        </div>
-      </div>
-    </section>
-    
-    <!-- MY SETUP SECTION -->
-    <section id="setup" class="setup-section">
-      <h2 class="section-title">MY GAMING SETUP 💻</h2>
-      
-      <div class="setup-list">
-        <div class="setup-item">
-          <div class="setup-item-icon">
-            <i class="fas fa-desktop"></i>
-          </div>
-          <div class="setup-item-content">
-            <h4>Gaming PC</h4>
-            <p>Custom built PC with Ryzen 5 processor, RTX 3060 graphics card, 16GB RAM</p>
-          </div>
-        </div>
-        
-        <div class="setup-item">
-          <div class="setup-item-icon">
-            <i class="fas fa-keyboard"></i>
-          </div>
-          <div class="setup-item-content">
-            <h4>Keyboard & Mouse</h4>
-            <p>Redragon mechanical keyboard (it has RGB lights!!!) and Logitech G502 mouse</p>
-          </div>
-        </div>
-        
-        <div class="setup-item">
-          <div class="setup-item-icon">
-            <i class="fas fa-headset"></i>
-          </div>
-          <div class="setup-item-content">
-            <h4>Headset</h4>
-            <p>SteelSeries Arctis 3 - it has really good sound and my friends say my mic sounds clear</p>
-          </div>
-        </div>
-        
-        <div class="setup-item">
-          <div class="setup-item-icon">
-            <i class="fas fa-video"></i>
-          </div>
-          <div class="setup-item-content">
-            <h4>Streaming Setup</h4>
-            <p>I use OBS to stream and a webcam my parents got me for my birthday last year</p>
-          </div>
-        </div>
-        
-        <div class="setup-item">
-          <div class="setup-item-icon">
-            <i class="fas fa-chair"></i>
-          </div>
-          <div class="setup-item-content">
-            <h4>Gaming Chair</h4>
-            <p>It's not a super expensive one but it's comfortable and has cool colors</p>
+          <div class="game-status">
+            <i class="fas fa-hat-cowboy" style="color: #8B4513; margin-right: 8px;"></i>
+            Currently on my 3rd playthrough
           </div>
         </div>
       </div>
     </section>
     
-    <!-- STREAM SCHEDULE -->
-    <section id="schedule" class="schedule-section">
-      <h2 class="section-title">MY STREAM SCHEDULE 📅</h2>
+    <!-- SETUP SECTION -->
+    <section id="setup" class="setup-section content-section">
+      <div class="section-header">
+        <h2 class="section-title">MY GAMING SETUP</h2>
+        <p class="section-subtitle">The gear I use to game and create content</p>
+        <div class="section-divider"></div>
+      </div>
       
-      <p style="text-align: center; margin-bottom: 20px; color: var(--text-gray);">
-        This is when I usually stream! Sometimes I stream more if I don't have homework 😅
-      </p>
-      
-      <table class="schedule-table">
-        <thead>
-          <tr>
-            <th>DAY</th>
-            <th>TIME</th>
-            <th>WHAT I'M PLAYING</th>
-            <th>STATUS</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Monday</td>
-            <td>4:00 PM - 6:00 PM EST</td>
-            <td>Fortnite with friends</td>
-            <td class="live">🔴 LIVE WHEN POSSIBLE</td>
-          </tr>
-          <tr>
-            <td>Tuesday</td>
-            <td>4:30 PM - 6:30 PM EST</td>
-            <td>Minecraft building</td>
-            <td>Usually streaming</td>
-          </tr>
-          <tr>
-            <td>Wednesday</td>
-            <td>CHURCH NIGHT</td>
-            <td>No stream (youth group)</td>
-            <td>⛪ Not streaming</td>
-          </tr>
-          <tr>
-            <td>Thursday</td>
-            <td>5:00 PM - 7:00 PM EST</td>
-            <td>Fortnite ranked</td>
-            <td class="live">🔴 LIVE WHEN POSSIBLE</td>
-          </tr>
-          <tr>
-            <td>Friday</td>
-            <td>6:00 PM - 9:00 PM EST</td>
-            <td>Friday Fortnite fun</td>
-            <td class="live">🔴 USUALLY LIVE</td>
-          </tr>
-          <tr>
-            <td>Saturday</td>
-            <td>2:00 PM - 5:00 PM EST</td>
-            <td>Various games</td>
-            <td>Sometimes streaming</td>
-          </tr>
-          <tr>
-            <td>Sunday</td>
-            <td>AFTER CHURCH</td>
-            <td>Family time usually</td>
-            <td>⛪ Not streaming</td>
-          </tr>
-        </tbody>
-      </table>
-      
-      <p style="text-align: center; margin-top: 20px; color: var(--text-gray);">
-        Follow me on Twitch to get notifications when I go live! <a href="https://www.twitch.tv/damagedlols" target="_blank" style="color: var(--twitch-purple); text-decoration: none;">twitch.tv/damagedlols</a>
-      </p>
+      <div class="setup-content">
+        <div class="setup-main">
+          <div class="setup-image">
+            <i class="fab fa-xbox" style="font-size: 120px;"></i>
+          </div>
+          
+          <div class="setup-specs">
+            <h4 class="specs-title">
+              <i class="fas fa-microchip"></i> XBOX SERIES X SPECS
+            </h4>
+            <ul class="specs-list">
+              <li class="spec-item">
+                <span class="spec-label">CPU</span>
+                <span class="spec-value">Custom Zen 2 @ 3.8GHz</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">GPU</span>
+                <span class="spec-value">12 TFLOPS, 52 CUs</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Memory</span>
+                <span class="spec-value">16GB GDDR6</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Storage</span>
+                <span class="spec-value">1TB Custom NVME SSD</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Resolution</span>
+                <span class="spec-value">4K @ 120FPS</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Features</span>
+                <span class="spec-value">Ray Tracing, Quick Resume</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="setup-peripherals">
+          <div class="peripheral-card">
+            <div class="peripheral-header">
+              <div class="peripheral-icon">
+                <i class="fas fa-desktop"></i>
+              </div>
+              <h4 class="peripheral-title">Gaming Monitor</h4>
+            </div>
+            <p class="peripheral-desc">
+              27" 1440p 144Hz gaming monitor with 1ms response time. 
+              The high refresh rate makes everything super smooth, especially 
+              in fast-paced games like Fortnite and COD.
+            </p>
+          </div>
+          
+          <div class="peripheral-card">
+            <div class="peripheral-header">
+              <div class="peripheral-icon">
+                <i class="fas fa-headset"></i>
+              </div>
+              <h4 class="peripheral-title">Headset</h4>
+            </div>
+            <p class="peripheral-desc">
+              Wireless gaming headset with 7.1 surround sound. 
+              Crystal clear audio for hearing enemy footsteps and 
+              immersive sound for story games like RDR2.
+            </p>
+          </div>
+          
+          <div class="peripheral-card">
+            <div class="peripheral-header">
+              <div class="peripheral-icon">
+                <i class="fas fa-video"></i>
+              </div>
+              <h4 class="peripheral-title">Streaming Setup</h4>
+            </div>
+            <p class="peripheral-desc">
+              Using the Xbox built-in streaming to Twitch and YouTube. 
+              I use a webcam for face cam and a microphone for clear audio. 
+              All my editing is done on my laptop.
+            </p>
+          </div>
+          
+          <div class="peripheral-card">
+            <div class="peripheral-header">
+              <div class="peripheral-icon">
+                <i class="fas fa-chair"></i>
+              </div>
+              <h4 class="peripheral-title">Gaming Chair</h4>
+            </div>
+            <p class="peripheral-desc">
+              Comfortable gaming chair with lumbar support. 
+              Essential for those long streaming sessions and 
+              weekend gaming marathons!
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
     
-    <!-- SOCIAL MEDIA -->
-    <section id="social" class="social-section">
-      <h2 class="section-title">FOLLOW ME EVERYWHERE!!! 📱</h2>
+    <!-- SCHEDULE SECTION -->
+    <section id="schedule" class="schedule-section content-section">
+      <div class="section-header">
+        <h2 class="section-title">MY SCHEDULE</h2>
+        <p class="section-subtitle">When I stream and post content</p>
+        <div class="section-divider"></div>
+      </div>
       
-      <p style="text-align: center; margin-bottom: 20px; color: var(--text-gray);">
-        I post different stuff on different platforms! Here's where you can find me:
-      </p>
+      <div class="schedule-tabs">
+        <button class="schedule-tab active" data-tab="stream">Stream Schedule</button>
+        <button class="schedule-tab" data-tab="youtube">YouTube Schedule</button>
+        <button class="schedule-tab" data-tab="social">Social Media Schedule</button>
+      </div>
+      
+      <!-- STREAM SCHEDULE -->
+      <div class="schedule-content active" id="stream-schedule">
+        <div class="schedule-grid">
+          <div class="schedule-card">
+            <div class="schedule-header">
+              <h3 class="schedule-title">FRIDAY NIGHTS</h3>
+              <div class="schedule-badge">PRIME TIME</div>
+            </div>
+            <ul class="schedule-list">
+              <li class="schedule-item">
+                <div>
+                  <div class="schedule-day">Friday Stream</div>
+                  <div class="schedule-desc">Fortnite & COD with viewers</div>
+                </div>
+                <div class="schedule-time">10:00 PM - 1:00 AM</div>
+              </li>
+            </ul>
+            <div class="live-indicator">
+              <div class="live-dot"></div>
+              <span>Usually live during this time</span>
+            </div>
+          </div>
+          
+          <div class="schedule-card">
+            <div class="schedule-header">
+              <h3 class="schedule-title">SATURDAY NIGHTS</h3>
+              <div class="schedule-badge">WEEKEND FUN</div>
+            </div>
+            <ul class="schedule-list">
+              <li class="schedule-item">
+                <div>
+                  <div class="schedule-day">Saturday Stream</div>
+                  <div class="schedule-desc">Minecraft builds & variety games</div>
+                </div>
+                <div class="schedule-time">7:00 PM - 12:00 AM</div>
+              </li>
+            </ul>
+            <div class="live-indicator">
+              <div class="live-dot"></div>
+              <span>Often live during this time</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- YOUTUBE SCHEDULE -->
+      <div class="schedule-content" id="youtube-schedule">
+        <div class="schedule-grid">
+          <div class="schedule-card">
+            <div class="schedule-header">
+              <h3 class="schedule-title">MAIN CHANNEL</h3>
+              <div class="schedule-badge">@Damaged</div>
+            </div>
+            <ul class="schedule-list">
+              <li class="schedule-item">
+                <div>
+                  <div class="schedule-day">Monday Video</div>
+                  <div class="schedule-desc">Full length gameplay or montage</div>
+                </div>
+                <div class="schedule-time">8:00 PM</div>
+              </li>
+              <li class="schedule-item">
+                <div>
+                  <div class="schedule-day">Wednesday Video</div>
+                  <div class="schedule-desc">Tutorial or tips video</div>
+                </div>
+                <div class="schedule-time">8:00 PM</div>
+              </li>
+              <li class="schedule-item">
+                <div>
+                  <div class="schedule-day">Saturday Video</div>
+                  <div class="schedule-desc">Weekend special or challenge</div>
+                </div>
+                <div class="schedule-time">8:00 PM</div>
+              </li>
+              <li class="schedule-item">
+                <div>
+                  <div class="schedule-day">Daily Shorts</div>
+                  <div class="schedule-desc">Quick clips and highlights</div>
+                </div>
+                <div class="schedule-time">4:00 PM</div>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="schedule-card">
+            <div class="schedule-header">
+              <h3 class="schedule-title">CLIPS CHANNEL</h3>
+              <div class="schedule-badge">@Damagedlolsclips</div>
+            </div>
+            <ul class="schedule-list">
+              <li class="schedule-item">
+                <div>
+                  <div class="schedule-day">Daily Shorts #1</div>
+                  <div class="schedule-desc">Funny moments and fails</div>
+                </div>
+                <div class="schedule-time">5:00 PM</div>
+              </li>
+              <li class="schedule-item">
+                <div>
+                  <div class="schedule-day">Daily Shorts #2</div>
+                  <div class="schedule-desc">Epic plays and highlights</div>
+                </div>
+                <div class="schedule-time">7:00 PM</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- SOCIAL MEDIA SCHEDULE -->
+      <div class="schedule-content" id="social-schedule">
+        <div class="schedule-grid">
+          <div class="schedule-card">
+            <div class="schedule-header">
+              <h3 class="schedule-title">INSTAGRAM</h3>
+              <div class="schedule-badge">@Damagedgaminglol</div>
+            </div>
+            <ul class="schedule-list">
+              <li class="schedule-item">
+                <div>
+                  <div class="schedule-day">Daily Reels</div>
+                  <div class="schedule-desc">Gaming clips and behind the scenes</div>
+                </div>
+                <div class="schedule-time">3:30 PM</div>
+              </li>
+              <li class="schedule-item">
+                <div>
+                  <div class="schedule-day">Stories</div>
+                  <div class="schedule-desc">Throughout the day</div>
+                </div>
+                <div class="schedule-time">Various</div>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="schedule-card">
+            <div class="schedule-header">
+              <h3 class="schedule-title">TIKTOK</h3>
+              <div class="schedule-badge">@Damagedgamin0_o</div>
+            </div>
+            <ul class="schedule-list">
+              <li class="schedule-item">
+                <div>
+                  <div class="schedule-day">Morning TikTok</div>
+                  <div class="schedule-desc">Daily gaming content</div>
+                </div>
+                <div class="schedule-time">7:00 AM</div>
+              </li>
+              <li class="schedule-item">
+                <div>
+                  <div class="schedule-day">Extra Posts</div>
+                  <div class="schedule-desc">When I have extra content</div>
+                </div>
+                <div class="schedule-time">Various</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- SOCIAL MEDIA SECTION -->
+    <section id="social" class="social-section content-section">
+      <div class="section-header">
+        <h2 class="section-title">FOLLOW ME</h2>
+        <p class="section-subtitle">Connect with me on all platforms</p>
+        <div class="section-divider"></div>
+      </div>
       
       <div class="social-grid">
-        <a href="https://www.tiktok.com/@damagedgaming0_o" target="_blank" class="social-card tiktok">
-          <div class="social-icon">
-            <i class="fab fa-tiktok"></i>
+        <a href="https://www.youtube.com/@Damaged" target="_blank" class="social-card youtube">
+          <div class="social-header">
+            <div class="social-icon-wrapper">
+              <i class="fab fa-youtube"></i>
+            </div>
+            <div class="social-badge">MAIN CHANNEL</div>
+          </div>
+          <h3 class="social-name">YOUTUBE</h3>
+          <p class="social-handle">@Damaged</p>
+          <p style="color: var(--text-light); line-height: 1.7; margin-bottom: 20px;">
+            Full length videos, montages, tutorials, and gaming content. 
+            3 main videos per week plus daily shorts!
+          </p>
+          <div class="social-schedule">
+            <h4 class="schedule-title-small">
+              <i class="fas fa-upload"></i> Upload Schedule
+            </h4>
+            <div class="schedule-detail">
+              <span class="schedule-day-small">Mon, Wed, Sat</span>
+              <span class="schedule-time-small">8:00 PM</span>
+            </div>
+            <div class="schedule-detail">
+              <span class="schedule-day-small">Daily Shorts</span>
+              <span class="schedule-time-small">4:00 PM</span>
+            </div>
+          </div>
+        </a>
+        
+        <a href="https://www.tiktok.com/@damagedgamin0_o" target="_blank" class="social-card tiktok">
+          <div class="social-header">
+            <div class="social-icon-wrapper">
+              <i class="fab fa-tiktok"></i>
+            </div>
+            <div class="social-badge">DAILY CONTENT</div>
           </div>
           <h3 class="social-name">TIKTOK</h3>
-          <p class="social-handle">@damagedgaming0_o</p>
-          <p style="color: var(--text-gray); margin-top: 10px; font-size: 14px;">Short funny clips and gaming highlights</p>
+          <p class="social-handle">@Damagedgamin0_o</p>
+          <p style="color: var(--text-light); line-height: 1.7; margin-bottom: 20px;">
+            Short gaming clips, funny moments, trending sounds, and quick updates. 
+            Perfect for when you want quick entertainment!
+          </p>
+          <div class="social-schedule">
+            <h4 class="schedule-title-small">
+              <i class="fas fa-upload"></i> Upload Schedule
+            </h4>
+            <div class="schedule-detail">
+              <span class="schedule-day-small">Daily Posts</span>
+              <span class="schedule-time-small">7:00 AM</span>
+            </div>
+          </div>
         </a>
         
         <a href="https://www.instagram.com/damagedgaminglol/" target="_blank" class="social-card instagram">
-          <div class="social-icon">
-            <i class="fab fa-instagram"></i>
+          <div class="social-header">
+            <div class="social-icon-wrapper">
+              <i class="fab fa-instagram"></i>
+            </div>
+            <div class="social-badge">VISUAL CONTENT</div>
           </div>
           <h3 class="social-name">INSTAGRAM</h3>
-          <p class="social-handle">@damagedgaminglol</p>
-          <p style="color: var(--text-gray); margin-top: 10px; font-size: 14px;">Pictures of my setup and life</p>
-        </a>
-        
-        <a href="https://discord.com/invite/YawXU3zCBh" target="_blank" class="social-card discord">
-          <div class="social-icon">
-            <i class="fab fa-discord"></i>
+          <p class="social-handle">@Damagedgaminglol</p>
+          <p style="color: var(--text-light); line-height: 1.7; margin-bottom: 20px;">
+            Reels, photos of my setup, gaming life, and behind the scenes. 
+            A more personal look at my gaming journey.
+          </p>
+          <div class="social-schedule">
+            <h4 class="schedule-title-small">
+              <i class="fas fa-upload"></i> Upload Schedule
+            </h4>
+            <div class="schedule-detail">
+              <span class="schedule-day-small">Daily Reels</span>
+              <span class="schedule-time-small">3:30 PM</span>
+            </div>
           </div>
-          <h3 class="social-name">DISCORD</h3>
-          <p class="social-handle">Join my server!</p>
-          <p style="color: var(--text-gray); margin-top: 10px; font-size: 14px;">Chat with me and other gamers</p>
         </a>
         
-        <a href="https://www.youtube.com/channel/UC..." target="_blank" class="social-card youtube">
-          <div class="social-icon">
-            <i class="fab fa-youtube"></i>
-          </div>
-          <h3 class="social-name">YOUTUBE</h3>
-          <p class="social-handle">Damaged Gaming</p>
-          <p style="color: var(--text-gray); margin-top: 10px; font-size: 14px;">Longer videos and streams</p>
-        </a>
-        
-        <a href="https://www.twitch.tv/damagedlols" target="_blank" class="social-card">
-          <div class="social-icon">
-            <i class="fab fa-twitch"></i>
+        <a href="https://www.twitch.tv/damagedlols" target="_blank" class="social-card twitch">
+          <div class="social-header">
+            <div class="social-icon-wrapper">
+              <i class="fab fa-twitch"></i>
+            </div>
+            <div class="social-badge">LIVE STREAMS</div>
           </div>
           <h3 class="social-name">TWITCH</h3>
           <p class="social-handle">damagedlols</p>
-          <p style="color: var(--text-gray); margin-top: 10px; font-size: 14px;">LIVE streams and chat</p>
-        </a>
-        
-        <a href="https://www.reddit.com/user/Obvious_Customer1406/" target="_blank" class="social-card">
-          <div class="social-icon">
-            <i class="fab fa-reddit"></i>
+          <p style="color: var(--text-light); line-height: 1.7; margin-bottom: 20px;">
+            Live gameplay, chat interaction, and weekend streaming sessions. 
+            Come hang out, play games together, and have fun!
+          </p>
+          <div class="social-schedule">
+            <h4 class="schedule-title-small">
+              <i class="fas fa-broadcast-tower"></i> Stream Schedule
+            </h4>
+            <div class="schedule-detail">
+              <span class="schedule-day-small">Friday</span>
+              <span class="schedule-time-small">10:00 PM - 1:00 AM</span>
+            </div>
+            <div class="schedule-detail">
+              <span class="schedule-day-small">Saturday</span>
+              <span class="schedule-time-small">7:00 PM - 12:00 AM</span>
+            </div>
           </div>
-          <h3 class="social-name">REDDIT</h3>
-          <p class="social-handle">u/Obvious_Customer1406</p>
-          <p style="color: var(--text-gray); margin-top: 10px; font-size: 14px;">Gaming discussions and memes</p>
-        </a>
-      </div>
-    </section>
-    
-    <!-- BIBLE VERSE -->
-    <section id="bible" class="bible-section">
-      <h2 class="section-title">BIBLE VERSE OF THE DAY ✝️</h2>
-      
-      <p class="bible-verse">
-        "I can do all things through Christ who strengthens me."
-      </p>
-      
-      <p class="bible-reference">Philippians 4:13</p>
-      
-      <p class="bible-note">
-        This is one of my favorite verses! It reminds me that even when I'm having 
-        a bad day in games or in real life, God gives me strength to keep going. 
-        Remember to pray and read your Bible every day, even if it's just for a few minutes!
-      </p>
-      
-      <div style="margin-top: 30px;">
-        <a href="#about" class="btn btn-god">
-          <i class="fas fa-church"></i> LEARN MORE ABOUT MY FAITH
         </a>
       </div>
     </section>
   </main>
   
   <!-- FOOTER -->
-  <footer class="footer">
+  <footer class="main-footer">
     <div class="footer-content">
-      <div class="footer-logo">DAMAGED GAMING</div>
-      
-      <p class="footer-text">
-        Thanks for visiting my website! I made it myself with HTML and CSS. 
-        If you have any suggestions or want to play games with me, hit me up on Discord!
-      </p>
-      
-      <div class="footer-social">
-        <a href="https://www.tiktok.com/@damagedgaming0_o" target="_blank">
-          <i class="fab fa-tiktok"></i>
-        </a>
-        <a href="https://www.instagram.com/damagedgaminglol/" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://discord.com/invite/YawXU3zCBh" target="_blank">
-          <i class="fab fa-discord"></i>
-        </a>
-        <a href="https://www.twitch.tv/damagedlols" target="_blank">
-          <i class="fab fa-twitch"></i>
-        </a>
-        <a href="https://www.youtube.com/channel/UC..." target="_blank">
-          <i class="fab fa-youtube"></i>
-        </a>
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3 class="footer-title">DAMAGED GAMING</h3>
+          <p class="footer-about">
+            Xbox gamer, content creator, and aspiring coder. 
+            I create gaming content for YouTube, TikTok, Instagram, and Twitch. 
+            Join my community and let's game together!
+          </p>
+          <div class="footer-social-links">
+            <a href="https://www.youtube.com/@Damaged" target="_blank" class="footer-social-link">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.tiktok.com/@damagedgamin0_o" target="_blank" class="footer-social-link">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://www.instagram.com/damagedgaminglol/" target="_blank" class="footer-social-link">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.twitch.tv/damagedlols" target="_blank" class="footer-social-link">
+              <i class="fab fa-twitch"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-title">QUICK LINKS</h3>
+          <ul class="footer-links">
+            <li class="footer-link-item">
+              <a href="#home" class="footer-link">
+                <i class="fas fa-chevron-right"></i> Home
+              </a>
+            </li>
+            <li class="footer-link-item">
+              <a href="#about" class="footer-link">
+                <i class="fas fa-chevron-right"></i> About Me
+              </a>
+            </li>
+            <li class="footer-link-item">
+              <a href="#games" class="footer-link">
+                <i class="fas fa-chevron-right"></i> Games
+              </a>
+            </li>
+            <li class="footer-link-item">
+              <a href="#setup" class="footer-link">
+                <i class="fas fa-chevron-right"></i> My Setup
+              </a>
+            </li>
+            <li class="footer-link-item">
+              <a href="#schedule" class="footer-link">
+                <i class="fas fa-chevron-right"></i> Schedule
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-title">GAMES I PLAY</h3>
+          <ul class="footer-links">
+            <li class="footer-link-item">
+              <a href="#" class="footer-link">
+                <i class="fab fa-fort-awesome"></i> Fortnite
+              </a>
+            </li>
+            <li class="footer-link-item">
+              <a href="#" class="footer-link">
+                <i class="fas fa-cube"></i> Minecraft
+              </a>
+            </li>
+            <li class="footer-link-item">
+              <a href="#" class="footer-link">
+                <i class="fas fa-crosshairs"></i> Call of Duty
+              </a>
+            </li>
+            <li class="footer-link-item">
+              <a href="#" class="footer-link">
+                <i class="fas fa-horse"></i> Red Dead Redemption
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-title">STAY UPDATED</h3>
+          <p class="footer-about">
+            Want to know when I go live or post new content? 
+            Join my community and never miss an update!
+          </p>
+          <div class="footer-newsletter">
+            <p class="newsletter-text">Get notified about streams:</p>
+            <div class="newsletter-form">
+              <input type="email" class="newsletter-input" placeholder="Your email">
+              <button class="newsletter-button">Subscribe</button>
+            </div>
+          </div>
+        </div>
       </div>
       
-      <p class="copyright">
-        &copy; 2023 Damaged Gaming. Made with ❤️ by a 13-year-old gamer. 
-        All game content is property of their respective owners. God bless!
-      </p>
-      
-      <p style="color: var(--text-gray); margin-top: 10px; font-size: 12px;">
-        P.S. My mom helped me fix some spelling mistakes but the code is all mine!
-      </p>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2023 Damaged Gaming. Made with <i class="fas fa-heart" style="color: #FF0000;"></i> by a 13-year-old coder. 
+          All game content is property of their respective owners.
+        </p>
+        <p style="margin-top: 10px;">
+          This website was coded by me using HTML, CSS, and JavaScript! 
+          I'm still learning but I'm getting better every day.
+        </p>
+        <p style="margin-top: 10px; color: var(--text-gray); font-size: 12px;">
+          P.S. Lulu (my dog) says hi! 🐕
+        </p>
+      </div>
     </div>
   </footer>
   
   <!-- MY JAVASCRIPT -->
   <script>
-    // HEY THIS IS MY JAVASCRIPT CODE!!!
-    // I'M STILL LEARNING BUT THIS MAKES THE WEBSITE BETTER
+    // WOW LOOK AT ALL THIS JAVASCRIPT I'M LEARNING!!!
+    // THIS MAKES THE WEBSITE INTERACTIVE AND COOL
     
-    // Mobile menu toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinks');
-    
-    if (mobileMenuBtn) {
-      mobileMenuBtn.addEventListener('click', function() {
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-      });
-    }
-    
-    // Close mobile menu when clicking a link
-    const navLinkItems = document.querySelectorAll('.nav-link');
-    navLinkItems.forEach(link => {
-      link.addEventListener('click', function() {
-        if (window.innerWidth <= 768) {
-          navLinks.style.display = 'none';
-        }
-      });
-    });
-    
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-    
-    // Change header background on scroll
-    window.addEventListener('scroll', function() {
-      const header = document.querySelector('.header');
-      if (window.scrollY > 50) {
-        header.style.backgroundColor = 'rgba(10, 10, 26, 0.98)';
-        header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.5)';
-      } else {
-        header.style.backgroundColor = 'rgba(10, 10, 26, 0.95)';
-        header.style.boxShadow = 'none';
-      }
-    });
-    
-    // Make stats count up
-    function animateStats() {
-      const statNumbers = document.querySelectorAll('.stat-number');
+    // Wait for page to load
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log("DAMAGED GAMING WEBSITE LOADED!");
+      console.log("Made by a 13-year-old gamer and coder!");
+      console.log("Follow me on TikTok: @damagedgamin0_o");
       
-      statNumbers.forEach(stat => {
-        const target = parseInt(stat.textContent);
-        let current = 0;
-        const increment = target / 50;
-        
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) {
-            current = target;
-            clearInterval(timer);
+      // Mobile navigation toggle
+      const mobileNavToggle = document.getElementById('mobileNavToggle');
+      const mainNav = document.getElementById('mainNav');
+      
+      if (mobileNavToggle && mainNav) {
+        mobileNavToggle.addEventListener('click', function() {
+          mainNav.classList.toggle('active');
+          mobileNavToggle.innerHTML = mainNav.classList.contains('active') 
+            ? '<i class="fas fa-times"></i>' 
+            : '<i class="fas fa-bars"></i>';
+        });
+      }
+      
+      // Close mobile nav when clicking a link
+      const navLinks = document.querySelectorAll('.nav-item');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          if (window.innerWidth <= 992) {
+            mainNav.classList.remove('active');
+            mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
           }
-          stat.textContent = Math.floor(current) + (stat.textContent.includes('+') ? '+' : '');
-        }, 30);
-      });
-    }
-    
-    // Run animation when stats are in view
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateStats();
-          observer.unobserve(entry.target);
-        }
-      });
-    });
-    
-    const statsSection = document.querySelector('.about-stats');
-    if (statsSection) {
-      observer.observe(statsSection);
-    }
-    
-    // Random Bible verses
-    const bibleVerses = [
-      {
-        verse: "Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go.",
-        reference: "Joshua 1:9"
-      },
-      {
-        verse: "I can do all things through Christ who strengthens me.",
-        reference: "Philippians 4:13"
-      },
-      {
-        verse: "Trust in the Lord with all your heart and lean not on your own understanding.",
-        reference: "Proverbs 3:5"
-      },
-      {
-        verse: "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.",
-        reference: "John 3:16"
-      },
-      {
-        verse: "Do not let anyone look down on you because you are young, but set an example for the believers in speech, in conduct, in love, in faith and in purity.",
-        reference: "1 Timothy 4:12"
-      }
-    ];
-    
-    // Change verse every day
-    function getDailyVerse() {
-      const today = new Date().getDate();
-      const verseIndex = today % bibleVerses.length;
-      return bibleVerses[verseIndex];
-    }
-    
-    // Update verse on page
-    const bibleVerseElement = document.querySelector('.bible-verse');
-    const bibleReferenceElement = document.querySelector('.bible-reference');
-    
-    if (bibleVerseElement && bibleReferenceElement) {
-      const dailyVerse = getDailyVerse();
-      bibleVerseElement.textContent = `"${dailyVerse.verse}"`;
-      bibleReferenceElement.textContent = dailyVerse.reference;
-    }
-    
-    // Make buttons wiggle when hovered
-    const buttons = document.querySelectorAll('.btn');
-    buttons.forEach(button => {
-      button.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-5px) scale(1.05)';
+        });
       });
       
-      button.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
+      // Schedule tabs functionality
+      const scheduleTabs = document.querySelectorAll('.schedule-tab');
+      const scheduleContents = document.querySelectorAll('.schedule-content');
+      
+      scheduleTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          const tabId = this.getAttribute('data-tab');
+          
+          // Remove active class from all tabs and contents
+          scheduleTabs.forEach(t => t.classList.remove('active'));
+          scheduleContents.forEach(c => c.classList.remove('active'));
+          
+          // Add active class to clicked tab and corresponding content
+          this.classList.add('active');
+          document.getElementById(`${tabId}-schedule`).classList.add('active');
+        });
       });
+      
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      // Header scroll effect
+      window.addEventListener('scroll', function() {
+        const header = document.querySelector('.main-header');
+        if (window.scrollY > 50) {
+          header.style.backgroundColor = 'rgba(10, 10, 26, 0.98)';
+          header.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.8)';
+        } else {
+          header.style.backgroundColor = 'rgba(10, 10, 26, 0.95)';
+          header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.7)';
+        }
+      });
+      
+      // Animate stats when they come into view
+      const statCards = document.querySelectorAll('.stat-card');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const statNumber = entry.target.querySelector('.stat-number');
+            if (statNumber) {
+              const finalNumber = parseInt(statNumber.textContent);
+              let currentNumber = 0;
+              const increment = finalNumber / 20;
+              
+              const counter = setInterval(() => {
+                currentNumber += increment;
+                if (currentNumber >= finalNumber) {
+                  currentNumber = finalNumber;
+                  clearInterval(counter);
+                }
+                statNumber.textContent = Math.floor(currentNumber) + (statNumber.textContent.includes('+') ? '+' : '');
+              }, 50);
+              
+              observer.unobserve(entry.target);
+            }
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      statCards.forEach(card => {
+        observer.observe(card);
+      });
+      
+      // Add particles dynamically
+      function createParticles() {
+        const bgEffects = document.querySelector('.bg-effects');
+        for (let i = 0; i < 10; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          
+          const size = Math.random() * 60 + 40;
+          const left = Math.random() * 100;
+          const top = Math.random() * 100;
+          const delay = Math.random() * 15;
+          
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.left = `${left}%`;
+          particle.style.top = `${top}%`;
+          particle.style.animationDelay = `${delay}s`;
+          particle.style.opacity = Math.random() * 0.2 + 0.1;
+          
+          // Random color
+          const colors = [
+            'rgba(0, 255, 255, 0.3)',
+            'rgba(16, 124, 16, 0.3)',
+            'rgba(255, 170, 0, 0.3)',
+            'rgba(255, 0, 255, 0.3)'
+          ];
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          particle.style.background = `radial-gradient(circle, ${color}, transparent 70%)`;
+          
+          bgEffects.appendChild(particle);
+        }
+      }
+      
+      createParticles();
+      
+      // Button hover effects
+      const buttons = document.querySelectorAll('.cta-button');
+      buttons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-8px) scale(1.05)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0) scale(1)';
+        });
+      });
+      
+      // Card hover effects
+      const cards = document.querySelectorAll('.game-card, .social-card, .peripheral-card');
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.zIndex = '10';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.zIndex = '1';
+        });
+      });
+      
+      // Newsletter form
+      const newsletterForm = document.querySelector('.newsletter-form');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const input = this.querySelector('.newsletter-input');
+          if (input.value) {
+            alert('Thanks for subscribing! You\'ll get notifications about my streams and videos!');
+            input.value = '';
+          }
+        });
+      }
+      
+      // Easter egg
+      let konamiCode = [];
+      const konamiSequence = [
+        'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+        'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+        'b', 'a'
+      ];
+      
+      document.addEventListener('keydown', function(e) {
+        konamiCode.push(e.key);
+        if (konamiCode.length > konamiSequence.length) {
+          konamiCode.shift();
+        }
+        
+        if (konamiCode.join(',') === konamiSequence.join(',')) {
+          document.body.style.animation = 'rainbow 5s infinite';
+          const style = document.createElement('style');
+          style.textContent = `
+            @keyframes rainbow {
+              0% { filter: hue-rotate(0deg); }
+              100% { filter: hue-rotate(360deg); }
+            }
+          `;
+          document.head.appendChild(style);
+          
+          setTimeout(() => {
+            document.body.style.animation = '';
+            style.remove();
+          }, 5000);
+          
+          konamiCode = [];
+        }
+      });
+      
+      // Update time display for schedules
+      function updateScheduleTimes() {
+        const timeElements = document.querySelectorAll('.schedule-time, .schedule-time-small');
+        const now = new Date();
+        const options = { timeZone: 'America/New_York', hour12: true, hour: 'numeric', minute: '2-digit' };
+        const currentTimeEST = now.toLocaleTimeString('en-US', options);
+        
+        // Update any "live now" indicators
+        const liveIndicators = document.querySelectorAll('.live-indicator');
+        liveIndicators.forEach(indicator => {
+          // This is a simplified check - in a real app you'd check against actual schedule
+          const day = now.getDay(); // 0 = Sunday, 5 = Friday, 6 = Saturday
+          const hour = now.getHours();
+          
+          if ((day === 5 && hour >= 22) || (day === 6 && hour >= 19 && hour < 24)) {
+            indicator.style.display = 'flex';
+          } else {
+            indicator.style.display = 'none';
+          }
+        });
+      }
+      
+      updateScheduleTimes();
+      setInterval(updateScheduleTimes, 60000); // Update every minute
+      
+      // Add console message
+      console.log("%cDAMAGED GAMING", "color: #00FFFF; font-size: 24px; font-weight: bold; text-shadow: 0 0 10px #00FFFF;");
+      console.log("%cWebsite coded by a 13-year-old!", "color: #FFAA00; font-size: 16px;");
+      console.log("%cFollow me on social media!", "color: #55FF55; font-size: 14px;");
     });
     
-    // Console message
-    console.log("HEY YOU FOUND THE CONSOLE!!!");
-    console.log("This website was made by a 13-year-old gamer named Damaged!");
-    console.log("Follow me on TikTok: @damagedgaming0_o");
-    console.log("God bless you! 🙏");
-    
-    // Easter egg
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        alert("HEY YOU PRESSED ESCAPE! Wanna play Fortnite sometime? Add me: DamagedGaming");
+    // More functions
+    function showNotification(message) {
+      const notification = document.createElement('div');
+      notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: linear-gradient(135deg, var(--xbox-green), #000000);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 15px;
+        border: 3px solid var(--fortnite-yellow);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        z-index: 100000;
+        animation: slideIn 0.5s ease, fadeOut 0.5s ease 4.5s;
+        max-width: 300px;
+        font-family: 'Comic Neue', cursive;
+        font-weight: 700;
+      `;
+      
+      notification.textContent = message;
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.remove();
+        }
+      }, 5000);
+      
+      // Add animation styles
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes slideIn {
+          from { transform: translateX(100%); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes fadeOut {
+          from { opacity: 1; }
+          to { opacity: 0; }
+        }
+      `;
+      
+      if (!document.querySelector('#notification-styles')) {
+        style.id = 'notification-styles';
+        document.head.appendChild(style);
       }
+    }
+    
+    // Show welcome notification
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        showNotification('Welcome to Damaged Gaming! 🎮');
+      }, 1000);
     });
   </script>
 </body>
