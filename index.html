@@ -232,6 +232,7 @@
     .card:nth-child(3) { animation-delay: 0.6s; }
     .card:nth-child(4) { animation-delay: 0.7s; }
     .card:nth-child(5) { animation-delay: 0.8s; }
+    .card:nth-child(6) { animation-delay: 0.9s; }
 
     /* Shine sweep on hover */
     .card::before {
@@ -273,6 +274,8 @@
     .card.instagram:hover { border-color: rgba(225,48,108,0.25); }
     .card.discord     { --accent-color: #5865F2; }
     .card.discord:hover { border-color: rgba(88,101,242,0.25); }
+    .card.twitch      { --accent-color: #9146FF; }
+    .card.twitch:hover  { border-color: rgba(145,70,255,0.25); }
 
     .icon-wrap {
       width: 44px;
@@ -513,6 +516,22 @@
         <div class="card-text">
           <div class="card-platform">Discord</div>
           <div class="card-title">Damage Society</div>
+        </div>
+        <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+
+      <!-- Twitch -->
+      <a href="https://www.twitch.tv/damagedlols" target="_blank" rel="noopener" class="card twitch">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z" fill="#9146FF"/>
+          </svg>
+        </div>
+        <div class="card-text">
+          <div class="card-platform">Twitch</div>
+          <div class="card-title">damagedlols</div>
         </div>
         <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M5 12h14M12 5l7 7-7 7"/>
